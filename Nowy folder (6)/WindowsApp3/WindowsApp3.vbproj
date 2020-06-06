@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="D:\WindowsApp3(Bakcup)\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('D:\WindowsApp3(Bakcup)\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WindowsApp3.My.MyApplication</StartupObject>
+    <RootNamespace>WindowsApp3</RootNamespace>
+    <AssemblyName>ServerMonitoring</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>G:\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ServerMonitoring.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ServerMonitoring.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>ServerMonitoring.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>ServerMonitoring.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Nowy obraz mapy bitowej.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F435C420421B7C59F5436C6A8407F5D9450A1854</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WindowsApp3_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GemBox.Spreadsheet, Version=45.0.35.1069, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL" />
+    <Reference Include="GemBox.Spreadsheet.WinFormsUtilities, Version=45.0.35.1069, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL" />
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SnmpSharpNet">
+      <HintPath>D:\SnmpSharpNet-bin-0-9-4\Release\SnmpSharpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="GemBox.Spreadsheet.Charts" />
+    <Import Include="GemBox.Spreadsheet.Tables" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="SnmpSharpNet" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Runtime" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="WindowsApp3" />
+    <Import Include="WindowsApp3.My" />
+    <Import Include="WindowsApp3.My.Resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modules\EnviromuxModule\Sensors\OutRelayPage.Designer.vb">
+      <DependentUpon>OutRelayPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\OutRelayPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\AuxSensorControlPanel.Designer.vb">
+      <DependentUpon>AuxSensorControlPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\AuxSensorControlPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteRelay.Designer.vb">
+      <DependentUpon>RemoteRelay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteRelay.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\SensorControlPanelType1.Designer.vb">
+      <DependentUpon>SensorControlPanelType1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\SensorControlPanelType1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Classes.vb" />
+    <Compile Include="Modules\EnviromuxModule\Sensors\aux2SensorPage.Designer.vb">
+      <DependentUpon>aux2SensorPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\aux2SensorPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\ipDevice.Designer.vb">
+      <DependentUpon>ipDevice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\ipDevice.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\IPDeviceListPage.Designer.vb">
+      <DependentUpon>IPDeviceListPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\IPDeviceListPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\ipSensor.Designer.vb">
+      <DependentUpon>ipSensor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\ipSensor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\IPSensorsListPage.Designer.vb">
+      <DependentUpon>IPSensorsListPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\IPSensorsListPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\outRelay.Designer.vb">
+      <DependentUpon>outRelay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\outRelay.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\pwrSupply.Designer.vb">
+      <DependentUpon>pwrSupply.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\pwrSupply.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\DigitalSensor.Designer.vb">
+      <DependentUpon>DigitalSensor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\DigitalSensor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\IntSensorControlPanel.Designer.vb">
+      <DependentUpon>IntSensorControlPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\IntSensorControlPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\SmokeDetector.Designer.vb">
+      <DependentUpon>SmokeDetector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\SmokeDetector.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ListwaModule\PDUSensors.Designer.vb">
+      <DependentUpon>PDUSensors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ListwaModule\PDUSensors.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ListwaModule\WebBrowser.Designer.vb">
+      <DependentUpon>WebBrowser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ListwaModule\WebBrowser.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\User.vb" />
+    <Compile Include="Classes\EmailMessage.vb" />
+    <Compile Include="Resources\EmailRes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\Scale.Designer.vb">
+      <DependentUpon>Scale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\Scale.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Module2.vb" />
+    <Compile Include="Modules\EnviromuxModule\Sensors\auxSensorsPage.Designer.vb">
+      <DependentUpon>auxSensorsPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\auxSensorsPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\DigitalInPage.Designer.vb">
+      <DependentUpon>DigitalInPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\DigitalInPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\extSensorsPage.Designer.vb">
+      <DependentUpon>extSensorsPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\extSensorsPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\IntSensorPage.Designer.vb">
+      <DependentUpon>IntSensorPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\IntSensorPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\remoteInputsPage.Designer.vb">
+      <DependentUpon>remoteInputsPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\remoteInputsPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\RemoteRelaysPage.Designer.vb">
+      <DependentUpon>RemoteRelaysPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\RemoteRelaysPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForPDU.Designer.vb">
+      <DependentUpon>TableForPDU.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForPDU.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableHead.Designer.vb">
+      <DependentUpon>TableHead.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableHead.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForMB.Designer.vb">
+      <DependentUpon>TableForMB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForMB.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AlertTable.Designer.vb">
+      <DependentUpon>AlertTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AlertTable.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AlertUserControlPanel.Designer.vb">
+      <DependentUpon>AlertUserControlPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AlertUserControlPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\EnviromuxUserConnectionData.Designer.vb">
+      <DependentUpon>EnviromuxUserConnectionData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\EnviromuxUserConnectionData.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\PDUGeneralSetting.Designer.vb">
+      <DependentUpon>PDUGeneralSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\PDUGeneralSetting.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\PDUUserConnectionData.Designer.vb">
+      <DependentUpon>PDUUserConnectionData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\PDUUserConnectionData.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\IPBox.Designer.vb">
+      <DependentUpon>IPBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\IPBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\SensorInformation.Designer.vb">
+      <DependentUpon>SensorInformation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\SensorInformation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\SensorNetConfig.Designer.vb">
+      <DependentUpon>SensorNetConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\SensorNetConfig.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\SmokeDetectorsPage.Designer.vb">
+      <DependentUpon>SmokeDetectorsPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\SmokeDetectorsPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\tacSensorPage.Designer.vb">
+      <DependentUpon>tacSensorPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\tacSensorPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\snmpBrowser.vb" />
+    <Compile Include="root\main\Data\ExportDataFileForMB.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AddNewUserPanel.Designer.vb">
+      <DependentUpon>AddNewUserPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AddNewUserPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\tabbleElem.Designer.vb">
+      <DependentUpon>tabbleElem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\tabbleElem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Module1.vb" />
+    <Compile Include="root\main\Pages\loadingPage.Designer.vb">
+      <DependentUpon>loadingPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\loadingPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Sensors Form.Designer.vb">
+      <DependentUpon>Sensors Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Sensors Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="root\main\UserEditForm.Designer.vb">
+      <DependentUpon>UserEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\UserEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\UsersControl.Designer.vb">
+      <DependentUpon>UsersControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\UsersControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\LOGPage.Designer.vb">
+      <DependentUpon>LOGPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\LOGPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Data\ExportDataFileForPDU.vb" />
+    <Compile Include="root\main\Pages\UserConfigPage.Designer.vb">
+      <DependentUpon>UserConfigPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\UserConfigPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\MonitoringPage.Designer.vb">
+      <DependentUpon>MonitoringPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\MonitoringPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\AlertConfigPage.Designer.vb">
+      <DependentUpon>AlertConfigPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\AlertConfigPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\InfoPanel.Designer.vb">
+      <DependentUpon>InfoPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\InfoPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="root\main\WorkSpace.Designer.vb">
+      <DependentUpon>WorkSpace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\WorkSpace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\LoadingAnimation.Designer.vb">
+      <DependentUpon>LoadingAnimation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\LoadingAnimation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\PDUConfigPage.Designer.vb">
+      <DependentUpon>PDUConfigPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\PDUConfigPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\SensorsConfigPage.Designer.vb">
+      <DependentUpon>SensorsConfigPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\SensorsConfigPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Classes\Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\OutRelayPage.resx">
+      <DependentUpon>OutRelayPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\AuxSensorControlPanel.resx">
+      <DependentUpon>AuxSensorControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteRelay.resx">
+      <DependentUpon>RemoteRelay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\SensorControlPanelType1.resx">
+      <DependentUpon>SensorControlPanelType1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\aux2SensorPage.resx">
+      <DependentUpon>aux2SensorPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\ipDevice.resx">
+      <DependentUpon>ipDevice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\IPDeviceListPage.resx">
+      <DependentUpon>IPDeviceListPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\ipSensor.resx">
+      <DependentUpon>ipSensor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\IPSensorsListPage.resx">
+      <DependentUpon>IPSensorsListPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\outRelay.resx">
+      <DependentUpon>outRelay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\DigitalSensor.resx">
+      <DependentUpon>DigitalSensor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\IntSensorControlPanel.resx">
+      <DependentUpon>IntSensorControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\SmokeDetector.resx">
+      <DependentUpon>SmokeDetector.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ListwaModule\PDUSensors.resx">
+      <DependentUpon>PDUSensors.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ListwaModule\WebBrowser.resx">
+      <DependentUpon>WebBrowser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EmailRes.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailRes.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\Scale.resx">
+      <DependentUpon>Scale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\auxSensorsPage.resx">
+      <DependentUpon>auxSensorsPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\DigitalInPage.resx">
+      <DependentUpon>DigitalInPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\extSensorsPage.resx">
+      <DependentUpon>extSensorsPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\IntSensorPage.resx">
+      <DependentUpon>IntSensorPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\remoteInputsPage.resx">
+      <DependentUpon>remoteInputsPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\RemoteRelaysPage.resx">
+      <DependentUpon>RemoteRelaysPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\TableForPDU.resx">
+      <DependentUpon>TableForPDU.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\TableHead.resx">
+      <DependentUpon>TableHead.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\TableForMB.resx">
+      <DependentUpon>TableForMB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\AlertTable.resx">
+      <DependentUpon>AlertTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\AlertUserControlPanel.resx">
+      <DependentUpon>AlertUserControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\EnviromuxUserConnectionData.resx">
+      <DependentUpon>EnviromuxUserConnectionData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\PDUGeneralSetting.resx">
+      <DependentUpon>PDUGeneralSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\PDUUserConnectionData.resx">
+      <DependentUpon>PDUUserConnectionData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\IPBox.resx">
+      <DependentUpon>IPBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\SensorInformation.resx">
+      <DependentUpon>SensorInformation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\SensorNetConfig.resx">
+      <DependentUpon>SensorNetConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\SmokeDetectorsPage.resx">
+      <DependentUpon>SmokeDetectorsPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\tacSensorPage.resx">
+      <DependentUpon>tacSensorPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\AddNewUserPanel.resx">
+      <DependentUpon>AddNewUserPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\tabbleElem.resx">
+      <DependentUpon>tabbleElem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\loadingPage.resx">
+      <DependentUpon>loadingPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Sensors Form.resx">
+      <DependentUpon>Sensors Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\UserEditForm.resx">
+      <DependentUpon>UserEditForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\UsersControl.resx">
+      <DependentUpon>UsersControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\LOGPage.resx">
+      <DependentUpon>LOGPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\AlertConfigPage.resx">
+      <DependentUpon>AlertConfigPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\UserConfigPage.resx">
+      <DependentUpon>UserConfigPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\MonitoringPage.resx">
+      <DependentUpon>MonitoringPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\InfoPanel.resx">
+      <DependentUpon>InfoPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\WorkSpace.resx">
+      <DependentUpon>WorkSpace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\LoadingAnimation.resx">
+      <DependentUpon>LoadingAnimation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\PDUConfigPage.resx">
+      <DependentUpon>PDUConfigPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\SensorsConfigPage.resx">
+      <DependentUpon>SensorsConfigPage.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\DataSources\WindowsApp3.My.MyApplication.datasource" />
+    <None Include="My Project\DataSources\WindowsApp3.My.MySettings.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="WindowsApp3_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\interface1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UPFOORM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitButtonClick.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitButtonMove1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EXIT1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitButtonInActive.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDUAConfigButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListwaP3A6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnviromuxUniversalTable3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EXIT.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitButtonMove.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnviromuxUniversalTable1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nowy obraz mapy bitowej.bmp" />
+    <None Include="Resources\RefreshM_move.png" />
+    <None Include="Resources\RefreshM_click.png" />
+    <None Include="Resources\Refresh1.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\MonitoringOverviewButton2.png" />
+    <None Include="Resources\MonitoringOverviewButton1.png" />
+    <None Include="Resources\MonitoringOverviewButton.png" />
+    <None Include="Resources\EN-2D%28TableElem%29.png" />
+    <None Include="Resources\P1A1.png" />
+    <None Include="Resources\P1A2.png" />
+    <None Include="Resources\P1A3.png" />
+    <None Include="Resources\P3A3.png" />
+    <None Include="Resources\P3A6.png" />
+    <None Include="Resources\SC%28light gray%291.png" />
+    <None Include="Resources\SC%28gray%291.png" />
+    <None Include="Resources\PDUBC%28light gray%291.png" />
+    <None Include="Resources\PDUBC%28gray%291.png" />
+    <None Include="Resources\PDUAC%28light gray%291.png" />
+    <None Include="Resources\PDUAC%28gray%291.png" />
+    <None Include="Resources\NC%28light gray%291.png" />
+    <None Include="Resources\NC%28gray%291.png" />
+    <None Include="Resources\MO%28light gray%291.png" />
+    <None Include="Resources\MO%28Gray%291.png" />
+    <None Include="Resources\LOG%28light gray%291.png" />
+    <None Include="Resources\LOG%28gray%291.png" />
+    <None Include="Resources\AC%28light gray%291.png" />
+    <None Include="Resources\AC%28gray%291.png" />
+    <None Include="Resources\LOG%28black%29.png" />
+    <None Include="Resources\NC%28black%29.png" />
+    <None Include="Resources\AC%28black%29.png" />
+    <None Include="Resources\Normal.jpg" />
+    <None Include="Resources\warn.jpg" />
+    <None Include="Resources\Alarm.jpg" />
+    <None Include="Resources\Normalx391y51.jpg" />
+    <None Include="Resources\Alarmx391y51.jpg" />
+    <None Include="Resources\Warnx391y51.jpg" />
+    <None Include="Resources\Alarm2.jpg" />
+    <None Include="Resources\Warn2.jpg" />
+    <None Include="Resources\Normal2.jpg" />
+    <None Include="Resources\cursor.png" />
+    <None Include="Resources\cursor1.png" />
+    <None Include="Resources\cursor2.png" />
+    <None Include="Resources\Alarm21.jpg" />
+    <None Include="Resources\Normal21.jpg" />
+    <None Include="Resources\Warn21.jpg" />
+    <None Include="Resources\cursor3.png" />
+    <None Include="Resources\cursor31.png" />
+    <None Include="Resources\cursor3,2.png" />
+    <None Include="Resources\im2.png" />
+    <None Include="Resources\przezroczysty.png" />
+    <None Include="Resources\GreenIndicator.png" />
+    <None Include="Resources\RedIndicator.png" />
+    <None Include="Resources\RedIndicator2.png" />
+    <None Include="Resources\GreenIndicator2.png" />
+    <None Include="Resources\down.jpg" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\bitmapMaxbert2.png" />
+    <Content Include="Modules\ListwaModule\WebBrowser.cs">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="Nowy obraz mapy bitowej.ico" />
+    <Content Include="Resources\BUTTONSV2\AC%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\AC%28gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\AC%28light gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\LOG%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\LOG%28gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\LOG%28light gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\MO%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\MO%28Gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\MO%28light gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\NC%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\NC%28gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\NC%28light gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\PDUAC%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\PDUAC%28gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\PDUAC%28light gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\PDUBC%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\PDUBC%28gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\PDUBC%28light gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\SC%28black%29.png" />
+    <Content Include="Resources\BUTTONSV2\SC%28gray%29.png" />
+    <Content Include="Resources\BUTTONSV2\SC%28light gray%29.png" />
+    <None Include="Resources\SC%28black%29.png" />
+    <None Include="Resources\PDUBC%28black%29.png" />
+    <None Include="Resources\PDUAC%28black%29.png" />
+    <None Include="Resources\MO%28black%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\otherFiles\Other Files\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+  </Target>
+</Project>

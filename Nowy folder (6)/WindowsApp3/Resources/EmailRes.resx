@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Ende" xml:space="preserve">
+    <value>&lt;/b&gt;
+					&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;&lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</value>
+  </data>
+  <data name="Head" xml:space="preserve">
+    <value>&lt;table width="100%" cellpadding="3" cellspacing="0" style="font-family:'Helvetica Neue', Helvetica,Arial,sans-serif;fonfont-size:12px;box-sizing:border-box,"&gt;
+        &lt;tbody&gt;&lt;tr&gt;
+          &lt;td bgcolor="#303030" style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;</value>
+  </data>
+  <data name="preInterval" xml:space="preserve">
+    <value>&lt;/b&gt;
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        &lt;b&gt;</value>
+  </data>
+  <data name="preLastError" xml:space="preserve">
+    <value>&lt;/b&gt;
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        &lt;b&gt;</value>
+  </data>
+  <data name="preLastMessge" xml:space="preserve">
+    <value>&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+              &lt;/span&gt;
+              &lt;br&gt;
+              Last message:
+              &lt;br&gt;
+              &lt;span style="display:inline-block;font-size:14px;padding:5px 0 0px 0"&gt;
+                &lt;b&gt;</value>
+  </data>
+  <data name="preLastOK" xml:space="preserve">
+    <value>&lt;/b&gt;
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        &lt;b&gt;</value>
+  </data>
+  <data name="preLastScan" xml:space="preserve">
+    <value>&lt;/b&gt;
+              &lt;/span&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;&lt;/table&gt;
+&lt;table width="100%" cellpadding="0" cellspacing="0" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;box-sizing:border-box"&gt;
+        &lt;tbody&gt;&lt;tr&gt;
+            &lt;td height="15" bgcolor="101222" style="padding:0px"&gt;
+            &lt;table width="100%" cellpadding="3" cellspacing="0" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;box-sizing:border-box"&gt;
+                &lt;tbody&gt;&lt;tr&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        Last scan:
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        Last OK:
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        Last Error:
+                    &lt;/td&gt;
+
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        Sensor Type:
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        Interval:
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                   
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        &lt;b&gt;</value>
+  </data>
+  <data name="premessage" xml:space="preserve">
+    <value>&lt;br&gt;
+              &lt;span style="display:inline-block;font-size:14px;padding:5px 0 10px 0"&gt;
+                &lt;b&gt;</value>
+  </data>
+  <data name="preSensorType" xml:space="preserve">
+    <value>&lt;/b&gt;
+                    &lt;/td&gt;
+                    &lt;td style="padding:5px;margin:0;color:#ffffff;font-size:9px"&gt;
+                        &lt;b&gt;</value>
+  </data>
+  <data name="NewAdmin" xml:space="preserve">
+    <value>AdminMode{True}
+OperatorMode{True}
+Login{Admin}
+Password{maxbert}
+Location{MyLocation}
+Title{Admin}
+Departament{Technical}
+Company{}
+Email{}
+SMSNumber{}
+AlertMessageSwitch{False}
+AnimatedAlertSwitch{False}
+SoundAlertSwitch{False}
+SendMessageToEmailSwitch{False}
+TestModeSwitch{False}
+MonitoringBaseIP{[0][0][0][0]}
+MonitoringBaseLogin{}
+MonitoringBasePassword{}
+MonitoringBaseRememberCheckBOx{}
+MonitoringBaseSensorMap{aux2Sensor1[False]aux2Sensor2[False]aux2Sensor3[False]aux2Sensor4[False]aux2Sensor5[False]aux2Sensor6[False]aux2Sensor7[False]aux2Sensor8[False]aux2Sensor9
+[False]aux2Sensor10[False]aux2Sensor11[False]aux2Sensor12[False]auxSensor1[False]auxSensor2[False]auxSensor3[False]auxSensor4[False]digitalSensor1[False]digitalSensor2
+[False]digitalSensor3[False]digitalSensor4[False]digitalSensor5[False]extSensor1[False]extSensor2[False]extSensor3[False]extSensor4[False]extSensor5[False]extSensor6[False]extSensor7
+[False]extSensor8[False]intSensor1[False]IPDevice1[False]IPDevice2[False]IPDevice3[False]IPDevice4[False]IPDevice5[False]IPDevice6[False]IPDevice7[False]IPDevice8[False]IPDevice9
+[False]IPDevice10[False]IPDevice11[False]IPDevice12[False]IPSensor1[False]IPSensor2[False]IPSensor3[False]IPSensor4[False]IPSensor5[False]IPSensor6[False]IPSensor7[False]IPSensor8
+[False]IPSensor9[False]IPSensor10[False]IPSensor11[False]IPSensor12[False]RemoteInput1[False]RemoteInput2[False]RemoteInput3[False]RemoteInput4[False]RemoteInput5[False]RemoteInput6
+[False]RemoteInput7[False]RemoteInput8[False]RemoteInput9[False]RemoteInput10[False]RemoteInput11[False]RemoteInput12[False]RemoteInput13[False]RemoteInput14[False]RemoteInput15
+[False]RemoteInput16[False]RemoteInput17[False]RemoteInput18[False]RemoteInput19[False]RemoteInput20[False]RemoteInput21[False]RemoteInput22[False]RemoteInput23[False]RemoteInput24
+[False]RemoteInput25[False]RemoteInput26[False]RemoteInput27[False]RemoteInput28[False]RemoteInput29[False]RemoteInput30[False]RemoteInput31[False]RemoteInput32[False]RemoteOutput1
+[False]RemoteOutput2[False]RemoteOutput3[False]RemoteOutput4[False]RemoteOutput5[False]RemoteOutput6[False]RemoteOutput7[False]RemoteOutput8[False]RemoteOutput9[False]RemoteOutput10
+[False]RemoteOutput11[False]RemoteOutput12[False]RemoteOutput13[False]RemoteOutput14[False]RemoteOutput15[False]RemoteOutput16[False]RemoteOutput17[False]RemoteOutput18
+[False]RemoteOutput19[False]RemoteOutput20[False]RemoteOutput21[False]RemoteOutput22[False]RemoteOutput23[False]RemoteOutput24[False]RemoteOutput25[False]RemoteOutput26
+[False]RemoteOutput27[False]RemoteOutput28[False]RemoteOutput29[False]RemoteOutput30[False]RemoteOutput31[False]RemoteOutput32[False]SmokeDetector1[False]SmokeDetector2
+[False]SmokeDetector3[False]SmokeDetector4[False]SmokeDetector5[False]SmokeDetector6[False]SmokeDetector7[False]SmokeDetector8[False]tacSensor1[False]}
+PDUAIP{[0][0][0][0]}
+PDUALogin{}
+PDUAPassword{}
+PDUARememberCheckBOx{}
+PDUASensorMap{Ampermeter1[False]Ampermeter2[False]Ampermeter3[False]Ampermeter4[False]Ampermeter5[False]Ampermeter6[False]TemperatureMonitor[False]Log1[False]Log2[False]Log3[False]Log4
+[False]Log5[False]Log6[False]TemperatureLog[False]}
+PDUBIP{[0][0][0][0]}
+PDUBLogin{}
+PDUBPassword{}
+PDUBRememberCheckBOx{}
+PDUBSensorMap{Ampermeter1[False]Ampermeter2[False]Ampermeter3[False]Ampermeter4[False]Ampermeter5[False]Ampermeter6[False]TemperatureMonitor[False]Log1[False]Log2[False]Log3[False]Log4
+[False]Log5[False]Log6[False]TemperatureLog[False]}</value>
+  </data>
+</root>

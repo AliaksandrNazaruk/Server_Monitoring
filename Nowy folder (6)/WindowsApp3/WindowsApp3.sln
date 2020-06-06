@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp3", "C:\Users\Nazarukk\Desktop\Nowy folder (6)\WindowsApp3\WindowsApp3.vbproj", "{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584DDD7D-BA5F-4A8A-BE61-67E1AB65348D}.Release|x64.ActiveCfg = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0A3183E-BFD1-4BB5-B2C7-D0786EFEAE6D}
+	EndGlobalSection
+EndGlobal
