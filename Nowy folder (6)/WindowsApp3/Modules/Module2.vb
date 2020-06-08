@@ -5,6 +5,7 @@ Module Module2
         Public dataFile As DataFile
         Public infoFile As DeviceInformation = New DeviceInformation
         Public WithEvents DevInterface As DeviceInterface = New DeviceInterface(False)
+        Public SensorMap As SensorMapMonitoringSystem
         Public Sub DevInterface_changed(e As Boolean) Handles DevInterface.UnlockChanged
             If DevInterface._unlock Then
                 My.Forms.Workspace.SensorsConfig1.VisibleInterface(TempProfile.AdminMode)
@@ -81,6 +82,7 @@ Module Module2
                             newConfigFile.outRelayCount = 10
                             newConfigFile.pwrSupplyCount = 10
                             dataFile = New DataFile(newConfigFile)
+                            SensorMap = New SensorMapMonitoringSystem(newConfigFile)
                         End If
 
                         If grabFullData() Then
@@ -310,6 +312,7 @@ Module Module2
             monitoringMode(False)
             DevInterface.DevIntUnlock(False)
             dataFile = New DataFile(New dataFileConstructor)
+            SensorMap = New SensorMapMonitoringSystem(New dataFileConstructor)
             infoFile = New DeviceInformation
             If connectToDevice IsNot Nothing Then
                 connectToDevice.Dispose()

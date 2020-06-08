@@ -1,4 +1,5 @@
 ﻿Public Class DigitalSensor
+    Private index As Integer = Nothing
     Sub New(input As Sensor)
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
@@ -23,6 +24,7 @@
     Private Sub AddToMonitor_CheckedChanged(sender As Object, e As EventArgs) Handles AddToMonitor.CheckedChanged
         If AddToMonitor.Checked Then
 
+            'Module2.MonitoringBase.SensorMap.DigInputList()
         End If
     End Sub
 End Class

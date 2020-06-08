@@ -980,10 +980,63 @@ Public Class ListwaDataFile
     Public MonitoringCofig As WebMonitoringConfigurationCard = New WebMonitoringConfigurationCard
 End Class
 '----------------------------------------
-Public Class SensorMap
+Public Class SensorMapMonitoringSystem
     Sub New(constructor As dataFileConstructor)
-
+        For i As Integer = 0 To constructor.IntSensorCount
+            IntSensorList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.DIgitalSensorCount
+            DigInputList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.ipSensorCount
+            ipSensorList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.remoteInputCount
+            remoteInputsList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.remoteRelayCount
+            RemoteRelayList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.smokeDetectorCount
+            smokeDetectorsList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.tacSensorCount
+            TacSensorList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.aux2SensorCount
+            Aux2SensorList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.auxSensorCount
+            AuxSensorList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.extSensorCount
+            ExtSensorList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.IPDeviceCount
+            IPDevicesList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.outRelayCount
+            OutRelayList.Add(New Boolean)
+        Next
+        For i As Integer = 0 To constructor.pwrSupplyCount
+            PwrSupplyList.Add(New Boolean)
+        Next
     End Sub
+    Public IntSensorList As List(Of Boolean) = New List(Of Boolean)
+    Public SensorsList As List(Of Boolean) = New List(Of Boolean)
+    Public DigInputList As List(Of Boolean) = New List(Of Boolean)
+    Public ipSensorList As List(Of Boolean) = New List(Of Boolean)
+    Public remoteInputsList As List(Of Boolean) = New List(Of Boolean)
+    Public RemoteRelayList As List(Of Boolean) = New List(Of Boolean)
+    Public smokeDetectorsList As List(Of Boolean) = New List(Of Boolean)
+    Public TacSensorList As List(Of Boolean) = New List(Of Boolean)
+    Public Aux2SensorList As List(Of Boolean) = New List(Of Boolean)
+    Public AuxSensorList As List(Of Boolean) = New List(Of Boolean)
+    Public ExtSensorList As List(Of Boolean) = New List(Of Boolean)
+    Public IPDevicesList As List(Of Boolean) = New List(Of Boolean)
+    Public OutRelayList As List(Of Boolean) = New List(Of Boolean)
+    Public PwrSupplyList As List(Of Boolean) = New List(Of Boolean)
+    Public MsgRegistersList As List(Of Boolean) = New List(Of Boolean)
 End Class
 Public Class SnmpInfoCard
     Public sysTime As String = ""
