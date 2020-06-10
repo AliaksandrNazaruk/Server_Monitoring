@@ -6,13 +6,13 @@
 
     End Sub
     Public Sub FillPage()
-        LoginInput1.Text = TempProfile.Login
-        TittleInput1.Text = TempProfile.Title
-        DepInput1.Text = TempProfile.Departament
-        CompanyInput1.Text = TempProfile.Company
-        EmailInput.Text = TempProfile.Email
+        LoginInput1.Text = LoginnedProfile.Login
+        TittleInput1.Text = LoginnedProfile.Title
+        DepInput1.Text = LoginnedProfile.Departament
+        CompanyInput1.Text = LoginnedProfile.Company
+        EmailInput.Text = LoginnedProfile.Email
         'PhoneInput.Text = TempProfile.SMSNumber
-        LocationBox.Text = TempProfile.Location
+        LocationBox.Text = LoginnedProfile.Location
         FillDataGrid()
     End Sub
     Private Sub SaveButton_Click(sender As Object, e As EventArgs)
@@ -22,8 +22,10 @@
         UsersControl1.DataGridView1.Rows.Clear()
         Dim newUserList As List(Of UserProfile) = New List(Of UserProfile)
         newUserList = User.Search()
+        If newUserList Is Nothing Then
+            Exit Sub
+        End If
         For i As Integer = 0 To newUserList.Count - 1
-
             UsersControl1.DataGridView1.Rows.Add(newUserList.Item(i).Login, newUserList.Item(i).Password, newUserList.Item(i).AdminMode, newUserList.Item(i).OperatorMode)
         Next
     End Sub
@@ -52,9 +54,8 @@
     End Sub
 
     Private Sub SaveButton_Click_1(sender As Object, e As EventArgs) Handles SaveButton.Click
-        TempProfile.Email = EmailInput.Text
-        TempProfile.Location = LocationBox.Text
-        TempProfile.Save()
+        LoginnedProfile.Email = EmailInput.Text
+        LoginnedProfile.Location = LocationBox.Text
 
     End Sub
 End Class

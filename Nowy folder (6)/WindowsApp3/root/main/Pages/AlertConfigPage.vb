@@ -335,26 +335,26 @@ Public Class AlertConfigPage
     End Sub
     Private Sub AnimatedAlertSwitch_CheckedChanged(sender As Object, e As EventArgs) Handles AnimatedAlertSwitch.CheckedChanged
         If Workspace.AllertConfig1.AnimatedAlertSwitch.Checked = False Then
-            Workspace.MonitoringPage.TableForPDUA.AnimationTimer.Stop()
-            Workspace.MonitoringPage.TableForPDUB.AnimationTimer.Stop()
-            Workspace.MonitoringPage.MBTable.AnimationTimer.Stop()
+            ' Workspace.MonitoringPage.TableForPDUA.AnimationTimer.Stop()
+            ' Workspace.MonitoringPage.TableForPDUB.AnimationTimer.Stop()
+            ' Workspace.MonitoringPage.MBTable.AnimationTimer.Stop()
         End If
         If Workspace.AllertConfig1.AnimatedAlertSwitch.Checked Then
-            Workspace.MonitoringPage.TableForPDUA.AnimationTimer.Start()
-            Workspace.MonitoringPage.TableForPDUB.AnimationTimer.Start()
-            Workspace.MonitoringPage.MBTable.AnimationTimer.Start()
+            'Workspace.MonitoringPage.TableForPDUA.AnimationTimer.Start()
+            ' Workspace.MonitoringPage.TableForPDUB.AnimationTimer.Start()
+            ' Workspace.MonitoringPage.MBTable.AnimationTimer.Start()
         End If
     End Sub
     Private Sub SendMessageToEmailSwitch_CheckedChanged(sender As Object, e As EventArgs) Handles SendMessageToEmailSwitch.CheckedChanged
         If SendMessageToEmailSwitch.Checked Then
-            If User.TempProfile.Email Is Nothing Then
+            If User.LoginnedProfile.Email Is Nothing Then
                 SendMessageToEmailSwitch.Checked = False
                 MsgBox("To activate the function of sending messages by email, you need to specify the user email in the ""User Configuration""")
-                User.TempProfile.Save()
-            ElseIf User.TempProfile.Email = "" Then
+
+            ElseIf User.LoginnedProfile.Email = "" Then
                 SendMessageToEmailSwitch.Checked = False
                 MsgBox("To activate the function of sending messages by email, you need to specify the user email in the ""User Configuration""")
-                User.TempProfile.Save()
+
             End If
         End If
 
@@ -696,7 +696,7 @@ Public Class AlertConfigPage
         PDUASave()
         PDUBSave()
         'MBSAVE()
-        TempProfile.Save()
+
         Workspace.LoadingPage1.Visible = False
         Workspace.LoadingPage1.ProgressBar1.Value = 0
     End Sub

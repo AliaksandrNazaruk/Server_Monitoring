@@ -1,4 +1,5 @@
 ﻿Public Class SensorControlPanelType1
+    Private index As Integer = 0
     Public Sub New(input As Sensor)
         If input.index = "" Then
             Exit Sub
@@ -18,9 +19,15 @@
         Scale1.setWarn1(minWarnTrech)
         Scale1.setNormal(MaxWarntTrech)
         Scale1.setWarn2(MaxCritTrech)
+        index = Convert.ToInt16(input.index)
+        AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.ipSensorList(index)
     End Sub
-
-    Private Sub Scale1_Load(sender As Object, e As EventArgs) Handles Scale1.Load
+    Private Sub AddToMonitor_CheckedChanged(sender As Object, e As EventArgs) Handles AddToMonitoring.CheckedChanged
+        If AddToMonitoring.Checked Then
+            User.LoginnedProfile.Data.MB.SensorListForMB.ipSensorList(index) = True
+        Else
+            User.LoginnedProfile.Data.MB.SensorListForMB.ipSensorList(index) = False
+        End If
     End Sub
 
 

@@ -11,9 +11,9 @@
     End Function
     Private Function thisDeviceProfileData() As UserProfile.DevicesDataFile.DeviceData
         If ThisDevice = "_Listwa1" Then
-            Return User.TempProfile.Data.PDUA
+            Return User.LoginnedProfile.Data.PDUA
         ElseIf ThisDevice = "_Listwa2" Then
-            Return User.TempProfile.Data.PDUB
+            Return User.LoginnedProfile.Data.PDUB
         End If
         Return Nothing
     End Function
@@ -133,31 +133,31 @@
 
         'Если тест пройден успешно
         'Сохраняем данные в профайл пользователя
-        TempProfile.Data.MB.IP = MonitoringBase.connectToDevice.SNMPConnection.IP
-        TempProfile.Data.MB.Login = CommunityBox.Text
-        TempProfile.Data.MB.Password = ""
-
+        LoginnedProfile.Data.MB.IP = MonitoringBase.connectToDevice.SNMPConnection.IP
+        LoginnedProfile.Data.MB.Login = CommunityBox.Text
+        LoginnedProfile.Data.MB.Password = ""
+        User.LoginnedProfile.Data.MB.SensorListForMB = Nothing
         'Активация прогрессбара
         Workspace.LoadingPage1.ProgressBar1.Value = 0
         Workspace.LoadingPage1.Visible = True
         Workspace.LoadingPage1.TextMessage.Text = "search for a device under the address: " + MonitoringBase.connectToDevice.SNMPConnection.IP.FullString()
 
         'Подключение к устройству
-        If MonitoringBase.startDevice(TempProfile.Data.MB) Then
+        If MonitoringBase.startDevice() Then
             Workspace.LoadingPage1.TextMessage.Text = "Start of the monitoring system..."
             Workspace.LoadingPage1.ProgressBar1.Value = 90
-            Workspace.Log1.LOGbox.Items.Add(TimeOfDay + ", " + DateString + "    " + TempProfile.Login + " added device " + MonitoringBase.infoFile.DeviceModel + "(" + MonitoringBase.connectToDevice.SNMPConnection.IP.FullString() + ")" + "" + "")
+            Workspace.Log1.LOGbox.Items.Add(TimeOfDay + ", " + DateString + "    " + LoginnedProfile.Login + " added device " + MonitoringBase.infoFile.DeviceModel + "(" + MonitoringBase.connectToDevice.SNMPConnection.IP.FullString() + ")" + "" + "")
         Else
             'Если не удалось подключиться к реальному устройству очищаем
             '- Данные пользователя
             '- Данные виртуального устройства
             '- Очищаем страницу
-            TempProfile.Data.MB = New UserProfile.DevicesDataFile.DeviceData
+            LoginnedProfile.Data.MB = New UserProfile.DevicesDataFile.DeviceData
             MonitoringBase.connectToDevice.SNMPConnection.IP = New IPaddress(0, 0, 0, 0)
             My.Forms.Workspace.SensorsConfig1.ClearFunc()
             MsgBox("Error connecting to device")
         End If
-
+        My.Forms.Workspace.SensorsConfig1.DataRefresh()
         'Деактивация прогрессбара
         Workspace.LoadingPage1.Visible = False
         Workspace.LoadingPage1.ProgressBar1.Value = 0
@@ -171,9 +171,8 @@
                 Workspace.LoadingPage1.Visible = True
                 Workspace.LoadingPage1.ProgressBar1.Value = 0
                 Workspace.LoadingPage1.TextMessage.Text = "Disabling the monitoring system"
-                Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.TempProfile.Login + " Deleted a device with an IP address " + User.TempProfile.Data.MB.IP.FullString() + "(Name:" + Module2.MonitoringBase.infoFile.Name + ")"))
+                Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.LoginnedProfile.Login + " Deleted a device with an IP address " + User.LoginnedProfile.Data.MB.IP.FullString() + "(Name:" + Module2.MonitoringBase.infoFile.Name + ")"))
                 My.Forms.Workspace.SensorsConfig1.FullClear()
-                TempProfile.Save()
                 Workspace.LoadingPage1.Visible = False
                 Workspace.LoadingPage1.ProgressBar1.Value = 0
             ElseIf a = 7 Then
@@ -183,22 +182,13 @@
             End If
         End If
 
-
-
-
-
-
-
-
-
-
         Module2.MonitoringBase = New Module2.virtualDevice("MonitoringBase1")
         'очищаем
         '- Данные пользователя
         '- Данные виртуального устройства
         '- Очищаем страницу
         'ground LoginForm.UserSession.MonitoringBase1.ip = ""
-        TempProfile.Data.MB = New UserProfile.DevicesDataFile.DeviceData
+        LoginnedProfile.Data.MB = New UserProfile.DevicesDataFile.DeviceData
         MonitoringBase.connectToDevice.SNMPConnection.IP = New IPaddress(0, 0, 0, 0)
         Delete.Enabled = False
         My.Forms.Workspace.SensorsConfig1.ClearFunc()

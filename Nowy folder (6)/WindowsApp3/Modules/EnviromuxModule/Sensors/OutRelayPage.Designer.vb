@@ -24,9 +24,9 @@ Partial Class OutRelayPage
     Private Sub InitializeComponent()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,6 +56,15 @@ Partial Class OutRelayPage
         Me.GroupBox.TabIndex = 136
         Me.GroupBox.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(399, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(64, 13)
+        Me.Label1.TabIndex = 70
+        Me.Label1.Text = "Switch relay"
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -74,19 +83,11 @@ Partial Class OutRelayPage
         Me.Label7.TabIndex = 69
         Me.Label7.Text = "Status"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(399, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 13)
-        Me.Label1.TabIndex = 70
-        Me.Label1.Text = "Switch relay"
-        '
         'OutRelayPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.GroupBox)

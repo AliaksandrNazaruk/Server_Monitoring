@@ -2,8 +2,11 @@
 'Imports MetroFramework.Forms
 Imports System.Windows.Forms
 Imports System.Threading
+Imports System.IO
+Imports System.Runtime.Serialization.Formatters.Binary
 Public Class Workspace
     Inherits Form
+
     '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■resize window Functions■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
     Public Sub startingForms()
         Module1.PDUA = New Module1.VirtualDevice("PDUA")
@@ -11,34 +14,34 @@ Public Class Workspace
         Module2.MonitoringBase = New Module2.virtualDevice("MB")
         LoadConfiguration()
         startDevices()
-        MonitoringPage.TableFinder.Interval = 2000
-        MonitoringPage.TableFinder.Start()
+        'MonitoringPage.TableFinder.Interval = 2000
+        'MonitoringPage.TableFinder.Start()
         My.Forms.Workspace.MonitoringPage.Visible = True
     End Sub
     Private Function LoadConfiguration()
         My.Forms.Workspace._Listwa1.FullClear()
         My.Forms.Workspace._Listwa2.FullClear()
-        TempProfile.Load()
-        User.TempProfile.Synchronization() 'синхронизация данных профиля с программой
+
         InfoPanel1.labLanguage.Text = "English"
-        InfoPanel1.labName.Text = User.TempProfile.Login
+        InfoPanel1.labName.Text = User.LoginnedProfile.Login
         InfoPanel1.labVersion.Text = "1.0v."
-        InfoPanel1.labLocation.Text = User.TempProfile.Location
+        InfoPanel1.labLocation.Text = User.LoginnedProfile.Location
     End Function
     Private Function startDevices()
-        If User.TempProfile.Data.PDUA.IP.installed Then
+        If User.LoginnedProfile.Data.PDUA.IP.installed Then
             If _Listwa1.ConnectFunction() Then
 
             End If
         End If
-        If User.TempProfile.Data.PDUB.IP.installed Then
+        If User.LoginnedProfile.Data.PDUB.IP.installed Then
             If _Listwa2.ConnectFunction() Then
 
             End If
         End If
-        If User.TempProfile.Data.MB.IP.installed Then
-            If MonitoringBase.ConnectFunction() Then
-                SensorsConfig1.DataRefresh()
+        If User.LoginnedProfile.Data.MB.IP.installed Then
+            SensorsConfig1.DataRefresh()
+            If MonitoringBase.startDevice() Then
+
             End If
         End If
 
@@ -152,6 +155,7 @@ Public Class Workspace
     Private Sub SensorConfig_Click(sender As Object, e As EventArgs) Handles SensorConfig.Click
         unvisibleWindows()
         SensorsConfig1.Visible = True
+
     End Sub
     Private Sub AllertConfig_Click(sender As Object, e As EventArgs) Handles AllertConfig.Click
         unvisibleWindows()
@@ -294,4 +298,6 @@ Public Class Workspace
 
         End If
     End Sub
+
+
 End Class

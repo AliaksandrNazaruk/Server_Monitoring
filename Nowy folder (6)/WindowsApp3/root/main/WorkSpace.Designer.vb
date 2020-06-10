@@ -31,15 +31,6 @@ Partial Class Workspace
         Me.Logins = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TypeDevice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Passwords = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Log1 = New WindowsApp3.LOGPage()
-        Me.AllertConfig1 = New WindowsApp3.AlertConfigPage()
-        Me.UserConfig1 = New WindowsApp3.UserConfigPage()
-        Me.InfoPanel1 = New WindowsApp3.InfoPanel()
-        Me.SensorsConfig1 = New WindowsApp3.SensorsConfigPage()
-        Me._Listwa1 = New WindowsApp3.PDUConfigPage()
-        Me._Listwa2 = New WindowsApp3.PDUConfigPage()
-        Me.MonitoringPage = New WindowsApp3.MonitoringPage()
-        Me.LoadingAnimation1 = New WindowsApp3.LoadingAnimation()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Log = New System.Windows.Forms.PictureBox()
@@ -54,6 +45,15 @@ Partial Class Workspace
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.LoadingPage1 = New WindowsApp3.loadingPage()
+        Me.Log1 = New WindowsApp3.LOGPage()
+        Me.AllertConfig1 = New WindowsApp3.AlertConfigPage()
+        Me.UserConfig1 = New WindowsApp3.UserConfigPage()
+        Me.InfoPanel1 = New WindowsApp3.InfoPanel()
+        Me.SensorsConfig1 = New WindowsApp3.SensorsConfigPage()
+        Me._Listwa1 = New WindowsApp3.PDUConfigPage()
+        Me._Listwa2 = New WindowsApp3.PDUConfigPage()
+        Me.MonitoringPage = New WindowsApp3.MonitoringPage()
+        Me.LoadingAnimation1 = New WindowsApp3.LoadingAnimation()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,83 +121,6 @@ Partial Class Workspace
         '
         Me.Passwords.HeaderText = "Passwords"
         Me.Passwords.Name = "Passwords"
-        '
-        'Log1
-        '
-        Me.Log1.BackColor = System.Drawing.Color.White
-        Me.Log1.Location = New System.Drawing.Point(274, 98)
-        Me.Log1.Name = "Log1"
-        Me.Log1.Size = New System.Drawing.Size(950, 681)
-        Me.Log1.TabIndex = 41
-        '
-        'AllertConfig1
-        '
-        Me.AllertConfig1.BackColor = System.Drawing.Color.White
-        Me.AllertConfig1.Location = New System.Drawing.Point(274, 98)
-        Me.AllertConfig1.Name = "AllertConfig1"
-        Me.AllertConfig1.Size = New System.Drawing.Size(950, 681)
-        Me.AllertConfig1.TabIndex = 40
-        '
-        'UserConfig1
-        '
-        Me.UserConfig1.BackColor = System.Drawing.Color.White
-        Me.UserConfig1.Location = New System.Drawing.Point(274, 98)
-        Me.UserConfig1.Name = "UserConfig1"
-        Me.UserConfig1.Size = New System.Drawing.Size(950, 681)
-        Me.UserConfig1.TabIndex = 39
-        '
-        'InfoPanel1
-        '
-        Me.InfoPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.InfoPanel1.BackColor = System.Drawing.Color.Black
-        Me.InfoPanel1.Location = New System.Drawing.Point(875, 8)
-        Me.InfoPanel1.Name = "InfoPanel1"
-        Me.InfoPanel1.Size = New System.Drawing.Size(290, 82)
-        Me.InfoPanel1.TabIndex = 37
-        '
-        'SensorsConfig1
-        '
-        Me.SensorsConfig1.BackColor = System.Drawing.Color.White
-        Me.SensorsConfig1.Location = New System.Drawing.Point(274, 98)
-        Me.SensorsConfig1.Name = "SensorsConfig1"
-        Me.SensorsConfig1.Size = New System.Drawing.Size(950, 681)
-        Me.SensorsConfig1.TabIndex = 36
-        '
-        '_Listwa1
-        '
-        Me._Listwa1.BackColor = System.Drawing.Color.White
-        Me._Listwa1.Location = New System.Drawing.Point(274, 98)
-        Me._Listwa1.Name = "_Listwa1"
-        Me._Listwa1.Size = New System.Drawing.Size(950, 681)
-        Me._Listwa1.TabIndex = 34
-        '
-        '_Listwa2
-        '
-        Me._Listwa2.BackColor = System.Drawing.Color.White
-        Me._Listwa2.Location = New System.Drawing.Point(274, 98)
-        Me._Listwa2.Name = "_Listwa2"
-        Me._Listwa2.Size = New System.Drawing.Size(950, 681)
-        Me._Listwa2.TabIndex = 35
-        '
-        'MonitoringPage
-        '
-        Me.MonitoringPage.AutoScroll = True
-        Me.MonitoringPage.BackColor = System.Drawing.Color.White
-        Me.MonitoringPage.Location = New System.Drawing.Point(274, 98)
-        Me.MonitoringPage.MaximumSize = New System.Drawing.Size(950, 861)
-        Me.MonitoringPage.MinimumSize = New System.Drawing.Size(950, 861)
-        Me.MonitoringPage.Name = "MonitoringPage"
-        Me.MonitoringPage.Size = New System.Drawing.Size(950, 861)
-        Me.MonitoringPage.TabIndex = 28
-        Me.MonitoringPage.Visible = False
-        '
-        'LoadingAnimation1
-        '
-        Me.LoadingAnimation1.BackColor = System.Drawing.Color.White
-        Me.LoadingAnimation1.Location = New System.Drawing.Point(274, 99)
-        Me.LoadingAnimation1.Name = "LoadingAnimation1"
-        Me.LoadingAnimation1.Size = New System.Drawing.Size(950, 681)
-        Me.LoadingAnimation1.TabIndex = 32
         '
         'PictureBox11
         '
@@ -333,6 +256,86 @@ Partial Class Workspace
         Me.LoadingPage1.Size = New System.Drawing.Size(950, 684)
         Me.LoadingPage1.TabIndex = 42
         Me.LoadingPage1.Visible = False
+        '
+        'Log1
+        '
+        Me.Log1.BackColor = System.Drawing.Color.White
+        Me.Log1.Location = New System.Drawing.Point(274, 98)
+        Me.Log1.Name = "Log1"
+        Me.Log1.Size = New System.Drawing.Size(950, 681)
+        Me.Log1.TabIndex = 41
+        '
+        'AllertConfig1
+        '
+        Me.AllertConfig1.BackColor = System.Drawing.Color.White
+        Me.AllertConfig1.Location = New System.Drawing.Point(274, 98)
+        Me.AllertConfig1.Name = "AllertConfig1"
+        Me.AllertConfig1.Size = New System.Drawing.Size(950, 681)
+        Me.AllertConfig1.TabIndex = 40
+        '
+        'UserConfig1
+        '
+        Me.UserConfig1.BackColor = System.Drawing.Color.White
+        Me.UserConfig1.Location = New System.Drawing.Point(274, 98)
+        Me.UserConfig1.Name = "UserConfig1"
+        Me.UserConfig1.Size = New System.Drawing.Size(950, 681)
+        Me.UserConfig1.TabIndex = 39
+        '
+        'InfoPanel1
+        '
+        Me.InfoPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.InfoPanel1.BackColor = System.Drawing.Color.Black
+        Me.InfoPanel1.Location = New System.Drawing.Point(875, 8)
+        Me.InfoPanel1.Name = "InfoPanel1"
+        Me.InfoPanel1.Size = New System.Drawing.Size(290, 82)
+        Me.InfoPanel1.TabIndex = 37
+        '
+        'SensorsConfig1
+        '
+        Me.SensorsConfig1.BackColor = System.Drawing.Color.White
+        Me.SensorsConfig1.Location = New System.Drawing.Point(274, 98)
+        Me.SensorsConfig1.MinimumSize = New System.Drawing.Size(950, 681)
+        Me.SensorsConfig1.Name = "SensorsConfig1"
+        Me.SensorsConfig1.Size = New System.Drawing.Size(950, 681)
+        Me.SensorsConfig1.TabIndex = 36
+        '
+        '_Listwa1
+        '
+        Me._Listwa1.BackColor = System.Drawing.Color.White
+        Me._Listwa1.Location = New System.Drawing.Point(274, 98)
+        Me._Listwa1.MinimumSize = New System.Drawing.Size(950, 681)
+        Me._Listwa1.Name = "_Listwa1"
+        Me._Listwa1.Size = New System.Drawing.Size(950, 681)
+        Me._Listwa1.TabIndex = 34
+        '
+        '_Listwa2
+        '
+        Me._Listwa2.BackColor = System.Drawing.Color.White
+        Me._Listwa2.Location = New System.Drawing.Point(274, 98)
+        Me._Listwa2.MinimumSize = New System.Drawing.Size(950, 681)
+        Me._Listwa2.Name = "_Listwa2"
+        Me._Listwa2.Size = New System.Drawing.Size(950, 681)
+        Me._Listwa2.TabIndex = 35
+        '
+        'MonitoringPage
+        '
+        Me.MonitoringPage.AutoScroll = True
+        Me.MonitoringPage.BackColor = System.Drawing.Color.White
+        Me.MonitoringPage.Location = New System.Drawing.Point(274, 98)
+        Me.MonitoringPage.MaximumSize = New System.Drawing.Size(950, 861)
+        Me.MonitoringPage.MinimumSize = New System.Drawing.Size(950, 861)
+        Me.MonitoringPage.Name = "MonitoringPage"
+        Me.MonitoringPage.Size = New System.Drawing.Size(950, 861)
+        Me.MonitoringPage.TabIndex = 28
+        Me.MonitoringPage.Visible = False
+        '
+        'LoadingAnimation1
+        '
+        Me.LoadingAnimation1.BackColor = System.Drawing.Color.White
+        Me.LoadingAnimation1.Location = New System.Drawing.Point(274, 99)
+        Me.LoadingAnimation1.Name = "LoadingAnimation1"
+        Me.LoadingAnimation1.Size = New System.Drawing.Size(950, 681)
+        Me.LoadingAnimation1.TabIndex = 32
         '
         'Workspace
         '

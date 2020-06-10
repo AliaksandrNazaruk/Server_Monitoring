@@ -89,14 +89,13 @@ Partial Class DigitalInPage
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.AutoSize = True
         Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 40)
         Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(1000, 700)
-        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(839, 50)
+        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(840, 50)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(839, 50)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(840, 50)
         Me.FlowLayoutPanel1.TabIndex = 44
         '
         'GroupBox
@@ -112,7 +111,7 @@ Partial Class DigitalInPage
         Me.GroupBox.Controls.Add(Me.Label6)
         Me.GroupBox.Location = New System.Drawing.Point(5, 0)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(848, 109)
+        Me.GroupBox.Size = New System.Drawing.Size(849, 109)
         Me.GroupBox.TabIndex = 45
         Me.GroupBox.TabStop = False
         '
@@ -120,13 +119,14 @@ Partial Class DigitalInPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.GroupBox)
         Me.MaximumSize = New System.Drawing.Size(1000, 0)
         Me.Name = "DigitalInPage"
-        Me.Size = New System.Drawing.Size(856, 112)
+        Me.Size = New System.Drawing.Size(857, 112)
         Me.GroupBox.ResumeLayout(False)
         Me.GroupBox.PerformLayout()
         Me.ResumeLayout(False)

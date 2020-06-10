@@ -671,7 +671,7 @@
     End Function
 
     Public Function getSnmpIntSensorCard() As SnmpIntSensorCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.3"))
@@ -695,7 +695,7 @@
         Return newCard
     End Function
     Public Function getSnmpAux2SensorCard() As SnmpAux2SensorCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.17"))
@@ -720,7 +720,7 @@
         Return newCard
     End Function
     Public Function getSnmpAuxSensorCard() As SnmpAuxSensorCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.4.1"))
@@ -745,7 +745,7 @@
         Return newCard
     End Function
     Public Function getSnmpDigInputCard() As SnmpDigInputCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.6"))
@@ -766,7 +766,7 @@
         Return newCard
     End Function
     Public Function getSnmpExtSensorCard() As SnmpExtSensorCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.5"))
@@ -791,7 +791,7 @@
         Return newCard
     End Function
     Public Function getSnmpMsgRegistersCard() As SnmpMsgRegistersCard
-        If IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.18"))
@@ -803,7 +803,7 @@
         Return newCard
     End Function
     Public Function getSnmpOutRelayCard() As SnmpOutRelayCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.8"))
@@ -817,7 +817,7 @@
         Return newCard
     End Function
     Public Function getSnmpPwrSupplyCard() As SnmpPwrSupplyCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf  As String(,) = Converter( Walk("1.3.6.1.4.1.3699.1.1.9.1.9"))
@@ -830,7 +830,7 @@
         Return newCard
     End Function
     Public Function getSnmpRemoteInputCard() As SnmpRemoteInputCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.12"))
@@ -850,7 +850,7 @@
         Return newCard
     End Function
     Public Function getSnmpRemoteRelayCard() As SnmpRemoteRelayCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter( Walk("1.3.6.1.4.1.3699.1.1.9.1.13"))
@@ -864,7 +864,7 @@
         Return newCard
     End Function
     Public Function getSnmpSmokeDetectorCard() As SnmpSmokeDetectorCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf As String(,) = Converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.14"))
@@ -880,7 +880,7 @@
         Return newCard
     End Function
     Public Function getSnmpTackSensorCard() As SnmpTackSensorCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf  As String(,) = Converter( Walk("1.3.6.1.4.1.3699.1.1.9.1.15"))
@@ -907,7 +907,7 @@
 
 
     Public Function getSnmpInfoCard() As SnmpInfoCard
-        If IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf = converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.1"))
@@ -936,7 +936,7 @@
 
 
     Public Function getSnmpNetConfCard() As SnmpNetConfCard
-        If MonitoringBase.connectToDevice.SNMPConnection.IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         Dim buf = converter(Walk("1.3.6.1.4.1.3699.1.1.9.1.20"))
@@ -1023,15 +1023,15 @@
     '    End Function
 
     Public Function Walk(input As String) As String(,)
-        If IP.installed() <> True Then
+        If User.LoginnedProfile.Data.MB.IP.installed() <> True Then
             Return Nothing
         End If
         'MonitoringBase.online = MonitoringBase.connectToDevice.testConnection()
-        If MonitoringBase.Online Then
+        If MonitoringBase.connectToDevice.testConnection() Then
             Dim ret(1000, 1) As String
             Dim host As String = IP.FullString()
             Dim result As Dictionary(Of Oid, AsnType)
-            Dim snmp As SimpleSnmp = New SimpleSnmp(host, LOGIN)
+            Dim snmp As SimpleSnmp = New SimpleSnmp(User.LoginnedProfile.Data.MB.IP.FullString, User.LoginnedProfile.Data.MB.Login)
             snmp.Timeout = 10000
             If Not snmp.Valid Then
                 Return Nothing

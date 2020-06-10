@@ -101,12 +101,10 @@ Partial Class IntSensorControlPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.SensorName)
         Me.MaximumSize = New System.Drawing.Size(850, 0)
         Me.Name = "IntSensorControlPanel"
-        Me.Size = New System.Drawing.Size(848, 172)
+        Me.Size = New System.Drawing.Size(848, 173)
         Me.SensorName.ResumeLayout(False)
         Me.SensorName.PerformLayout()
         Me.ResumeLayout(False)

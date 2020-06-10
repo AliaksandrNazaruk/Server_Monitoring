@@ -1,4 +1,5 @@
 ﻿Public Class IntSensorControlPanel
+    Private index As Integer = 0
     Public Sub New(input As Sensor)
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
@@ -22,10 +23,14 @@
         If input.Type = "0" Then
             Type.Text = "Not Configured"
         End If
+        Index = Convert.ToInt16(input.index)
+        AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.IntSensorList(index)
     End Sub
-
-    Private Sub Scale1_Load(sender As Object, e As EventArgs) Handles Scale1.Load
+    Private Sub AddToMonitor_CheckedChanged(sender As Object, e As EventArgs) Handles AddToMonitoring.CheckedChanged
+        If AddToMonitoring.Checked Then
+            User.LoginnedProfile.Data.MB.SensorListForMB.IntSensorList(index) = True
+        Else
+            User.LoginnedProfile.Data.MB.SensorListForMB.IntSensorList(index) = False
+        End If
     End Sub
-
-
 End Class

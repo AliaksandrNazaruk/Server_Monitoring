@@ -13,7 +13,6 @@ Public Class PDUConfigPage
         If ThisDeviceModule.Online Then
             If SensorTypeTableActivated = False And ThisDeviceModule.connectToDevice.WebConnection.FILE.Table.TableType <> "" Then
                 SensorTypeTableActivated = PduSensorsSetting1.TableEnable(ThisDeviceModule.dataFile.table.TableType)
-                TempProfile.Synchronization()
                 If SensorTypeTableActivated Then
                     If ThisDeviceModule.Name = "PDUA" Then
                         My.Forms.Workspace.AllertConfig1.PDUAAlertTable.ActivateTable(ThisDeviceModule.dataFile.table.TableType)
@@ -53,9 +52,9 @@ Public Class PDUConfigPage
     'ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ---------------------------------------------------------------------------------------
     Private Function thisDeviceProfileData() As UserProfile.DevicesDataFile.DeviceData
         If Me.Name = "_Listwa1" Then
-            Return User.TempProfile.Data.PDUA
+            Return User.LoginnedProfile.Data.PDUA
         ElseIf Me.Name = "_Listwa2" Then
-            Return User.TempProfile.Data.PDUB
+            Return User.LoginnedProfile.Data.PDUB
         End If
         Return Nothing
     End Function
@@ -287,8 +286,6 @@ Public Class PDUConfigPage
         Workspace.LoadingPage1.TextMessage.Text = "Saving data on the device " + ThisDeviceModule.connectToDevice.WebConnection.IP.FullString()
 
         If PDUTab.SelectedTab.TabIndex = 1 Then
-            'Сохраняем данные в профайл пользователя
-            User.TempProfile.Save()
         ElseIf PDUTab.SelectedTab.TabIndex = 2 Then
 
             Dim Tab1 As String = PduGeneralSetting1.LocationBox.Text + PduGeneralSetting1.NameBox.Text + PduGeneralSetting1.dhcpcheck.Checked.ToString + PduGeneralSetting1.Ipaddrbox.Text + PduGeneralSetting1.SubnetBox.Text + PduGeneralSetting1.GatewayBox.Text + PduGeneralSetting1.UserpasBox.Text + PduGeneralSetting1.AdminPassBox.Text + PduGeneralSetting1.LogTimeOutComboBox.Text + PduGeneralSetting1.AutoRefreshWebsiteComboBox.Text
@@ -317,7 +314,7 @@ Public Class PDUConfigPage
             My.Forms.Workspace.LoadingPage1.LoadingMode(1)
             Workspace.LoadingPage1.Visible = True
             If ThisDeviceModule.ResetPDU() Then
-                Workspace.Log1.SendMessagesFunction(New Message("Message", "", TempProfile.Login + " (" + thisDeviceProfileData.IP.FullString + ")" + " Successfully rebooted"))
+                Workspace.Log1.SendMessagesFunction(New Message("Message", "", LoginnedProfile.Login + " (" + thisDeviceProfileData.IP.FullString + ")" + " Successfully rebooted"))
             Else
                 Workspace.Log1.SendMessagesFunction(New Message("Message", "", "An error occurred while rebooting the device " + ThisDeviceModule.Name + "(" + ThisDeviceModule.connectToDevice.WebConnection.IP.FullString + ")"))
             End If

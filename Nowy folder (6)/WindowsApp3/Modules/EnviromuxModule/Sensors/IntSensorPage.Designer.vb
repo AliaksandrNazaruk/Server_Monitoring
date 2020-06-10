@@ -34,18 +34,19 @@ Partial Class intSensorPage
         Me.GroupBox.Controls.Add(Me.FlowLayoutPanel1)
         Me.GroupBox.Location = New System.Drawing.Point(5, 0)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(511, 81)
+        Me.GroupBox.Size = New System.Drawing.Size(61, 81)
         Me.GroupBox.TabIndex = 135
         Me.GroupBox.TabStop = False
         '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.AutoSize = True
+        Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 12)
-        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(950, 700)
-        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(500, 50)
+        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(1000, 0)
+        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(50, 50)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(500, 50)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(50, 50)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
         'intSensorPage
@@ -57,7 +58,7 @@ Partial Class intSensorPage
         Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.GroupBox)
         Me.Name = "intSensorPage"
-        Me.Size = New System.Drawing.Size(519, 84)
+        Me.Size = New System.Drawing.Size(69, 84)
         Me.GroupBox.ResumeLayout(False)
         Me.GroupBox.PerformLayout()
         Me.ResumeLayout(False)

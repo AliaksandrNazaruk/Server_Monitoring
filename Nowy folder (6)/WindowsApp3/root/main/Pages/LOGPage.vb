@@ -7,7 +7,7 @@ Public Class LOGPage
             Dim smtp As SmtpClient = New SmtpClient("smtp.gmail.com", 465)
 			
             mail.From = New MailAddress("softwaremaxbert@gmail.com") '
-            mail.To.Add(User.TempProfile.Email)
+            mail.To.Add(User.LoginnedProfile.Email)
 			
             mail.Subject = subject
             mail.Body = content

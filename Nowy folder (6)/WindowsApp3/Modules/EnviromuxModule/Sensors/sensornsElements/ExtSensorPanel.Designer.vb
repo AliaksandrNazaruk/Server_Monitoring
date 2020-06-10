@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AuxSensorControlPanel
+Partial Class ExtSensorPanel
     Inherits System.Windows.Forms.UserControl
 
     'Пользовательский элемент управления (UserControl) переопределяет метод Dispose для очистки списка компонентов.
@@ -22,17 +22,49 @@ Partial Class AuxSensorControlPanel
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.SensorName = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Connector = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Status = New System.Windows.Forms.ComboBox()
         Me.Type = New System.Windows.Forms.TextBox()
         Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
-        Me.SensorName = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Connector = New System.Windows.Forms.TextBox()
         Me.Scale1 = New WindowsApp3.Scale()
         Me.SensorName.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'SensorName
+        '
+        Me.SensorName.Controls.Add(Me.Label3)
+        Me.SensorName.Controls.Add(Me.Connector)
+        Me.SensorName.Controls.Add(Me.Label2)
+        Me.SensorName.Controls.Add(Me.Label1)
+        Me.SensorName.Controls.Add(Me.Status)
+        Me.SensorName.Controls.Add(Me.Type)
+        Me.SensorName.Controls.Add(Me.AddToMonitoring)
+        Me.SensorName.Controls.Add(Me.Scale1)
+        Me.SensorName.Location = New System.Drawing.Point(5, -3)
+        Me.SensorName.Name = "SensorName"
+        Me.SensorName.Size = New System.Drawing.Size(821, 189)
+        Me.SensorName.TabIndex = 163
+        Me.SensorName.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(82, 67)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(56, 13)
+        Me.Label3.TabIndex = 166
+        Me.Label3.Text = "Connector"
+        '
+        'Connector
+        '
+        Me.Connector.Location = New System.Drawing.Point(143, 63)
+        Me.Connector.Name = "Connector"
+        Me.Connector.Size = New System.Drawing.Size(182, 20)
+        Me.Connector.TabIndex = 165
         '
         'Label2
         '
@@ -71,44 +103,12 @@ Partial Class AuxSensorControlPanel
         'AddToMonitoring
         '
         Me.AddToMonitoring.AutoSize = True
-        Me.AddToMonitoring.Location = New System.Drawing.Point(697, 19)
+        Me.AddToMonitoring.Location = New System.Drawing.Point(694, 19)
         Me.AddToMonitoring.Name = "AddToMonitoring"
         Me.AddToMonitoring.Size = New System.Drawing.Size(108, 17)
         Me.AddToMonitoring.TabIndex = 1
         Me.AddToMonitoring.Text = "Add to monitoring"
         Me.AddToMonitoring.UseVisualStyleBackColor = True
-        '
-        'SensorName
-        '
-        Me.SensorName.Controls.Add(Me.Label3)
-        Me.SensorName.Controls.Add(Me.Connector)
-        Me.SensorName.Controls.Add(Me.Label2)
-        Me.SensorName.Controls.Add(Me.Label1)
-        Me.SensorName.Controls.Add(Me.Status)
-        Me.SensorName.Controls.Add(Me.Type)
-        Me.SensorName.Controls.Add(Me.AddToMonitoring)
-        Me.SensorName.Controls.Add(Me.Scale1)
-        Me.SensorName.Location = New System.Drawing.Point(5, -3)
-        Me.SensorName.Name = "SensorName"
-        Me.SensorName.Size = New System.Drawing.Size(821, 187)
-        Me.SensorName.TabIndex = 162
-        Me.SensorName.TabStop = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(82, 67)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(56, 13)
-        Me.Label3.TabIndex = 166
-        Me.Label3.Text = "Connector"
-        '
-        'Connector
-        '
-        Me.Connector.Location = New System.Drawing.Point(143, 63)
-        Me.Connector.Name = "Connector"
-        Me.Connector.Size = New System.Drawing.Size(182, 20)
-        Me.Connector.TabIndex = 165
         '
         'Scale1
         '
@@ -117,26 +117,26 @@ Partial Class AuxSensorControlPanel
         Me.Scale1.Size = New System.Drawing.Size(810, 104)
         Me.Scale1.TabIndex = 2
         '
-        'AuxSensorControlPanel
+        'ExtSensorPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.SensorName)
-        Me.Name = "AuxSensorControlPanel"
-        Me.Size = New System.Drawing.Size(830, 188)
+        Me.Name = "ExtSensorPanel"
+        Me.Size = New System.Drawing.Size(830, 189)
         Me.SensorName.ResumeLayout(False)
         Me.SensorName.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents SensorName As GroupBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Connector As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Status As ComboBox
     Friend WithEvents Type As TextBox
     Friend WithEvents AddToMonitoring As CheckBox
     Friend WithEvents Scale1 As Scale
-    Friend WithEvents SensorName As GroupBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Connector As TextBox
 End Class

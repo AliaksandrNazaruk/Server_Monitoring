@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SmokeDetector
+Partial Class RemoteInputPanel
     Inherits System.Windows.Forms.UserControl
 
     'Пользовательский элемент управления (UserControl) переопределяет метод Dispose для очистки списка компонентов.
@@ -24,6 +24,8 @@ Partial Class SmokeDetector
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
+        Me.NormValue = New System.Windows.Forms.ComboBox()
+        Me.Connector = New System.Windows.Forms.TextBox()
         Me.Description = New System.Windows.Forms.Label()
         Me.value = New System.Windows.Forms.TextBox()
         Me.Status = New System.Windows.Forms.ComboBox()
@@ -33,23 +35,42 @@ Partial Class SmokeDetector
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.AddToMonitoring)
+        Me.GroupBox1.Controls.Add(Me.NormValue)
+        Me.GroupBox1.Controls.Add(Me.Connector)
         Me.GroupBox1.Controls.Add(Me.Description)
         Me.GroupBox1.Controls.Add(Me.value)
         Me.GroupBox1.Controls.Add(Me.Status)
         Me.GroupBox1.Location = New System.Drawing.Point(5, -3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(557, 40)
+        Me.GroupBox1.Size = New System.Drawing.Size(831, 40)
         Me.GroupBox1.TabIndex = 96
         Me.GroupBox1.TabStop = False
         '
         'AddToMonitoring
         '
         Me.AddToMonitoring.AutoSize = True
-        Me.AddToMonitoring.Location = New System.Drawing.Point(479, 16)
+        Me.AddToMonitoring.Location = New System.Drawing.Point(759, 16)
         Me.AddToMonitoring.Name = "AddToMonitoring"
         Me.AddToMonitoring.Size = New System.Drawing.Size(15, 14)
         Me.AddToMonitoring.TabIndex = 94
         Me.AddToMonitoring.UseVisualStyleBackColor = True
+        '
+        'NormValue
+        '
+        Me.NormValue.FormattingEnabled = True
+        Me.NormValue.Items.AddRange(New Object() {"Closed", "Open"})
+        Me.NormValue.Location = New System.Drawing.Point(567, 13)
+        Me.NormValue.Name = "NormValue"
+        Me.NormValue.Size = New System.Drawing.Size(126, 21)
+        Me.NormValue.TabIndex = 91
+        '
+        'Connector
+        '
+        Me.Connector.Location = New System.Drawing.Point(151, 13)
+        Me.Connector.Name = "Connector"
+        Me.Connector.ReadOnly = True
+        Me.Connector.Size = New System.Drawing.Size(126, 20)
+        Me.Connector.TabIndex = 93
         '
         'Description
         '
@@ -62,7 +83,7 @@ Partial Class SmokeDetector
         '
         'value
         '
-        Me.value.Location = New System.Drawing.Point(147, 13)
+        Me.value.Location = New System.Drawing.Point(430, 13)
         Me.value.Name = "value"
         Me.value.ReadOnly = True
         Me.value.Size = New System.Drawing.Size(126, 20)
@@ -72,18 +93,18 @@ Partial Class SmokeDetector
         '
         Me.Status.FormattingEnabled = True
         Me.Status.Items.AddRange(New Object() {"notconnected", "normal", "prealert", "alert", "acknowledged", "dismissed", "disconnected", "reversed"})
-        Me.Status.Location = New System.Drawing.Point(284, 13)
+        Me.Status.Location = New System.Drawing.Point(288, 13)
         Me.Status.Name = "Status"
         Me.Status.Size = New System.Drawing.Size(131, 21)
         Me.Status.TabIndex = 90
         '
-        'SmokeDetector
+        'RemoteInputPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "SmokeDetector"
-        Me.Size = New System.Drawing.Size(568, 40)
+        Me.Name = "RemoteInputPanel"
+        Me.Size = New System.Drawing.Size(842, 40)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -92,6 +113,8 @@ Partial Class SmokeDetector
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents AddToMonitoring As CheckBox
+    Friend WithEvents NormValue As ComboBox
+    Friend WithEvents Connector As TextBox
     Friend WithEvents Description As Label
     Friend WithEvents value As TextBox
     Friend WithEvents Status As ComboBox

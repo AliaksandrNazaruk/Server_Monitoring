@@ -24,8 +24,8 @@
         newUser.Company = AddNewUserPanel1.CompanyInput.Text
         newUser.Location = AddNewUserPanel1.LocationInput.Text
         If User.GetUser(newUser.Login) Is Nothing Then
-            newUser.SaveProfileToFile()
-            Workspace.Log1.SendMessagesFunction(New Message("Message", "", TempProfile.Login + " added a new user (" + newUser.Login + ") to the system"))
+
+            Workspace.Log1.SendMessagesFunction(New Message("Message", "", LoginnedProfile.Login + " added a new user (" + newUser.Login + ") to the system"))
             Return True
         End If
         Return False

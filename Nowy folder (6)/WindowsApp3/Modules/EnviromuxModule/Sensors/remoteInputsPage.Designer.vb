@@ -93,10 +93,10 @@ Partial Class remoteInputsPage
         Me.FlowLayoutPanel1.AutoSize = True
         Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 38)
-        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(950, 700)
-        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(500, 50)
+        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(900, 0)
+        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(860, 50)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(500, 50)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(860, 50)
         Me.FlowLayoutPanel1.TabIndex = 68
         '
         'GroupBox
@@ -112,7 +112,7 @@ Partial Class remoteInputsPage
         Me.GroupBox.Controls.Add(Me.Label7)
         Me.GroupBox.Location = New System.Drawing.Point(5, 0)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(840, 107)
+        Me.GroupBox.Size = New System.Drawing.Size(871, 107)
         Me.GroupBox.TabIndex = 69
         Me.GroupBox.TabStop = False
         '
@@ -120,12 +120,13 @@ Partial Class remoteInputsPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.GroupBox)
         Me.Name = "remoteInputsPage"
-        Me.Size = New System.Drawing.Size(848, 110)
+        Me.Size = New System.Drawing.Size(879, 110)
         Me.GroupBox.ResumeLayout(False)
         Me.GroupBox.PerformLayout()
         Me.ResumeLayout(False)

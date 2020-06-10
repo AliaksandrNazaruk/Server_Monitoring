@@ -23,11 +23,11 @@ Partial Class SmokeDetectorsPage
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,20 +42,37 @@ Partial Class SmokeDetectorsPage
         Me.GroupBox.Controls.Add(Me.Label7)
         Me.GroupBox.Location = New System.Drawing.Point(5, 0)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(543, 111)
+        Me.GroupBox.Size = New System.Drawing.Size(581, 111)
         Me.GroupBox.TabIndex = 93
         Me.GroupBox.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(448, 15)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.TabIndex = 91
+        Me.Label2.Text = "Add to monitoring"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(204, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 13)
+        Me.Label1.TabIndex = 90
+        Me.Label1.Text = "Value"
+        '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.AutoSize = True
         Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 42)
-        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(950, 700)
-        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(500, 50)
+        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(950, 0)
+        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(570, 50)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(500, 50)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(570, 50)
         Me.FlowLayoutPanel1.TabIndex = 89
         '
         'Label6
@@ -76,34 +93,17 @@ Partial Class SmokeDetectorsPage
         Me.Label7.TabIndex = 63
         Me.Label7.Text = "Status"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(204, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 13)
-        Me.Label1.TabIndex = 90
-        Me.Label1.Text = "Value"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(448, 15)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(89, 13)
-        Me.Label2.TabIndex = 91
-        Me.Label2.Text = "Add to monitoring"
-        '
         'SmokeDetectorsPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.GroupBox)
         Me.Name = "SmokeDetectorsPage"
-        Me.Size = New System.Drawing.Size(551, 114)
+        Me.Size = New System.Drawing.Size(589, 114)
         Me.GroupBox.ResumeLayout(False)
         Me.GroupBox.PerformLayout()
         Me.ResumeLayout(False)

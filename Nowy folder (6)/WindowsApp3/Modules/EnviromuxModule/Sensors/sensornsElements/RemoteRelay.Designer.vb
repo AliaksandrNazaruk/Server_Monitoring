@@ -23,7 +23,7 @@ Partial Class RemoteRelay
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.AddToMonitor = New System.Windows.Forms.CheckBox()
+        Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
         Me.Description = New System.Windows.Forms.Label()
         Me.Status = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
@@ -31,7 +31,7 @@ Partial Class RemoteRelay
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.AddToMonitor)
+        Me.GroupBox1.Controls.Add(Me.AddToMonitoring)
         Me.GroupBox1.Controls.Add(Me.Description)
         Me.GroupBox1.Controls.Add(Me.Status)
         Me.GroupBox1.Location = New System.Drawing.Point(5, -3)
@@ -40,14 +40,14 @@ Partial Class RemoteRelay
         Me.GroupBox1.TabIndex = 96
         Me.GroupBox1.TabStop = False
         '
-        'AddToMonitor
+        'AddToMonitoring
         '
-        Me.AddToMonitor.AutoSize = True
-        Me.AddToMonitor.Location = New System.Drawing.Point(362, 16)
-        Me.AddToMonitor.Name = "AddToMonitor"
-        Me.AddToMonitor.Size = New System.Drawing.Size(15, 14)
-        Me.AddToMonitor.TabIndex = 94
-        Me.AddToMonitor.UseVisualStyleBackColor = True
+        Me.AddToMonitoring.AutoSize = True
+        Me.AddToMonitoring.Location = New System.Drawing.Point(362, 16)
+        Me.AddToMonitoring.Name = "AddToMonitoring"
+        Me.AddToMonitoring.Size = New System.Drawing.Size(15, 14)
+        Me.AddToMonitoring.TabIndex = 94
+        Me.AddToMonitoring.UseVisualStyleBackColor = True
         '
         'Description
         '
@@ -61,7 +61,7 @@ Partial Class RemoteRelay
         'Status
         '
         Me.Status.FormattingEnabled = True
-        Me.Status.Items.AddRange(New Object() {"notconnected", "normal", "prealert", "alert", "acknowledged", "dismissed", "disconnected", "reversed"})
+        Me.Status.Items.AddRange(New Object() {"active", "inactive"})
         Me.Status.Location = New System.Drawing.Point(140, 12)
         Me.Status.Name = "Status"
         Me.Status.Size = New System.Drawing.Size(164, 21)
@@ -81,7 +81,7 @@ Partial Class RemoteRelay
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents AddToMonitor As CheckBox
+    Friend WithEvents AddToMonitoring As CheckBox
     Friend WithEvents Description As Label
     Friend WithEvents Status As ComboBox
 End Class

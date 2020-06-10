@@ -1513,7 +1513,7 @@
     Public MonitoringStatus As Boolean
     Private MonitoringLock As Boolean
     Private Sub MonitoringStatusTimer_tick() Handles MonitoringStatusTimer.Tick
-        If IP.FullString() <> TempProfile.Data.PDUA.IP.FullString() And IP.FullString() <> TempProfile.Data.PDUB.IP.FullString() Then
+        If IP.FullString() <> LoginnedProfile.Data.PDUA.IP.FullString() And IP.FullString() <> LoginnedProfile.Data.PDUB.IP.FullString() Then
             MonitoringStatusTimer.Stop()
             Exit Sub
         End If

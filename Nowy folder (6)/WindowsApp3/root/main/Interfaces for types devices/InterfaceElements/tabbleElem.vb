@@ -1,141 +1,232 @@
 ﻿Public Class tabbleElem
-    Public added As Boolean = False
-    Private LastMessage As Message = New Message("", "", "")
-    Private VerifyVal As Integer = 0
-    Private Sub TabbleElem_Load(sender As Object, e As EventArgs)
+    Private Valuelink As Object
+    Sub New(input As Sensor)
+        ' Этот вызов является обязательным для конструктора.
+        InitializeComponent()
+        ' Добавить код инициализации после вызова InitializeComponent().
+        Valuelink = "/" + "MB/" + input.Type + "/"
+
+        NameText.Text = input.Description
+        CurrentText.Text = input.Value
+        StatusText.Text = input.Status
+        Dim Valuelink1 As New Customer("")
 
     End Sub
-    Private Function mySensor() As String
+    Sub New(PDU As String, input As String)
+        ' Этот вызов является обязательным для конструктора.
+        InitializeComponent()
+        ' Добавить код инициализации после вызова InitializeComponent().
+        ElementText.Text = input
+        Valuelink = "/" + PDU + "/" + input + "/"
 
-    End Function
-    Public Sub Status_change() Handles Value.TextChanged
-        If Status.Text = "no section" Then
-            NoSectionMethod()
+    End Sub
+    Sub New(PDU As String, Type As String, dev As String)
+        ' Этот вызов является обязательным для конструктора.
+        InitializeComponent()
+        ' Добавить код инициализации после вызова InitializeComponent().
+        Valuelink = "/"
+        If PDU = "PDUA" Then
+            Valuelink = Valuelink + "PDUA/"
+            If Type = "Phase1" Then
+                Valuelink = Valuelink + "Phase1/"
+                If dev = "Ampermeter1" Then
+                    NameText.Text = "Ampermeter 1"
+                    Valuelink = Valuelink + "Ampermeter1/"
+                    CurrentText.Text = Module1.PDUA.dataFile.table.Phase1.Ampermeter1.Current
+                    StatusText.Text = Module1.PDUA.dataFile.table.Phase1.Section1.message
+                End If
+                If dev = "Ampermeter2" Then
+                    Valuelink = Valuelink + "Ampermeter2/"
+                    NameText.Text = "Ampermeter 2"
+                    CurrentText.Text = Module1.PDUA.dataFile.table.Phase1.Ampermeter2.Current
+                    StatusText.Text = Module1.PDUA.dataFile.table.Phase1.Section2.message
+                End If
+            End If
+            If Type = "Phase2" Then
+                Valuelink = Valuelink + "Phase2/"
+                If dev = "Ampermeter1" Then
+                    Valuelink = Valuelink + "Ampermeter1/"
+                    NameText.Text = "Ampermeter 1"
+                    CurrentText.Text = Module1.PDUA.dataFile.table.Phase2.Ampermeter1.Current
+                    StatusText.Text = Module1.PDUA.dataFile.table.Phase2.Section1.message
+                End If
+                If dev = "Ampermeter2" Then
+                    Valuelink = Valuelink + "Ampermeter2/"
+                    NameText.Text = "Ampermeter 2"
+                    CurrentText.Text = Module1.PDUA.dataFile.table.Phase2.Ampermeter2.Current
+                    StatusText.Text = Module1.PDUA.dataFile.table.Phase2.Section2.message
+                End If
+            End If
+            If Type = "Phase3" Then
+                Valuelink = Valuelink + "Phase3/"
+                If dev = "Ampermeter1" Then
+                    Valuelink = Valuelink + "Ampermeter1/"
+                    NameText.Text = "Ampermeter 1"
+                    CurrentText.Text = Module1.PDUA.dataFile.table.Phase3.Ampermeter1.Current
+                    StatusText.Text = Module1.PDUA.dataFile.table.Phase3.Section1.message
+                End If
+                If dev = "Ampermeter2" Then
+                    Valuelink = Valuelink + "Ampermeter2/"
+                    NameText.Text = "Ampermeter 2"
+                    CurrentText.Text = Module1.PDUA.dataFile.table.Phase3.Ampermeter2.Current
+                    StatusText.Text = Module1.PDUA.dataFile.table.Phase3.Section2.message
+                End If
+            End If
+            If Type = "Termometer" Then
+                Valuelink = Valuelink + "Temperature/"
+                If dev = "Termometer1" Then
+                    Valuelink = Valuelink + "Termometer1/"
+                    NameText.Text = "Temperature"
+                    If Module1.PDUA.dataFile.table.Temp.Value.Length > 5 Then
+                        CurrentText.Text = "."
+                        StatusText.Text = Module1.PDUA.dataFile.table.Temp.Value
+                    Else
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Temp.Value
+                        StatusText.Text = ""
+                    End If
+
+                End If
+            End If
         End If
-        If Status.Text = "no sensor" Then
-            NoSectionMethod()
-        End If
-        If Status.Text.IndexOf(" A") >= 0 Then
-            NormalCurrentMethod()
+        If PDU = "PDUB" Then
+            If Type = "Phase1" Then
+                If dev = "Ampermeter1" Then
+                    Valuelink = Valuelink + "Ampermeter1/"
+                    NameText.Text = "Ampermeter 1"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Phase1.Ampermeter1.Current
+                    StatusText.Text = Module1.PDUB.dataFile.table.Phase1.Section1.message
+                End If
+                If dev = "Ampermeter2" Then
+                    Valuelink = Valuelink + "Ampermeter2/"
+                    NameText.Text = "Ampermeter 2"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Phase1.Ampermeter2.Current
+                    StatusText.Text = Module1.PDUB.dataFile.table.Phase1.Section2.message
+                End If
+            End If
+            If Type = "Phase2" Then
+                If dev = "Ampermeter1" Then
+                    Valuelink = Valuelink + "Ampermeter1/"
+                    NameText.Text = "Ampermeter 1"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Phase2.Ampermeter1.Current
+                    StatusText.Text = Module1.PDUB.dataFile.table.Phase2.Section1.message
+                End If
+                If dev = "Ampermeter2" Then
+                    Valuelink = Valuelink + "Ampermeter2/"
+                    NameText.Text = "Ampermeter 2"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Phase2.Ampermeter2.Current
+                    StatusText.Text = Module1.PDUB.dataFile.table.Phase2.Section2.message
+                End If
+            End If
+            If Type = "Phase3" Then
+                If dev = "Ampermeter1" Then
+                    Valuelink = Valuelink + "Ampermeter1/"
+                    NameText.Text = "Ampermeter 1"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Phase3.Ampermeter1.Current
+                    StatusText.Text = Module1.PDUB.dataFile.table.Phase3.Section1.message
+                End If
+                If dev = "Ampermeter2" Then
+                    Valuelink = Valuelink + "Ampermeter2/"
+                    NameText.Text = "Ampermeter 2"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Phase3.Ampermeter2.Current
+                    StatusText.Text = Module1.PDUB.dataFile.table.Phase3.Section2.message
+                End If
+            End If
+            If Type = "Termometer" Then
+                Valuelink = Valuelink + "Temperature/"
+                If dev = "Termometer1" Then
+                    Valuelink = Valuelink + "Termometer1/"
+                    NameText.Text = "Temperature"
+                    CurrentText.Text = Module1.PDUB.dataFile.table.Temp.Value
+                    StatusText.Text = Module1.PDUB.dataFile.table.Temp.Trigger
+                End If
+            End If
         End If
     End Sub
-    Private Sub NormalCurrentMethod()
-        Dim newNewmessage As Message = New Message("Message", "", SensorType.Text + " from " + Base.Text + " is in a state '" + Status.Text + "'")
-        If validationСheck() Then
-            If LastMessage.Type = "Alert" Then
-                My.Forms.Workspace.Log1.SendMessagesFunction(newNewmessage)
-            Else
-                If LastMessage.BodyMessage <> newNewmessage.BodyMessage Then
-                    My.Forms.Workspace.Log1.SendMessagesFunction(newNewmessage)
+    Private WithEvents timer As Timer = New Timer
+    Private Sub TimerTick() Handles timer.Tick
+        If Valuelink <> "" Then
+            If Valuelink.IndexOf("PDUA") >= 0 Then
+                If Valuelink.IndexOf("Phase1") >= 0 Then
+                    If Valuelink = "/PDUA/Phase1/" Then
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase1.Section1.Status
+                    End If
+                    If Valuelink.IndexOf("Ampermeter1") >= 0 Then
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Phase1.Ampermeter1.Current
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase1.Section1.message
+                    End If
+                    If Valuelink.IndexOf("Ampermeter2") >= 0 Then
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Phase1.Ampermeter2.Current
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase1.Section2.message
+                    End If
+                End If
+                If Valuelink.IndexOf("Phase2") >= 0 Then
+                    If Valuelink = "/PDUA/Phase2/" Then
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase2.Section1.Status
+                    End If
+                    If Valuelink.IndexOf("Ampermeter1") >= 0 Then
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Phase2.Ampermeter1.Current
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase2.Section1.message
+                    End If
+                    If Valuelink.IndexOf("Ampermeter2") >= 0 Then
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Phase2.Ampermeter2.Current
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase2.Section2.message
+                    End If
+                End If
+                If Valuelink.IndexOf("Phase3") >= 0 Then
+                    If Valuelink = "/PDUA/Phase3/" Then
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase3.Section1.Status
+                    End If
+                    If Valuelink.IndexOf("Ampermeter1") >= 0 Then
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Phase3.Ampermeter1.Current
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase3.Section1.message
+                    End If
+                    If Valuelink.IndexOf("Ampermeter2") >= 0 Then
+                        CurrentText.Text = Module1.PDUA.dataFile.table.Phase3.Ampermeter2.Current
+                        StatusText.Text = Module1.PDUA.dataFile.table.Phase3.Section2.message
+                    End If
                 End If
             End If
-            LastMessage = newNewmessage
+            If Valuelink.IndexOf("PDUB") >= 0 Then
+                If Valuelink.IndexOf("Phase1") >= 0 Then
+                    If Valuelink.IndexOf("Ampermeter1") >= 0 Then
+
+                    End If
+                    If Valuelink.IndexOf("Ampermeter2") >= 0 Then
+
+                    End If
+                End If
+                If Valuelink.IndexOf("Phase2") >= 0 Then
+                    If Valuelink.IndexOf("Ampermeter1") >= 0 Then
+
+                    End If
+                    If Valuelink.IndexOf("Ampermeter2") >= 0 Then
+
+                    End If
+                End If
+                If Valuelink.IndexOf("Phase3") >= 0 Then
+                    If Valuelink.IndexOf("Ampermeter1") >= 0 Then
+
+                    End If
+                    If Valuelink.IndexOf("Ampermeter2") >= 0 Then
+
+                    End If
+                End If
+            End If
         End If
 
-        VerifyVal = 0
+        If My.Forms.Workspace.MonitoringPage.Visible = False Then
+            timer.Stop()
+        End If
+        If Me.Visible = False Then
+            timer.Stop()
+        End If
     End Sub
-    Private Sub NoSectionMethod()
-        If validationСheck() Then
-            Dim newNewmessage As Message = New Message("Alert", "", SensorType.Text + " from " + Base.Text + " is in a state '" + Status.Text + "'")
-            If LastMessage.BodyMessage = newNewmessage.BodyMessage Then
-                If My.Forms.Workspace.AllertConfig1.ResendValue > 0 And My.Forms.Workspace.AllertConfig1.ResendValue <> VerifyVal And My.Forms.Workspace.AllertConfig1.CheckBox1.Checked Then
-                    My.Forms.Workspace.Log1.SendMessagesFunction(LastMessage)
-                End If
-            Else
-                My.Forms.Workspace.Log1.SendMessagesFunction(newNewmessage)
-            End If
-            LastMessage = newNewmessage
+    Private Sub Visible_Changed() Handles MyBase.VisibleChanged
+        If Me.Visible Then
+            timer.Interval = 2000
+            timer.Start()
+        Else
+            timer.Stop()
         End If
-
-        VerifyVal = My.Forms.Workspace.AllertConfig1.ResendValue
-    End Sub
-    Private Function validationСheck() As Boolean
-        If MyClass.Name = "Ampermeter1Table" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.Ampermeter1L Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.Ampermeter1L Then
-                    Return True
-                End If
-            End If
-        End If
-        If MyClass.Name = "Ampermeter2Table" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.Ampermeter2L Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.Ampermeter2L Then
-                    Return True
-                End If
-            End If
-        End If
-        If MyClass.Name = "Ampermeter3Table" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.Ampermeter3L Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.Ampermeter3L Then
-                    Return True
-                End If
-            End If
-        End If
-        If MyClass.Name = "Ampermeter4Table" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.Ampermeter4L Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.Ampermeter4L Then
-                    Return True
-                End If
-            End If
-        End If
-        If MyClass.Name = "Ampermeter5Table" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.Ampermeter5L Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.Ampermeter5L Then
-                    Return True
-                End If
-            End If
-        End If
-        If MyClass.Name = "Ampermeter6Table" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.Ampermeter6L Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.Ampermeter6L Then
-                    Return True
-                End If
-            End If
-        End If
-        If MyClass.Name = "TemperatureTable" Then
-            If MyClass.Base.Text = "PDU A" Then
-                If User.TempProfile.Data.PDUA.SensorList.LogCard.TermometerL Then
-                    Return True
-                End If
-            End If
-            If MyClass.Base.Text = "PDU B" Then
-                If User.TempProfile.Data.PDUB.SensorList.LogCard.TermometerL Then
-                    Return True
-                End If
-            End If
-        End If
-    End Function
-    Private Sub Status_change(sender As Object, e As EventArgs) Handles Status.BackColorChanged
-
     End Sub
 End Class

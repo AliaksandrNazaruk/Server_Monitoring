@@ -179,10 +179,28 @@
     <Compile Include="Modules\EnviromuxModule\Sensors\OutRelayPage.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\Aux2SensorControlPanel.Designer.vb">
+      <DependentUpon>Aux2SensorControlPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\Aux2SensorControlPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\AuxSensorControlPanel.Designer.vb">
       <DependentUpon>AuxSensorControlPanel.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\AuxSensorControlPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\ExtSensorPanel.Designer.vb">
+      <DependentUpon>ExtSensorPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\ExtSensorPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteInputPanel.Designer.vb">
+      <DependentUpon>RemoteInputPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteInputPanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteRelay.Designer.vb">
@@ -197,7 +215,7 @@
     <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\SensorControlPanelType1.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Modules\Classes.vb" />
+    <Compile Include="Classes\Classes.vb" />
     <Compile Include="Modules\EnviromuxModule\Sensors\aux2SensorPage.Designer.vb">
       <DependentUpon>aux2SensorPage.vb</DependentUpon>
     </Compile>
@@ -256,6 +274,12 @@
       <DependentUpon>SmokeDetector.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\SmokeDetector.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\TacSensorPanel.Designer.vb">
+      <DependentUpon>TacSensorPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EnviromuxModule\Sensors\sensornsElements\TacSensorPanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\ListwaModule\PDUSensors.Designer.vb">
@@ -320,22 +344,16 @@
     <Compile Include="Modules\EnviromuxModule\Sensors\RemoteRelaysPage.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForPDU.Designer.vb">
-      <DependentUpon>TableForPDU.vb</DependentUpon>
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\Table%28New%29.Designer.vb">
+      <DependentUpon>Table%28New%29.vb</DependentUpon>
     </Compile>
-    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForPDU.vb">
+    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\Table%28New%29.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableHead.Designer.vb">
       <DependentUpon>TableHead.vb</DependentUpon>
     </Compile>
     <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableHead.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForMB.Designer.vb">
-      <DependentUpon>TableForMB.vb</DependentUpon>
-    </Compile>
-    <Compile Include="root\main\Interfaces for types devices\InterfaceElements\TableForMB.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="root\main\Interfaces for types devices\InterfaceElements\AlertTable.Designer.vb">
@@ -354,6 +372,12 @@
       <DependentUpon>EnviromuxUserConnectionData.vb</DependentUpon>
     </Compile>
     <Compile Include="root\main\Pages\EnviromuxUserConnectionData.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="root\main\Pages\MonitoringPage.Designer.vb">
+      <DependentUpon>MonitoringPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="root\main\Pages\MonitoringPage.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="root\main\Pages\PDUGeneralSetting.Designer.vb">
@@ -455,12 +479,6 @@
     <Compile Include="root\main\Pages\UserConfigPage.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="root\main\Pages\MonitoringPage.Designer.vb">
-      <DependentUpon>MonitoringPage.vb</DependentUpon>
-    </Compile>
-    <Compile Include="root\main\Pages\MonitoringPage.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="root\main\Pages\AlertConfigPage.Designer.vb">
       <DependentUpon>AlertConfigPage.vb</DependentUpon>
     </Compile>
@@ -519,8 +537,17 @@
     <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\OutRelayPage.resx">
       <DependentUpon>OutRelayPage.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\Aux2SensorControlPanel.resx">
+      <DependentUpon>Aux2SensorControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\AuxSensorControlPanel.resx">
       <DependentUpon>AuxSensorControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\ExtSensorPanel.resx">
+      <DependentUpon>ExtSensorPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteInputPanel.resx">
+      <DependentUpon>RemoteInputPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\RemoteRelay.resx">
       <DependentUpon>RemoteRelay.vb</DependentUpon>
@@ -555,6 +582,9 @@
     <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\SmokeDetector.resx">
       <DependentUpon>SmokeDetector.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\sensornsElements\TacSensorPanel.resx">
+      <DependentUpon>TacSensorPanel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\ListwaModule\PDUSensors.resx">
       <DependentUpon>PDUSensors.vb</DependentUpon>
     </EmbeddedResource>
@@ -587,14 +617,11 @@
     <EmbeddedResource Include="Modules\EnviromuxModule\Sensors\RemoteRelaysPage.resx">
       <DependentUpon>RemoteRelaysPage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\TableForPDU.resx">
-      <DependentUpon>TableForPDU.vb</DependentUpon>
+    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\Table%28New%29.resx">
+      <DependentUpon>Table%28New%29.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\TableHead.resx">
       <DependentUpon>TableHead.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\TableForMB.resx">
-      <DependentUpon>TableForMB.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\AlertTable.resx">
       <DependentUpon>AlertTable.vb</DependentUpon>
@@ -604,6 +631,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="root\main\Pages\EnviromuxUserConnectionData.resx">
       <DependentUpon>EnviromuxUserConnectionData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="root\main\Pages\MonitoringPage.resx">
+      <DependentUpon>MonitoringPage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="root\main\Pages\PDUGeneralSetting.resx">
       <DependentUpon>PDUGeneralSetting.vb</DependentUpon>
@@ -652,9 +682,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="root\main\Pages\UserConfigPage.resx">
       <DependentUpon>UserConfigPage.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="root\main\Pages\MonitoringPage.resx">
-      <DependentUpon>MonitoringPage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="root\main\Interfaces for types devices\InterfaceElements\InfoPanel.resx">
       <DependentUpon>InfoPanel.vb</DependentUpon>
@@ -747,6 +774,8 @@
     <None Include="Resources\EnviromuxUniversalTable1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\GeneralHead%28TableElem%29.png" />
+    <None Include="Resources\Head%28TableElem%29.png" />
     <None Include="Resources\Nowy obraz mapy bitowej.bmp" />
     <None Include="Resources\RefreshM_move.png" />
     <None Include="Resources\RefreshM_click.png" />

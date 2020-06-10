@@ -30,13 +30,11 @@ Partial Class SensorControlPanelType1
         '
         'GroupBox
         '
-        Me.GroupBox.AutoSize = True
-        Me.GroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox.Controls.Add(Me.AddToMonitoring)
         Me.GroupBox.Controls.Add(Me.Scale1)
         Me.GroupBox.Location = New System.Drawing.Point(5, 0)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(842, 141)
+        Me.GroupBox.Size = New System.Drawing.Size(842, 123)
         Me.GroupBox.TabIndex = 160
         Me.GroupBox.TabStop = False
         '
@@ -61,15 +59,12 @@ Partial Class SensorControlPanelType1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Controls.Add(Me.GroupBox)
         Me.Name = "SensorControlPanelType1"
-        Me.Size = New System.Drawing.Size(850, 144)
+        Me.Size = New System.Drawing.Size(850, 127)
         Me.GroupBox.ResumeLayout(False)
         Me.GroupBox.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox As GroupBox

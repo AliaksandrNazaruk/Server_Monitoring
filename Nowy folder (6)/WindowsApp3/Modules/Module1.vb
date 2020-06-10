@@ -7,7 +7,7 @@ Module Module1
         Public WithEvents DevInterface As DeviceInterface = New DeviceInterface(False)
         Public Sub DevInterface_changed(e As Boolean) Handles DevInterface.UnlockChanged
             If DevInterface._unlock Then
-                ThisDevicePage.VisibleInterface(TempProfile.AdminMode)
+                ThisDevicePage.VisibleInterface(LoginnedProfile.AdminMode)
             Else
                 ThisDevicePage.UnvisibleInterface()
             End If

@@ -1,4 +1,5 @@
-﻿Public Class DeviceInterface
+﻿
+Public Class DeviceInterface
     Public _unlock As Boolean
     Public Event UnlockChanged(e As Boolean)
 
@@ -11,573 +12,6 @@
     End Sub
 End Class
 
-
-Public Class UserProfile
-    Sub New(adm As Boolean, opr As Boolean, NameUser As String, PasswordUser As String)
-        AdminMode = adm '
-        OperatorMode = opr '
-        Login = NameUser '
-        Password = PasswordUser '
-    End Sub
-
-    '//General Data
-    Public AdminMode As Boolean
-    Public OperatorMode As Boolean
-    Public Login As String
-    Public Password As String
-    Public Data As DevicesDataFile = New DevicesDataFile
-
-    '//Allert Configuration Settings
-    Public AlertMessageSwitch As Boolean
-    Public AnimatedAlertSwitch As Boolean
-    Public SoundAlertSwitch As Boolean
-    Public SendMessageToEmailSwitch As Boolean
-    Public TestModeSwitch As Boolean
-
-    '//User Configuration Settings
-    Public Title As String '
-    Public Departament As String '
-    Public Company As String '
-    Public Email As String '
-    Public SMSNumber As String '
-    Public Location As String '
-
-    '//Log Configuration Setting
-    Public Log As LogBank = New LogBank
-    Public Sub clear()
-        AdminMode = False
-        OperatorMode = False
-        Login = ""
-        Password = ""
-        Data = New DevicesDataFile
-        AlertMessageSwitch = False
-        AnimatedAlertSwitch = False
-        SoundAlertSwitch = False
-        SendMessageToEmailSwitch = False
-        TestModeSwitch = False
-        Title = ""
-        Departament = ""
-        Company = ""
-        Email = ""
-        SMSNumber = ""
-        Location = ""
-    End Sub
-    Public Function Save() As Boolean
-
-        If Login IsNot Nothing Then
-            If Password IsNot Nothing Then
-                '//General and Admin Settings
-                If My.Forms.UserEditForm.Visible Then
-                    AdminMode = My.Forms.UserEditForm.AddNewUserPanel1.adminChecker.Checked
-                    OperatorMode = My.Forms.UserEditForm.AddNewUserPanel1.OperatorChecker.Checked
-                    Title = My.Forms.UserEditForm.AddNewUserPanel1.TittleInput.Text
-                    Departament = My.Forms.UserEditForm.AddNewUserPanel1.DepInput.Text
-                    Company = My.Forms.UserEditForm.AddNewUserPanel1.CompanyInput.Text
-                    Email = My.Forms.UserEditForm.AddNewUserPanel1.EmailInput.Text
-                    SMSNumber = My.Forms.UserEditForm.AddNewUserPanel1.PhoneInput.Text
-                Else
-                End If
-                '//Allert Configuration Settings
-                AlertMessageSwitch = My.Forms.Workspace.AllertConfig1.AllertMessageSwitch.Checked
-                AnimatedAlertSwitch = My.Forms.Workspace.AllertConfig1.AnimatedAlertSwitch.Checked
-                SoundAlertSwitch = My.Forms.Workspace.AllertConfig1.SoundAlertSwitch.Checked
-                SendMessageToEmailSwitch = My.Forms.Workspace.AllertConfig1.SendMessageToEmailSwitch.Checked
-                TestModeSwitch = My.Forms.Workspace.AllertConfig1.TestModeSwitch.Checked
-
-                If MonitoringBase.connectToDevice IsNot Nothing Then
-                    If MonitoringBase.connectToDevice.SNMPConnection IsNot Nothing Then
-                        If MonitoringBase.connectToDevice.SNMPConnection.IP IsNot Nothing Then
-                            Data.MB.IP = MonitoringBase.connectToDevice.SNMPConnection.IP
-                            Data.MB.Login = MonitoringBase.connectToDevice.SNMPConnection.LOGIN
-                            Data.MB.RememberCheckBOx = My.Forms.Workspace.SensorsConfig1.EnviromuxUserConnectionData1.Remember.Checked
-                            'Data.MB.SensorList = My.Forms.Workspace._Listwa1.SensorMap
-                        End If
-                    End If
-                End If
-
-                If PDUA.connectToDevice IsNot Nothing Then
-                    If PDUA.connectToDevice.WebConnection IsNot Nothing Then
-                        If PDUA.connectToDevice.WebConnection.IP IsNot Nothing Then
-                            Data.PDUA.IP = PDUA.connectToDevice.WebConnection.IP
-                            Data.PDUA.Password = PDUA.connectToDevice.WebConnection.PASS
-                            Data.PDUA.RememberCheckBOx = My.Forms.Workspace._Listwa1.PduUserConnectionData1.Remember.Checked
-                            Data.PDUA.port = PDUA.connectToDevice.WebConnection.PORT
-                            Data.PDUA.LocAddrCheckBox = My.Forms.Workspace._Listwa1.PduUserConnectionData1.LocAddrCheckBox.Checked
-                            Data.PDUA.SensorList.MonitoringCard.Ampermeter1M = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter1Monitoring.Checked
-                            Data.PDUA.SensorList.MonitoringCard.Ampermeter2M = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter2Monitoring.Checked
-                            Data.PDUA.SensorList.MonitoringCard.Ampermeter3M = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter3Monitoring.Checked
-                            Data.PDUA.SensorList.MonitoringCard.Ampermeter4M = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter4Monitoring.Checked
-                            Data.PDUA.SensorList.MonitoringCard.Ampermeter5M = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter5Monitoring.Checked
-                            Data.PDUA.SensorList.MonitoringCard.Ampermeter6M = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter6Monitoring.Checked
-                            Data.PDUA.SensorList.MonitoringCard.TermometerM = My.Forms.Workspace._Listwa1.PduSensorsSetting1.TemperatureMonitor.Checked
-                            Data.PDUA.SensorList.LogCard.Ampermeter1L = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter1Log.Checked
-                            Data.PDUA.SensorList.LogCard.Ampermeter2L = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter2Log.Checked
-                            Data.PDUA.SensorList.LogCard.Ampermeter3L = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter3Log.Checked
-                            Data.PDUA.SensorList.LogCard.Ampermeter4L = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter4Log.Checked
-                            Data.PDUA.SensorList.LogCard.Ampermeter5L = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter5Log.Checked
-                            Data.PDUA.SensorList.LogCard.Ampermeter6L = My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter6Log.Checked
-                            Data.PDUA.SensorList.LogCard.TermometerL = My.Forms.Workspace._Listwa1.PduSensorsSetting1.TemperatureLog.Checked
-                        End If
-                    End If
-                End If
-
-                If PDUB.connectToDevice IsNot Nothing Then
-                    If PDUA.connectToDevice.WebConnection IsNot Nothing Then
-                        If PDUA.connectToDevice.WebConnection.IP IsNot Nothing Then
-                            Data.PDUB.IP = PDUB.connectToDevice.WebConnection.IP
-                            Data.PDUB.Password = PDUB.connectToDevice.WebConnection.PASS
-                            Data.PDUB.RememberCheckBOx = My.Forms.Workspace._Listwa2.PduUserConnectionData1.Remember.Checked
-                            Data.PDUB.port = PDUB.connectToDevice.WebConnection.PORT
-                            Data.PDUB.LocAddrCheckBox = My.Forms.Workspace._Listwa1.PduUserConnectionData1.LocAddrCheckBox.Checked
-                            Data.PDUB.SensorList.MonitoringCard.Ampermeter1M = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter1Monitoring.Checked
-                            Data.PDUB.SensorList.MonitoringCard.Ampermeter2M = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter2Monitoring.Checked
-                            Data.PDUB.SensorList.MonitoringCard.Ampermeter3M = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter3Monitoring.Checked
-                            Data.PDUB.SensorList.MonitoringCard.Ampermeter4M = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter4Monitoring.Checked
-                            Data.PDUB.SensorList.MonitoringCard.Ampermeter5M = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter5Monitoring.Checked
-                            Data.PDUB.SensorList.MonitoringCard.Ampermeter6M = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter6Monitoring.Checked
-                            Data.PDUB.SensorList.MonitoringCard.TermometerM = My.Forms.Workspace._Listwa2.PduSensorsSetting1.TemperatureMonitor.Checked
-                            Data.PDUB.SensorList.LogCard.Ampermeter1L = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter1Log.Checked
-                            Data.PDUB.SensorList.LogCard.Ampermeter2L = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter2Log.Checked
-                            Data.PDUB.SensorList.LogCard.Ampermeter3L = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter3Log.Checked
-                            Data.PDUB.SensorList.LogCard.Ampermeter4L = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter4Log.Checked
-                            Data.PDUB.SensorList.LogCard.Ampermeter5L = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter5Log.Checked
-                            Data.PDUB.SensorList.LogCard.Ampermeter6L = My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter6Log.Checked
-                            Data.PDUB.SensorList.LogCard.TermometerL = My.Forms.Workspace._Listwa2.PduSensorsSetting1.TemperatureLog.Checked
-                        End If
-                    End If
-                End If
-
-
-                'LOG!!!!!!!!!!!!!!!!!!!
-                '!!!!!!!!!!!!!!!!!!!!!!
-                '!!!!!!!!!!!!!!!!!!!!!!
-
-                SaveProfileToFile()
-                TempProfile.Synchronization()
-                Return True
-            End If
-        End If
-        Return False
-
-
-    End Function
-
-    Public Function Load() As Boolean
-        If System.IO.File.Exists(My.Application.Info.DirectoryPath + "\" + User.TempProfile.Login + "ProfileFile.txt") Then
-            'Загружаем данные из файла во временную память настроек пользователя программы
-            Dim Buf = System.IO.File.ReadAllText(My.Application.Info.DirectoryPath + "\" + User.TempProfile.Login + "ProfileFile.txt")
-            AdminMode = GetDataBool(Buf, "AdminMode")
-            OperatorMode = GetDataBool(Buf, "OperatorMode")
-            Login = GetDataStr(Buf, "Login")
-            Password = GetDataStr(Buf, "Password")
-            Location = GetDataStr(Buf, "Location")
-            Title = GetDataStr(Buf, "Title")
-            Departament = GetDataStr(Buf, "Departament")
-            Company = GetDataStr(Buf, "Company")
-            Email = GetDataStr(Buf, "Email")
-            SMSNumber = GetDataStr(Buf, "SMSNumber")
-            AlertMessageSwitch = GetDataBool(Buf, "AlertMessageSwitch")
-            AnimatedAlertSwitch = GetDataBool(Buf, "AnimatedAlertSwitch")
-            SoundAlertSwitch = GetDataBool(Buf, "SoundAlertSwitch")
-            SendMessageToEmailSwitch = GetDataBool(Buf, "SendMessageToEmailSwitch")
-            TestModeSwitch = GetDataBool(Buf, "TestModeSwitch")
-
-            Data.MB.IP = GetDataIP(Buf, "MonitoringBaseIP")
-            Data.MB.Login = GetDataStr(Buf, "MonitoringBaseLogin")
-            Data.MB.Password = GetDataStr(Buf, "MonitoringBasePassword")
-            Data.MB.RememberCheckBOx = GetDataBool(Buf, "MonitoringBaseRememberCheckBOx")
-            Data.MB.SensorList = GetDataSensorMap(Buf, "MonitoringBaseSensorMap", "MB")
-
-            Data.PDUA.IP = GetDataIP(Buf, "PDUAIP")
-            Data.PDUA.Login = GetDataStr(Buf, "PDUALogin")
-            Data.PDUA.Password = GetDataStr(Buf, "PDUAPassword")
-            Data.PDUA.port = GetDataStr(Buf, "PDUAPort")
-            Data.PDUA.LocAddrCheckBox = GetDataBool(Buf, "PDUALocAddrCheckBox")
-            Data.PDUA.RememberCheckBOx = GetDataBool(Buf, "PDUARememberCheckBOx")
-            Data.PDUA.SensorList = GetDataSensorMap(Buf, "PDUASensorMap", "PDU")
-
-            Data.PDUB.IP = GetDataIP(Buf, "PDUBIP")
-            Data.PDUB.Login = GetDataStr(Buf, "PDUBLogin")
-            Data.PDUB.Password = GetDataStr(Buf, "PDUBPassword")
-            Data.PDUB.port = GetDataStr(Buf, "PDUBPort")
-            Data.PDUB.LocAddrCheckBox = GetDataBool(Buf, "PDUBLocAddrCheckBox")
-            Data.PDUB.RememberCheckBOx = GetDataBool(Buf, "PDUBRememberCheckBOx")
-            Data.PDUB.SensorList = GetDataSensorMap(Buf, "PDUBSensorMap", "PDU")
-            Return True
-        Else
-
-        End If
-        Return False
-    End Function
-    Public Function Load(adr As String) As Boolean
-        If System.IO.File.Exists(adr) Then
-            'Загружаем данные из файла во временную память настроек пользователя программы
-            Dim Buf = System.IO.File.ReadAllText(adr)
-            AdminMode = GetDataBool(Buf, "AdminMode")
-            OperatorMode = GetDataBool(Buf, "OperatorMode")
-            Login = GetDataStr(Buf, "Login")
-            Password = GetDataStr(Buf, "Password")
-            Title = GetDataStr(Buf, "Title")
-            Departament = GetDataStr(Buf, "Departament")
-            Company = GetDataStr(Buf, "Company")
-            Email = GetDataStr(Buf, "Email")
-            SMSNumber = GetDataStr(Buf, "SMSNumber")
-            AlertMessageSwitch = GetDataBool(Buf, "AlertMessageSwitch")
-            AnimatedAlertSwitch = GetDataBool(Buf, "AnimatedAlertSwitch")
-            SoundAlertSwitch = GetDataBool(Buf, "SoundAlertSwitch")
-            SendMessageToEmailSwitch = GetDataBool(Buf, "SendMessageToEmailSwitch")
-            TestModeSwitch = GetDataBool(Buf, "TestModeSwitch")
-
-            Data.MB.IP = GetDataIP(Buf, "MonitoringBaseIP")
-            Data.MB.Login = GetDataStr(Buf, "MonitoringBaseLogin")
-            Data.MB.Password = GetDataStr(Buf, "MonitoringBasePassword")
-            Data.MB.RememberCheckBOx = GetDataBool(Buf, "MonitoringBaseRememberCheckBOx")
-            Data.MB.SensorList = GetDataSensorMap(Buf, "MonitoringBaseSensorMap", "MB")
-
-            Data.PDUA.IP = GetDataIP(Buf, "PDUAIP")
-            Data.PDUA.Login = GetDataStr(Buf, "PDUALogin")
-            Data.PDUA.Password = GetDataStr(Buf, "PDUAPassword")
-            Data.PDUA.port = GetDataStr(Buf, "PDUAPort")
-            Data.PDUA.LocAddrCheckBox = GetDataBool(Buf, "PDUALocAddrCheckBox")
-            Data.PDUA.RememberCheckBOx = GetDataBool(Buf, "PDUARememberCheckBOx")
-            Data.PDUA.SensorList = GetDataSensorMap(Buf, "PDUASensorMap", "PDU")
-
-            Data.PDUB.IP = GetDataIP(Buf, "PDUBIP")
-            Data.PDUB.Login = GetDataStr(Buf, "PDUBLogin")
-            Data.PDUB.Password = GetDataStr(Buf, "PDUBPassword")
-            Data.PDUB.port = GetDataStr(Buf, "PDUBPort")
-            Data.PDUB.LocAddrCheckBox = GetDataBool(Buf, "PDUBLocAddrCheckBox")
-            Data.PDUB.RememberCheckBOx = GetDataBool(Buf, "PDUBRememberCheckBOx")
-            Data.PDUB.SensorList = GetDataSensorMap(Buf, "PDUBSensorMap", "PDU")
-            Return True
-        Else
-
-        End If
-        Return False
-    End Function
-    Private Function GetDataBool(inpDataFile As String, NameParameter As String) As Boolean
-        Dim indexValParam As Integer = inpDataFile.IndexOf(NameParameter) + NameParameter.Length + 1
-        Dim ret As String = ""
-        For i As Integer = indexValParam To inpDataFile.Length
-            If inpDataFile(i) = "]" Or inpDataFile(i) = "}" Then
-                Exit For
-            End If
-            ret = ret + inpDataFile(i)
-        Next
-        If ret = "True" Then
-            Return True
-        End If
-        Return False
-    End Function
-    Private Function GetDataIP(inpDataFile As String, NameParameter As String) As IPaddress
-        Dim indexValParam As Integer = inpDataFile.IndexOf(NameParameter) + NameParameter.Length + 1
-        Dim buf As String = ""
-        Dim arg1 As String = ""
-        Dim arg2 As String = ""
-        Dim arg3 As String = ""
-        Dim arg4 As String = ""
-        For i As Integer = indexValParam To inpDataFile.Length - 1
-            If inpDataFile(i) = "}" Or inpDataFile(i) = "]" Then
-                Exit For
-            End If
-            If inpDataFile(i) = "[" Then
-                Continue For
-            End If
-            arg1 = arg1 + inpDataFile(i)
-        Next
-        For i As Integer = indexValParam + arg1.Length + 2 To inpDataFile.Length - 1
-            If inpDataFile(i) = "}" Or inpDataFile(i) = "]" Then
-                Exit For
-            End If
-            If inpDataFile(i) = "[" Then
-                Continue For
-            End If
-            arg2 = arg2 + inpDataFile(i)
-        Next
-        For i As Integer = indexValParam + arg1.Length + arg2.Length + 4 To inpDataFile.Length - 1
-            If inpDataFile(i) = "}" Or inpDataFile(i) = "]" Then
-                Exit For
-            End If
-            If inpDataFile(i) = "[" Then
-                Continue For
-            End If
-            arg3 = arg3 + inpDataFile(i)
-        Next
-        For i As Integer = indexValParam + arg1.Length + arg2.Length + arg3.Length + 6 To inpDataFile.Length - 1
-            If inpDataFile(i) = "}" Or inpDataFile(i) = "]" Then
-                Exit For
-            End If
-            If inpDataFile(i) = "[" Then
-                Continue For
-            End If
-            arg4 = arg4 + inpDataFile(i)
-        Next
-        If arg1 = "" And arg2 = "" And arg3 = "" And arg4 = "" Then
-            Return New IPaddress(0, 0, 0, 0)
-        End If
-        Return New IPaddress(Convert.ToInt16(arg1), Convert.ToInt16(arg2), Convert.ToInt16(arg3), Convert.ToInt16(arg4))
-    End Function
-    Private Function GetDataStr(inpDataFile As String, NameParameter As String) As String
-        Dim indexValParam As Integer = inpDataFile.IndexOf(NameParameter) + NameParameter.Length + 1
-        Dim ret As String = ""
-        If indexValParam = NameParameter.Length Then
-            Return ""
-        End If
-        For i As Integer = indexValParam To inpDataFile.Length
-
-            If inpDataFile(i) = "]" Or inpDataFile(i) = "}" Then
-                Exit For
-            End If
-            ret = ret + inpDataFile(i)
-        Next
-        If ret.Length >= 1 Then
-            Return ret
-        End If
-        Return ""
-    End Function
-    Private Function GetDataSensorMap(inpDataFile As String, NameParameter As String, typeDevice As String) As SensorMap
-        Dim ret As SensorMap = New SensorMap
-        Dim indexValParam As Double = inpDataFile.IndexOf(NameParameter) + NameParameter.Length + 1
-        Dim buf As String = ""
-        For i As Integer = indexValParam To inpDataFile.Length - 1
-            If inpDataFile(i) = "}" Then
-                Exit For
-            End If
-            buf = buf + inpDataFile(i)
-        Next
-        If buf = "" Then
-            Return ret
-        End If
-        If typeDevice = "MB" Then
-
-        End If
-        If typeDevice = "PDU" Then
-            ret.MonitoringCard.Ampermeter1M = getValueDataStr(buf, "Ampermeter1")
-            ret.MonitoringCard.Ampermeter2M = getValueDataStr(buf, "Ampermeter2")
-            ret.MonitoringCard.Ampermeter3M = getValueDataStr(buf, "Ampermeter3")
-            ret.MonitoringCard.Ampermeter4M = getValueDataStr(buf, "Ampermeter4")
-            ret.MonitoringCard.Ampermeter5M = getValueDataStr(buf, "Ampermeter5")
-            ret.MonitoringCard.Ampermeter6M = getValueDataStr(buf, "Ampermeter6")
-            ret.MonitoringCard.TermometerM = getValueDataStr(buf, "TemperatureMonitor")
-            ret.LogCard.Ampermeter1L = getValueDataStr(buf, "Log1")
-            ret.LogCard.Ampermeter2L = getValueDataStr(buf, "Log2")
-            ret.LogCard.Ampermeter3L = getValueDataStr(buf, "Log3")
-            ret.LogCard.Ampermeter4L = getValueDataStr(buf, "Log4")
-            ret.LogCard.Ampermeter5L = getValueDataStr(buf, "Log5")
-            ret.LogCard.Ampermeter6L = getValueDataStr(buf, "Log6")
-            ret.LogCard.TermometerL = getValueDataStr(buf, "TemperatureLog")
-        End If
-        Return ret
-    End Function
-    Private Function getValueDataStr(buf As String, param As String) As String
-        Dim ret As String = ""
-        Dim IndexParamVal As Integer = buf.IndexOf(param) + param.Length + 1
-        For i As Integer = IndexParamVal To buf.Length - 1
-            If buf(i) = "]" Then
-                Exit For
-            ElseIf buf(i) = "[" Then
-                Continue For
-            ElseIf buf(i) = vbCr Then
-                Continue For
-            ElseIf buf(i) = vbLf Then
-                Continue For
-            Else
-                ret = ret + buf(i)
-            End If
-        Next
-        Return ret
-    End Function
-    Public Sub SaveProfileToFile()
-        If System.IO.File.Exists(My.Application.Info.DirectoryPath + "\" + Login + "ProfileFile.txt") Then
-        Else
-            Dim fs As System.IO.FileStream = System.IO.File.Create(My.Application.Info.DirectoryPath + "\" + Login + "ProfileFile.txt")
-            fs.Close()
-        End If
-        System.IO.File.WriteAllText(My.Application.Info.DirectoryPath + "\" + Login + "ProfileFile.txt", GenerateDataFile())
-    End Sub
-    Private Function GenerateDataFile() As String
-        Dim MBFile As String = ""
-        Dim PDUAFile As String = ""
-        Dim PDUBFile As String = ""
-        Dim file As String = "AdminMode" + "{" + AdminMode.ToString + "}" & vbCrLf +
-                             "OperatorMode" + "{" + OperatorMode.ToString + "}" & vbCrLf +
-                             "Login" + "{" + Login.ToString + "}" & vbCrLf +
-                             "Password" + "{" + Password.ToString + "}" & vbCrLf +
-                             "Location" + "{" + Location.ToString + "}" & vbCrLf +
-                             "Title" + "{" + Title.ToString + "}" & vbCrLf +
-                             "Departament" + "{" + Departament.ToString + "}" & vbCrLf +
-                             "Company" + "{" + Company.ToString + "}" & vbCrLf +
-                             "Email" + "{" + Email.ToString + "}" & vbCrLf +
-                             "SMSNumber" + "{" + SMSNumber.ToString + "}" & vbCrLf +
-                             "AlertMessageSwitch" + "{" + AlertMessageSwitch.ToString + "}" & vbCrLf +
-                             "AnimatedAlertSwitch" + "{" + AnimatedAlertSwitch.ToString + "}" & vbCrLf +
-                             "SoundAlertSwitch" + "{" + SoundAlertSwitch.ToString + "}" & vbCrLf +
-                             "SendMessageToEmailSwitch" + "{" + SendMessageToEmailSwitch.ToString + "}" & vbCrLf +
-                             "TestModeSwitch" + "{" + TestModeSwitch.ToString + "}" & vbCrLf
-        If Data.MB.RememberCheckBOx Then
-            MBFile =
-            "MonitoringBaseIP" + "{" + "[" + Data.MB.IP.Arg1.ToString + "]" + "[" + Data.MB.IP.Arg2.ToString + "]" + "[" + Data.MB.IP.Arg3.ToString + "]" + "[" + Data.MB.IP.Arg4.ToString + "]" + "}" & vbCrLf +
-            "MonitoringBaseLogin" + "{" + Data.MB.Login.ToString + "}" & vbCrLf +
-            "MonitoringBasePassword" + "{" + Data.MB.Password.ToString + "}" & vbCrLf +
-            "MonitoringBaseRememberCheckBOx" + "{" + Data.MB.RememberCheckBOx.ToString + "}" & vbCrLf +
-            "MonitoringBaseSensorMap" + "{" + SensorMapTostring(Data.MB.SensorList, "MB") + "}" & vbCrLf
-        Else
-            MBFile =
-            "MonitoringBaseIP" + "{" + "[0]" + "[0]" + "[0]" + "[0]" + "}" & vbCrLf +
-            "MonitoringBaseLogin" + "{}" & vbCrLf +
-            "MonitoringBasePassword" + "{}" & vbCrLf +
-            "MonitoringBaseRememberCheckBOx" + "{}" & vbCrLf +
-            "MonitoringBaseSensorMap" + "{" + SensorMapTostring(Data.MB.SensorList, "MB") + "}" & vbCrLf
-        End If
-        If Data.PDUA.RememberCheckBOx Then
-            PDUAFile =
-            "PDUAIP" + "{" + "[" + Data.PDUA.IP.Arg1.ToString + "]" + "[" + Data.PDUA.IP.Arg2.ToString + "]" + "[" + Data.PDUA.IP.Arg3.ToString + "]" + "[" + Data.PDUA.IP.Arg4.ToString + "]" + "}" & vbCrLf +
-            "PDUALogin" + "{" + Data.PDUA.Login.ToString + "}" & vbCrLf +
-            "PDUAPassword" + "{" + Data.PDUA.Password.ToString + "}" & vbCrLf +
-            "PDUAPort" + "{" + Data.PDUA.port.ToString + "}" & vbCrLf +
-            "PDUARememberCheckBOx" + "{" + Data.PDUA.RememberCheckBOx.ToString + "}" & vbCrLf +
-            "PDUALocAddrCheckBox" + "{" + Data.PDUA.LocAddrCheckBox.ToString + "}" & vbCrLf +
-            "PDUASensorMap" + "{" + SensorMapTostring(Data.PDUA.SensorList, "PDU") + "}" & vbCrLf
-        Else
-            PDUAFile =
-            "PDUAIP" + "{" + "[0]" + "[0]" + "[0]" + "[0]" + "}" & vbCrLf +
-            "PDUALogin" + "{}" & vbCrLf +
-            "PDUAPassword" + "{}" & vbCrLf +
-            "PDUAPort" + "{}" & vbCrLf +
-            "PDUARememberCheckBOx" + "{}" & vbCrLf +
-            "PDUALocAddrCheckBox" + "{}" & vbCrLf +
-            "PDUASensorMap" + "{" + SensorMapTostring(Data.PDUA.SensorList, "PDU") + "}" & vbCrLf
-        End If
-        If Data.PDUB.RememberCheckBOx Then
-            PDUBFile =
-            "PDUBIP" + "{" + "[" + Data.PDUB.IP.Arg1.ToString + "]" + "[" + Data.PDUB.IP.Arg2.ToString + "]" + "[" + Data.PDUB.IP.Arg3.ToString + "]" + "[" + Data.PDUB.IP.Arg4.ToString + "]" + "}" & vbCrLf +
-            "PDUBLogin" + "{" + Data.PDUB.Login.ToString + "}" & vbCrLf +
-            "PDUBPassword" + "{" + Data.PDUB.Password.ToString + "}" & vbCrLf +
-            "PDUBPort" + "{" + Data.PDUA.port.ToString + "}" & vbCrLf +
-            "PDUBLocAddrCheckBox" + "{" + Data.PDUA.LocAddrCheckBox.ToString + "}" & vbCrLf +
-            "PDUBRememberCheckBOx" + "{" + Data.PDUB.RememberCheckBOx.ToString + "}" & vbCrLf +
-            "PDUBSensorMap" + "{" + SensorMapTostring(Data.PDUB.SensorList, "PDU") + "}" & vbCrLf
-        Else
-            PDUBFile =
-            "PDUBIP" + "{" + "[0]" + "[0]" + "[0]" + "[0]" + "}" & vbCrLf +
-            "PDUBLogin" + "{}" & vbCrLf +
-            "PDUBPassword" + "{}" & vbCrLf +
-            "PDUBPort" + "{}" & vbCrLf +
-            "PDUBRememberCheckBOx" + "{}" & vbCrLf +
-            "PDUBLocAddrCheckBox" + "{}" & vbCrLf +
-            "PDUBSensorMap" + "{" + SensorMapTostring(Data.PDUB.SensorList, "PDU") + "}" & vbCrLf
-        End If
-        Return file + MBFile + PDUAFile + PDUBFile
-    End Function
-    Private Function SensorMapTostring(inputMap As SensorMap, typeDevice As String) As String
-        Dim Map As String = ""
-        If typeDevice = "MB" Then
-
-        End If
-        If typeDevice = "PDU" Then
-            Map = "Ampermeter1" + "[" + inputMap.MonitoringCard.Ampermeter1M.ToString + "]" + "Ampermeter2" + "[" + inputMap.MonitoringCard.Ampermeter2M.ToString + "]" + "Ampermeter3" + "[" + inputMap.MonitoringCard.Ampermeter3M.ToString + "]" + "Ampermeter4" + "[" + inputMap.MonitoringCard.Ampermeter4M.ToString + "]" + "Ampermeter5" + "[" + inputMap.MonitoringCard.Ampermeter5M.ToString + "]" + "Ampermeter6" + "[" + inputMap.MonitoringCard.Ampermeter6M.ToString + "]" + "TemperatureMonitor" + "[" + inputMap.MonitoringCard.TermometerM.ToString + "]" +
-                   "Log1" + "[" + inputMap.LogCard.Ampermeter1L.ToString + "]" + "Log2" + "[" + inputMap.LogCard.Ampermeter2L.ToString + "]" + "Log3" + "[" + inputMap.LogCard.Ampermeter3L.ToString + "]" + "Log4" + "[" + inputMap.LogCard.Ampermeter4L.ToString + "]" + "Log5" + "[" + inputMap.LogCard.Ampermeter5L.ToString + "]" + "Log6" + "[" + inputMap.LogCard.Ampermeter6L.ToString + "]" + "TemperatureLog" + "[" + inputMap.LogCard.TermometerL.ToString + "]"
-        End If
-        Return Map
-    End Function
-    Public Class DevicesDataFile
-        Public PDUA As DeviceData = New DeviceData
-        Public PDUB As DeviceData = New DeviceData
-        Public MB As DeviceData = New DeviceData
-
-        Public Class DeviceData
-            Public port As String = ""
-            Public Type As String = ""
-            Public IP As IPaddress = New IPaddress(0, 0, 0, 0)
-            Public Login As String = ""
-            Public Password As String = ""
-            Public RememberCheckBOx As Boolean = False
-            Public LocAddrCheckBox As Boolean = False
-            Public SensorList As SensorMap = New SensorMap
-            Public Sub clear()
-                Type = ""
-                port = ""
-                IP = New IPaddress(0, 0, 0, 0)
-                Login = ""
-                Password = ""
-                RememberCheckBOx = False
-                SensorList = New SensorMap
-            End Sub
-        End Class
-    End Class
-    Public Sub Synchronization()
-
-        'Синхронизируем загруженные данные с графическим интерфейсом программы
-
-        My.Forms.Workspace.AllertConfig1.AllertMessageSwitch.Checked = AlertMessageSwitch
-        My.Forms.Workspace.AllertConfig1.AnimatedAlertSwitch.Checked = AnimatedAlertSwitch
-        My.Forms.Workspace.AllertConfig1.SoundAlertSwitch.Checked = SoundAlertSwitch
-        My.Forms.Workspace.AllertConfig1.SendMessageToEmailSwitch.Checked = SendMessageToEmailSwitch
-        My.Forms.Workspace.AllertConfig1.TestModeSwitch.Checked = TestModeSwitch
-        My.Forms.Workspace.InfoPanel1.labLocation.Text = Location
-
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.Remember.Checked = Data.PDUA.RememberCheckBOx
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox1.Text = Data.PDUA.IP.Arg1.ToString
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox2.Text = Data.PDUA.IP.Arg2.ToString
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox3.Text = Data.PDUA.IP.Arg3.ToString
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox4.Text = Data.PDUA.IP.Arg4.ToString
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.PortBox.Text = Data.PDUA.port
-        My.Forms.Workspace._Listwa1.PduUserConnectionData1.PasswordBox.Text = Data.PDUA.Password
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter1Monitoring.Checked = Data.PDUA.SensorList.MonitoringCard.Ampermeter1M
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter2Monitoring.Checked = Data.PDUA.SensorList.MonitoringCard.Ampermeter2M
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter3Monitoring.Checked = Data.PDUA.SensorList.MonitoringCard.Ampermeter3M
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter4Monitoring.Checked = Data.PDUA.SensorList.MonitoringCard.Ampermeter4M
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter5Monitoring.Checked = Data.PDUA.SensorList.MonitoringCard.Ampermeter5M
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter6Monitoring.Checked = Data.PDUA.SensorList.MonitoringCard.Ampermeter6M
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.TemperatureMonitor.Checked = Data.PDUA.SensorList.MonitoringCard.TermometerM
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter1Log.Checked = Data.PDUA.SensorList.LogCard.Ampermeter1L
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter2Log.Checked = Data.PDUA.SensorList.LogCard.Ampermeter2L
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter3Log.Checked = Data.PDUA.SensorList.LogCard.Ampermeter3L
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter4Log.Checked = Data.PDUA.SensorList.LogCard.Ampermeter4L
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter5Log.Checked = Data.PDUA.SensorList.LogCard.Ampermeter5L
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.Ampermeter6Log.Checked = Data.PDUA.SensorList.LogCard.Ampermeter6L
-        My.Forms.Workspace._Listwa1.PduSensorsSetting1.TemperatureLog.Checked = Data.PDUA.SensorList.LogCard.TermometerL
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.Remember.Checked = Data.PDUB.RememberCheckBOx
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox1.Text = Data.PDUB.IP.Arg1.ToString
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox2.Text = Data.PDUB.IP.Arg2.ToString
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox3.Text = Data.PDUB.IP.Arg3.ToString
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.IpAddpessBox1.InpIPTextBox4.Text = Data.PDUB.IP.Arg4.ToString
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.PortBox.Text = Data.PDUB.port
-        My.Forms.Workspace._Listwa2.PduUserConnectionData1.PasswordBox.Text = Data.PDUB.Password
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter1Monitoring.Checked = Data.PDUB.SensorList.MonitoringCard.Ampermeter1M
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter2Monitoring.Checked = Data.PDUB.SensorList.MonitoringCard.Ampermeter2M
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter3Monitoring.Checked = Data.PDUB.SensorList.MonitoringCard.Ampermeter3M
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter4Monitoring.Checked = Data.PDUB.SensorList.MonitoringCard.Ampermeter4M
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter5Monitoring.Checked = Data.PDUB.SensorList.MonitoringCard.Ampermeter5M
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter6Monitoring.Checked = Data.PDUB.SensorList.MonitoringCard.Ampermeter6M
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.TemperatureMonitor.Checked = Data.PDUB.SensorList.MonitoringCard.TermometerM
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter1Log.Checked = Data.PDUB.SensorList.LogCard.Ampermeter1L
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter2Log.Checked = Data.PDUB.SensorList.LogCard.Ampermeter2L
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter3Log.Checked = Data.PDUB.SensorList.LogCard.Ampermeter3L
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter4Log.Checked = Data.PDUB.SensorList.LogCard.Ampermeter4L
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter5Log.Checked = Data.PDUB.SensorList.LogCard.Ampermeter5L
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.Ampermeter6Log.Checked = Data.PDUB.SensorList.LogCard.Ampermeter6L
-        My.Forms.Workspace._Listwa2.PduSensorsSetting1.TemperatureLog.Checked = Data.PDUB.SensorList.LogCard.TermometerL
-        ProgramMode(AdminMode)
-    End Sub
-    Public Sub ProgramMode(input As Boolean)
-        If input Then
-            My.Forms.Workspace._Listwa1.PduGeneralSetting1.GenSetGroupBox.Enabled = True
-            My.Forms.Workspace._Listwa1.PduGeneralSetting1.AlertConfGroupBox.Enabled = True
-            My.Forms.Workspace._Listwa1.GenSetTabPage.Enabled = True
-            My.Forms.Workspace._Listwa2.PduGeneralSetting1.GenSetGroupBox.Enabled = True
-            My.Forms.Workspace._Listwa2.PduGeneralSetting1.AlertConfGroupBox.Enabled = True
-            My.Forms.Workspace._Listwa2.GenSetTabPage.Enabled = True
-        Else
-            My.Forms.Workspace._Listwa1.PduGeneralSetting1.GenSetGroupBox.Enabled = False
-            My.Forms.Workspace._Listwa1.PduGeneralSetting1.AlertConfGroupBox.Enabled = False
-            My.Forms.Workspace._Listwa1.GenSetTabPage.Enabled = False
-            My.Forms.Workspace._Listwa2.PduGeneralSetting1.GenSetGroupBox.Enabled = False
-            My.Forms.Workspace._Listwa2.PduGeneralSetting1.AlertConfGroupBox.Enabled = False
-            My.Forms.Workspace._Listwa2.GenSetTabPage.Enabled = False
-        End If
-    End Sub
-End Class
 Public Class LogBank
     Public Pages As List(Of String) = New List(Of String)
 End Class
@@ -597,7 +31,7 @@ Public Class Message
     Public ID As String = ""
     Public _Date As DateTime = New DateTime
 End Class
-
+<Serializable()>
 Public Class IPaddress
     Sub New(inp1 As Integer, inp2 As Integer, inp3 As Integer, inp4 As Integer)
         Arg1 = inp1.ToString
@@ -980,6 +414,7 @@ Public Class ListwaDataFile
     Public MonitoringCofig As WebMonitoringConfigurationCard = New WebMonitoringConfigurationCard
 End Class
 '----------------------------------------
+<Serializable()>
 Public Class SensorMapMonitoringSystem
     Sub New(constructor As dataFileConstructor)
         For i As Integer = 0 To constructor.IntSensorCount
@@ -1037,6 +472,93 @@ Public Class SensorMapMonitoringSystem
     Public OutRelayList As List(Of Boolean) = New List(Of Boolean)
     Public PwrSupplyList As List(Of Boolean) = New List(Of Boolean)
     Public MsgRegistersList As List(Of Boolean) = New List(Of Boolean)
+
+
+    Public Function MonitoringSensorList() As List(Of Sensor)
+        Dim returnList As List(Of Sensor) = New List(Of Sensor)
+        For i As Integer = 0 To IntSensorList.Count - 1
+            If IntSensorList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.IntSensorList(i))
+            End If
+        Next
+        For i As Integer = 0 To SensorsList.Count - 1
+            If SensorsList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.SensorsList(i))
+            End If
+        Next
+        For i As Integer = 0 To DigInputList.Count - 1
+            If DigInputList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.DigInputList(i))
+            End If
+        Next
+        For i As Integer = 0 To ipSensorList.Count - 1
+            If ipSensorList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.ipSensorList(i))
+            End If
+        Next
+        For i As Integer = 0 To remoteInputsList.Count - 1
+            If remoteInputsList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.remoteInputsList(i))
+            End If
+        Next
+        For i As Integer = 0 To RemoteRelayList.Count - 1
+            If RemoteRelayList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.RemoteRelayList(i))
+            End If
+        Next
+        For i As Integer = 0 To smokeDetectorsList.Count - 1
+            If smokeDetectorsList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.smokeDetectorsList(i))
+            End If
+        Next
+        For i As Integer = 0 To TacSensorList.Count - 1
+            If TacSensorList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.TacSensorList(i))
+            End If
+        Next
+        For i As Integer = 0 To Aux2SensorList.Count - 1
+            If Aux2SensorList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.Aux2SensorList(i))
+            End If
+        Next
+        For i As Integer = 0 To AuxSensorList.Count - 1
+            If AuxSensorList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.AuxSensorList(i))
+            End If
+        Next
+        For i As Integer = 0 To ExtSensorList.Count - 1
+            If ExtSensorList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.ExtSensorList(i))
+            End If
+        Next
+        For i As Integer = 0 To IPDevicesList.Count - 1
+            If IPDevicesList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.IPDevicesList(i))
+            End If
+        Next
+        For i As Integer = 0 To OutRelayList.Count - 1
+            If OutRelayList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.OutRelayList(i))
+            End If
+        Next
+        For i As Integer = 0 To PwrSupplyList.Count - 1
+            If PwrSupplyList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.PwrSupplyList(i))
+            End If
+        Next
+        For i As Integer = 0 To MsgRegistersList.Count - 1
+            If MsgRegistersList(i) = True Then
+                returnList.Add(Module2.MonitoringBase.dataFile.SensorData.MsgRegistersList(i))
+            End If
+        Next
+        If returnList.Count > 0 Then
+            Return returnList
+        Else
+            Return Nothing
+        End If
+
+    End Function
+
 End Class
 Public Class SnmpInfoCard
     Public sysTime As String = ""
@@ -2001,9 +1523,11 @@ Public Class Sensor
     Public LoggingPeriod As String = ""
     '---------------------------------------------
 End Class
+<Serializable()>
 Public Class SensorMap
     Public MonitoringCard As Monitoring = New Monitoring
     Public LogCard As Log = New Log
+    <Serializable()>
     Public Class Monitoring
         Public Ampermeter1M As Boolean = False
         Public Ampermeter2M As Boolean = False
@@ -2013,6 +1537,7 @@ Public Class SensorMap
         Public Ampermeter6M As Boolean = False
         Public TermometerM As Boolean = False
     End Class
+    <Serializable()>
     Public Class Log
         Public Ampermeter1L As Boolean = False
         Public Ampermeter2L As Boolean = False
@@ -2022,4 +1547,5 @@ Public Class SensorMap
         Public Ampermeter6L As Boolean = False
         Public TermometerL As Boolean = False
     End Class
+
 End Class

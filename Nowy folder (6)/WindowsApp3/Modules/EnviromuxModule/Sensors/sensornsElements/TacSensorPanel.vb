@@ -1,4 +1,4 @@
-﻿Public Class AuxSensorControlPanel
+﻿Public Class TacSensorPanel
     Private index As Integer = 0
     Public Sub New(input As Sensor)
         InitializeComponent()
@@ -27,7 +27,7 @@
             Scale1.setMode("Read")
         End If
         index = Convert.ToInt16(input.index)
-        AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.AuxSensorList(index)
+        AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.TacSensorList(index)
         If input.Status = "0" Then
             SensorName.Enabled = False
         Else
@@ -36,9 +36,10 @@
     End Sub
     Private Sub AddToMonitoring_CheckedChanged(sender As Object, e As EventArgs) Handles AddToMonitoring.CheckedChanged
         If AddToMonitoring.Checked Then
-            User.LoginnedProfile.Data.MB.SensorListForMB.AuxSensorList(index) = True
+            User.LoginnedProfile.Data.MB.SensorListForMB.TacSensorList(index) = True
         Else
-            User.LoginnedProfile.Data.MB.SensorListForMB.AuxSensorList(index) = False
+            User.LoginnedProfile.Data.MB.SensorListForMB.TacSensorList(index) = False
         End If
     End Sub
+
 End Class

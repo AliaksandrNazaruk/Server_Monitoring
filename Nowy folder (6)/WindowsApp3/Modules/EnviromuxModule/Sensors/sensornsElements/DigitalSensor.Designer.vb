@@ -22,7 +22,7 @@ Partial Class DigitalSensor
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.AddToMonitor = New System.Windows.Forms.CheckBox()
+        Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
         Me.Connector = New System.Windows.Forms.TextBox()
         Me.value = New System.Windows.Forms.TextBox()
         Me.NormValue = New System.Windows.Forms.ComboBox()
@@ -32,14 +32,14 @@ Partial Class DigitalSensor
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'AddToMonitor
+        'AddToMonitoring
         '
-        Me.AddToMonitor.AutoSize = True
-        Me.AddToMonitor.Location = New System.Drawing.Point(759, 16)
-        Me.AddToMonitor.Name = "AddToMonitor"
-        Me.AddToMonitor.Size = New System.Drawing.Size(15, 14)
-        Me.AddToMonitor.TabIndex = 94
-        Me.AddToMonitor.UseVisualStyleBackColor = True
+        Me.AddToMonitoring.AutoSize = True
+        Me.AddToMonitoring.Location = New System.Drawing.Point(759, 16)
+        Me.AddToMonitoring.Name = "AddToMonitoring"
+        Me.AddToMonitoring.Size = New System.Drawing.Size(15, 14)
+        Me.AddToMonitoring.TabIndex = 94
+        Me.AddToMonitoring.UseVisualStyleBackColor = True
         '
         'Connector
         '
@@ -86,7 +86,7 @@ Partial Class DigitalSensor
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.AddToMonitor)
+        Me.GroupBox1.Controls.Add(Me.AddToMonitoring)
         Me.GroupBox1.Controls.Add(Me.NormValue)
         Me.GroupBox1.Controls.Add(Me.Connector)
         Me.GroupBox1.Controls.Add(Me.Description)
@@ -102,8 +102,6 @@ Partial Class DigitalSensor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "DigitalSensor"
@@ -114,7 +112,7 @@ Partial Class DigitalSensor
 
     End Sub
 
-    Friend WithEvents AddToMonitor As CheckBox
+    Friend WithEvents AddToMonitoring As CheckBox
     Friend WithEvents Connector As TextBox
     Friend WithEvents value As TextBox
     Friend WithEvents NormValue As ComboBox

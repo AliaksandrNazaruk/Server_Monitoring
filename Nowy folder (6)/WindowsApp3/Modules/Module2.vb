@@ -5,10 +5,9 @@ Module Module2
         Public dataFile As DataFile
         Public infoFile As DeviceInformation = New DeviceInformation
         Public WithEvents DevInterface As DeviceInterface = New DeviceInterface(False)
-        Public SensorMap As SensorMapMonitoringSystem
         Public Sub DevInterface_changed(e As Boolean) Handles DevInterface.UnlockChanged
             If DevInterface._unlock Then
-                My.Forms.Workspace.SensorsConfig1.VisibleInterface(TempProfile.AdminMode)
+                My.Forms.Workspace.SensorsConfig1.VisibleInterface(LoginnedProfile.AdminMode)
             Else
                 My.Forms.Workspace.SensorsConfig1.UnvisibleInterface()
             End If
@@ -17,7 +16,12 @@ Module Module2
             If connectToDevice Is Nothing Then
                 Return False
             End If
-            Return connectToDevice.testConnection()
+            If connectToDevice.testConnection() Then
+                If Module2.MonitoringBase.dataFile IsNot Nothing Then
+                    Return True
+                End If
+            End If
+            Return False
         End Function
         Public WithEvents CheckCycle As Timer = New Timer
         Public connectToDevice As ConnectClassForMb = New ConnectClassForMb
@@ -26,19 +30,16 @@ Module Module2
             Me.name = name
         End Sub
         '--------------------------------------------------------
-        Public Function startDevice(dev As UserProfile.DevicesDataFile.DeviceData) As Boolean
+        Public Function startDevice() As Boolean
             connectToDevice.SNMPConnection.ResetFunction()
             'dataFile = New SensorsDataFile
             'infoFile = New MBinfoFile
-            If connectToDevice.SNMPConnection.IP.installed = False Then
-                connectToDevice.SNMPConnection.IP = dev.IP
-                connectToDevice.SNMPConnection.PORT = dev.port
-                connectToDevice.SNMPConnection.PASS = dev.Password
+            If User.LoginnedProfile.Data.MB.IP.installed = False Then
                 If connectToDevice.testConnection() Then
                     If connectToDevice.SNMPConnection.Logining() Then
                         Return True
                     Else
-                        If postLoginFunction(dev) Then
+                        If postLoginFunction() Then
                             Return True
                         End If
                     End If
@@ -47,61 +48,55 @@ Module Module2
                 End If
             Else
                 If connectToDevice.testConnection() Then
-                    If logindev(dev) Then
-                        If postLoginFunction(dev) Then
+                    If connectToDevice.Login() Then
+                        If postLoginFunction() Then
                             Return True
                         End If
                     Else
-                        MsgBox("IP field cannot be empty")
+                        'MsgBox("IP field cannot be empty")
                     End If
 
                 End If
-                MsgBox("Error connecting (device not responding)")
+                'MsgBox("Error connecting (device not responding)")
                 Workspace.LoadingPage1.TextMessage.Text = "Error connecting (device not responding)"
             End If
             Return False
         End Function
-        Private Function postLoginFunction(dev As UserProfile.DevicesDataFile.DeviceData) As Boolean
-            If dev.IP.installed() Then
-                If Online() Then
-                    connectToDevice.SNMPConnection.FILE.Information = connectToDevice.SNMPConnection.getSnmpInfoCard()
-                    If connectToDevice.SNMPConnection.FILE.Information IsNot Nothing Then
-                        If connectToDevice.SNMPConnection.FILE.Information.deviceModel = "ENVIROMUX-2DB" Then
-                            Dim newConfigFile As dataFileConstructor = New dataFileConstructor
-                            newConfigFile.aux2SensorCount = 12
-                            newConfigFile.auxSensorCount = 4
-                            newConfigFile.DIgitalSensorCount = 5
-                            newConfigFile.IntSensorCount = 1
-                            newConfigFile.ipSensorCount = 36
-                            newConfigFile.remoteInputCount = 32
-                            newConfigFile.remoteRelayCount = 32
-                            newConfigFile.smokeDetectorCount = 8
-                            newConfigFile.tacSensorCount = 1
-                            newConfigFile.extSensorCount = 8
-                            newConfigFile.IPDeviceCount = 10
-                            newConfigFile.outRelayCount = 10
-                            newConfigFile.pwrSupplyCount = 10
-                            dataFile = New DataFile(newConfigFile)
-                            SensorMap = New SensorMapMonitoringSystem(newConfigFile)
-                        End If
-
-                        If grabFullData() Then
-                            monitoringMode(True)
-                            CheckCycle.Interval = 2000
-                            CheckCycle.Start()
-                            DevInterface.DevIntUnlock(True)
-                            Return True
-                        End If
+        Private Function postLoginFunction() As Boolean
+            Dim tempInfo As SnmpInfoCard = connectToDevice.SNMPConnection.getSnmpInfoCard()
+            If tempInfo IsNot Nothing Then
+                If tempInfo.deviceModel = "ENVIROMUX-2DB" Then
+                    Dim newConfigFile As dataFileConstructor = New dataFileConstructor
+                    newConfigFile.aux2SensorCount = 12
+                    newConfigFile.auxSensorCount = 4
+                    newConfigFile.DIgitalSensorCount = 5
+                    newConfigFile.IntSensorCount = 1
+                    newConfigFile.ipSensorCount = 36
+                    newConfigFile.remoteInputCount = 32
+                    newConfigFile.remoteRelayCount = 32
+                    newConfigFile.smokeDetectorCount = 8
+                    newConfigFile.tacSensorCount = 1
+                    newConfigFile.extSensorCount = 8
+                    newConfigFile.IPDeviceCount = 10
+                    newConfigFile.outRelayCount = 10
+                    newConfigFile.pwrSupplyCount = 10
+                    dataFile = New DataFile(newConfigFile)
+                    If User.LoginnedProfile.Data.MB.SensorListForMB Is Nothing Then
+                        User.LoginnedProfile.Data.MB.SensorListForMB = New SensorMapMonitoringSystem(newConfigFile)
                     End If
+                End If
+                If grabFullData() Then
+                    monitoringMode(True)
+                    CheckCycle.Interval = 2000
+                    CheckCycle.Start()
+                    DevInterface.DevIntUnlock(True)
+                    Return True
                 End If
             End If
             Return False
         End Function
-        Private Function logindev(dev As UserProfile.DevicesDataFile.DeviceData) As Boolean
-            connectToDevice.SNMPConnection.IP = dev.IP
-            connectToDevice.SNMPConnection.PASS = dev.Password
-            connectToDevice.SNMPConnection.LOGIN = dev.Login
-            If connectToDevice.StartSession() Then
+        Private Function logindev() As Boolean
+            If connectToDevice.Login() Then
                 Return True
             Else
                 Return False
@@ -112,7 +107,7 @@ Module Module2
             Return False
         End Function
         Public Function grabFullData() As Boolean
-            If MonitoringBase.Online Then
+            If MonitoringBase.connectToDevice.testConnection() Then
                 Return FullGrab()
             End If
             Return False
@@ -139,7 +134,7 @@ Module Module2
             If connectToDevice.SNMPConnection.IP.installed() Then
                 If Online() Then
                     'FullGrab()
-                    thisDevicePage.DataRefresh()
+                    'thisDevicePage.DataRefresh()
                 End If
             End If
         End Sub
@@ -169,11 +164,11 @@ Module Module2
                 If SNMPConnection.STATUS = "DEVICE_NOT_FOUND_ON_NETWORK" Then
                     Return False
                 End If
-                If SNMPConnection.IP.installed() Then
-                    If My.Computer.Network.Ping(SNMPConnection.IP.FullString()) Then
+                If User.LoginnedProfile.Data.MB.IP.installed() Then
+                    If My.Computer.Network.Ping(User.LoginnedProfile.Data.MB.IP.FullString()) Then
                         Return True
                     End If
-                End If
+                    End If
                 Return False
             End Function
             Public Function PingTest(input As String) As Boolean
@@ -204,8 +199,8 @@ Module Module2
 
 
             Public Function fullgrab(input As String) As Boolean
-                If MonitoringBase.Online Then
-                    If SNMPConnection.IP.installed() Then
+                If MonitoringBase.connectToDevice.testConnection() Then
+                    If User.LoginnedProfile.Data.MB.IP.installed() Then
                         If input = "SNMP" Then
                             SNMPConnection.FILE.Information = SNMPConnection.getSnmpInfoCard()
                             If SNMPConnection.FILE.Information Is Nothing Then
@@ -312,7 +307,6 @@ Module Module2
             monitoringMode(False)
             DevInterface.DevIntUnlock(False)
             dataFile = New DataFile(New dataFileConstructor)
-            SensorMap = New SensorMapMonitoringSystem(New dataFileConstructor)
             infoFile = New DeviceInformation
             If connectToDevice IsNot Nothing Then
                 connectToDevice.Dispose()
@@ -347,13 +341,6 @@ Module Module2
                 resultLabel = "Done!"
             End If
         End Sub
-        Public Function ConnectFunction() As Boolean
-            If startDevice(User.TempProfile.Data.MB) Then
-                'Cycle.Start()
-                Return True
-            End If
-            Return False
-        End Function
     End Class
     Public MonitoringBase As virtualDevice = New virtualDevice("MonitoringBase1")
 End Module

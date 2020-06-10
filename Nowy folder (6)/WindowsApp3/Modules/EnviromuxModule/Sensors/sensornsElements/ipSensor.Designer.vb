@@ -34,7 +34,7 @@ Partial Class ipSensor
         Me.MinTreshold = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.MaxTreshold = New System.Windows.Forms.TextBox()
-        Me.AddToMonitorint1 = New System.Windows.Forms.CheckBox()
+        Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
@@ -136,14 +136,14 @@ Partial Class ipSensor
         Me.MaxTreshold.Size = New System.Drawing.Size(133, 20)
         Me.MaxTreshold.TabIndex = 10
         '
-        'AddToMonitorint1
+        'AddToMonitoring
         '
-        Me.AddToMonitorint1.AutoSize = True
-        Me.AddToMonitorint1.Location = New System.Drawing.Point(258, 17)
-        Me.AddToMonitorint1.Name = "AddToMonitorint1"
-        Me.AddToMonitorint1.Size = New System.Drawing.Size(15, 14)
-        Me.AddToMonitorint1.TabIndex = 136
-        Me.AddToMonitorint1.UseVisualStyleBackColor = True
+        Me.AddToMonitoring.AutoSize = True
+        Me.AddToMonitoring.Location = New System.Drawing.Point(258, 17)
+        Me.AddToMonitoring.Name = "AddToMonitoring"
+        Me.AddToMonitoring.Size = New System.Drawing.Size(15, 14)
+        Me.AddToMonitoring.TabIndex = 136
+        Me.AddToMonitoring.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -156,7 +156,7 @@ Partial Class ipSensor
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.AddToMonitorint1)
+        Me.GroupBox1.Controls.Add(Me.AddToMonitoring)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.MaxTreshold)
@@ -183,7 +183,7 @@ Partial Class ipSensor
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ipSensor"
-        Me.Size = New System.Drawing.Size(295, 215)
+        Me.Size = New System.Drawing.Size(293, 210)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -202,7 +202,7 @@ Partial Class ipSensor
     Friend WithEvents MinTreshold As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents MaxTreshold As TextBox
-    Friend WithEvents AddToMonitorint1 As CheckBox
+    Friend WithEvents AddToMonitoring As CheckBox
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox1 As GroupBox
 End Class

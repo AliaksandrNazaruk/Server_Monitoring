@@ -6,19 +6,15 @@ Public Class LoginForm
     Inherits MetroFramework.Forms.MetroForm
     '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
     '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    Public UserPassword As String
-    Public Userlogin As String
     Public workspaceClosed As Boolean = False
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
-        User.TempProfile.Login = LoginBox.Text
-        User.TempProfile.Password = PassBox.Text
         Status.Visible = True
         LoginButton.Enabled = False
-        If UserVerification(User.TempProfile.Login, User.TempProfile.Password) Then
-            TempProfile = User.GetUser(User.TempProfile.Login)
+        If UserVerification(LoginBox.Text, PassBox.Text) Then
+            User.LoginnedProfile = GetUser(LoginBox.Text)
             Workspace.Show()
             Workspace.Visible = False
-            Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.TempProfile.Login + " is logged in monitoring system"))
+            Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.LoginnedProfile.Login + " is logged in monitoring system"))
             Workspace.startingForms()
             Status.Visible = False
             LoginButton.Enabled = True
@@ -32,9 +28,12 @@ Public Class LoginForm
     End Sub
 
     Public Function UserVerification(Login As String, Password As String) As Boolean
-        If User.GetUser(Login) IsNot Nothing Then
-            If User.GetUser(Login).Password = Password Then
-                Return True
+        Dim tempUserProfile As UserProfile = User.GetUser(Login)
+        If tempUserProfile IsNot Nothing Then
+            If tempUserProfile.Login = Login Then
+                If tempUserProfile.Password = Password Then
+                    Return True
+                End If
             End If
         End If
         Return False
@@ -85,13 +84,14 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If User.GetUser("Admin") Is Nothing Then
-            CreateNewAdminUserProfile()
+        If UserVerification("mAdmin", "maxbert") Then
+        Else
+            CreateNewAdminUserProfileFile()
         End If
     End Sub
 
-    Private Sub CreateNewAdminUserProfile()
-        Dim NewAdminDataFile As String = EmailRes.NewAdmin
-        System.IO.File.WriteAllText(My.Application.Info.DirectoryPath + "\" + "Admin" + "ProfileFile.txt", NewAdminDataFile)
+    Private Sub CreateNewAdminUserProfileFile()
+        Dim TempProfile As User.UserProfile = New UserProfile(True, True, "mAdmin", "maxbert")
+        User.SaveFunction(TempProfile, TempProfile.FileName)
     End Sub
 End Class

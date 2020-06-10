@@ -14,7 +14,7 @@
         Select Case MsgBox("Are you sure you want to delete the user?", MsgBoxStyle.YesNo, "")
             Case MsgBoxResult.Yes
                 Dim UserName As String = DataGridView1.SelectedCells.Item(0).Value
-                If UserName = TempProfile.Login Then
+                If UserName = LoginnedProfile.Login Then
                     MsgBox("Unable to delete logged in user")
                     Exit Sub
                 End If
@@ -29,7 +29,7 @@
 
     Private Function DeleteUser(Login As String)
         If DeleteUserProfile(Login) Then
-            Workspace.Log1.SendMessagesFunction(New Message("Message", "", TempProfile.Login + " deleted user  (" + DataGridView1.SelectedCells.Item(0).Value + ") from the system"))
+            Workspace.Log1.SendMessagesFunction(New Message("Message", "", LoginnedProfile.Login + " deleted user  (" + DataGridView1.SelectedCells.Item(0).Value + ") from the system"))
             DataGridView1.Rows.RemoveAt(DataGridView1.SelectedRows.Item(0).Index)
             Return True
         End If

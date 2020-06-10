@@ -25,7 +25,7 @@ Partial Class outRelay
         Me.Button1 = New System.Windows.Forms.Button()
         Me.SetOutput = New System.Windows.Forms.ComboBox()
         Me.Status = New System.Windows.Forms.TextBox()
-        Me.AddToMonitorint1 = New System.Windows.Forms.CheckBox()
+        Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Description = New System.Windows.Forms.TextBox()
@@ -57,14 +57,14 @@ Partial Class outRelay
         Me.Status.Size = New System.Drawing.Size(134, 20)
         Me.Status.TabIndex = 9
         '
-        'AddToMonitorint1
+        'AddToMonitoring
         '
-        Me.AddToMonitorint1.AutoSize = True
-        Me.AddToMonitorint1.Location = New System.Drawing.Point(129, 38)
-        Me.AddToMonitorint1.Name = "AddToMonitorint1"
-        Me.AddToMonitorint1.Size = New System.Drawing.Size(15, 14)
-        Me.AddToMonitorint1.TabIndex = 138
-        Me.AddToMonitorint1.UseVisualStyleBackColor = True
+        Me.AddToMonitoring.AutoSize = True
+        Me.AddToMonitoring.Location = New System.Drawing.Point(129, 38)
+        Me.AddToMonitoring.Name = "AddToMonitoring"
+        Me.AddToMonitoring.Size = New System.Drawing.Size(15, 14)
+        Me.AddToMonitoring.TabIndex = 138
+        Me.AddToMonitoring.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -77,7 +77,7 @@ Partial Class outRelay
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.AddToMonitorint1)
+        Me.GroupBox1.Controls.Add(Me.AddToMonitoring)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Description)
         Me.GroupBox1.Controls.Add(Me.SetOutput)
@@ -102,7 +102,7 @@ Partial Class outRelay
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "outRelay"
-        Me.Size = New System.Drawing.Size(588, 64)
+        Me.Size = New System.Drawing.Size(585, 65)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -111,7 +111,7 @@ Partial Class outRelay
     Friend WithEvents Button1 As Button
     Friend WithEvents SetOutput As ComboBox
     Friend WithEvents Status As TextBox
-    Friend WithEvents AddToMonitorint1 As CheckBox
+    Friend WithEvents AddToMonitoring As CheckBox
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Description As TextBox

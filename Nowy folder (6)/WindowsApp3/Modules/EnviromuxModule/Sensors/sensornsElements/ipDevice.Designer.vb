@@ -34,7 +34,7 @@ Partial Class ipDevice
         Me.Value = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Status = New System.Windows.Forms.TextBox()
-        Me.AddToMonitorint1 = New System.Windows.Forms.CheckBox()
+        Me.AddToMonitoring = New System.Windows.Forms.CheckBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
@@ -137,14 +137,14 @@ Partial Class ipDevice
         Me.Status.Size = New System.Drawing.Size(134, 20)
         Me.Status.TabIndex = 12
         '
-        'AddToMonitorint1
+        'AddToMonitoring
         '
-        Me.AddToMonitorint1.AutoSize = True
-        Me.AddToMonitorint1.Location = New System.Drawing.Point(258, 17)
-        Me.AddToMonitorint1.Name = "AddToMonitorint1"
-        Me.AddToMonitorint1.Size = New System.Drawing.Size(15, 14)
-        Me.AddToMonitorint1.TabIndex = 134
-        Me.AddToMonitorint1.UseVisualStyleBackColor = True
+        Me.AddToMonitoring.AutoSize = True
+        Me.AddToMonitoring.Location = New System.Drawing.Point(258, 17)
+        Me.AddToMonitoring.Name = "AddToMonitoring"
+        Me.AddToMonitoring.Size = New System.Drawing.Size(15, 14)
+        Me.AddToMonitoring.TabIndex = 134
+        Me.AddToMonitoring.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -157,7 +157,7 @@ Partial Class ipDevice
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.AddToMonitorint1)
+        Me.GroupBox1.Controls.Add(Me.AddToMonitoring)
         Me.GroupBox1.Controls.Add(Me.Label14)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Status)
@@ -184,7 +184,7 @@ Partial Class ipDevice
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ipDevice"
-        Me.Size = New System.Drawing.Size(295, 215)
+        Me.Size = New System.Drawing.Size(294, 211)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -203,7 +203,7 @@ Partial Class ipDevice
     Friend WithEvents Value As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Status As TextBox
-    Friend WithEvents AddToMonitorint1 As CheckBox
+    Friend WithEvents AddToMonitoring As CheckBox
     Friend WithEvents Label14 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker

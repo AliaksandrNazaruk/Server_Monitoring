@@ -59,14 +59,13 @@ Partial Class RemoteRelaysPage
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.AutoSize = True
         Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 38)
-        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(600, 0)
-        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(400, 50)
+        Me.FlowLayoutPanel1.MaximumSize = New System.Drawing.Size(500, 0)
+        Me.FlowLayoutPanel1.MinimumSize = New System.Drawing.Size(460, 50)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(400, 50)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(460, 50)
         Me.FlowLayoutPanel1.TabIndex = 89
         '
         'GroupBox
@@ -79,7 +78,7 @@ Partial Class RemoteRelaysPage
         Me.GroupBox.Controls.Add(Me.Label11)
         Me.GroupBox.Location = New System.Drawing.Point(5, 0)
         Me.GroupBox.Name = "GroupBox"
-        Me.GroupBox.Size = New System.Drawing.Size(443, 107)
+        Me.GroupBox.Size = New System.Drawing.Size(471, 107)
         Me.GroupBox.TabIndex = 90
         Me.GroupBox.TabStop = False
         '
@@ -87,12 +86,13 @@ Partial Class RemoteRelaysPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.GroupBox)
         Me.Name = "RemoteRelaysPage"
-        Me.Size = New System.Drawing.Size(451, 110)
+        Me.Size = New System.Drawing.Size(479, 110)
         Me.GroupBox.ResumeLayout(False)
         Me.GroupBox.PerformLayout()
         Me.ResumeLayout(False)

@@ -17,76 +17,85 @@
         Return True
     End Function
     Private Sub grab(input As String)
-        If input = "MB" Then
-            'SUMMARY------------------------------------------------------
-            SensorInformation1.ModelBase.Text = MonitoringBase.infoFile.DeviceModel
-            SensorInformation1.SerialNumber.Text = MonitoringBase.infoFile.SerialNumber
-            SensorInformation1.Manufacture.Text = MonitoringBase.infoFile.Manufacture
-            SensorInformation1.HardwareRev.Text = MonitoringBase.infoFile.HardwareRev
-            SensorInformation1.Branch.Text = MonitoringBase.infoFile.Branch
-            SensorInformation1.myLocation.Text = MonitoringBase.infoFile.Location
-            SensorInformation1.myName.Text = MonitoringBase.infoFile.Name
-            SensorInformation1.Rack.Text = MonitoringBase.infoFile.Rack
-            SensorInformation1.ContactPerson.Text = MonitoringBase.infoFile.Contact
-            SensorInformation1.Phone.Text = MonitoringBase.infoFile.Phone
-            'NETWORK-------------------------------------------------------
-            '--IP4 Setting-------------------------------------------------
-            If MonitoringBase.dataFile.NetConfiguration.IP4Mode = "0" Then
-                SensorNetConfig1.IP4Mode.SelectedIndex = 0
-            End If
-            If MonitoringBase.dataFile.NetConfiguration.IP4Mode = "1" Then
-                SensorNetConfig1.IP4Mode.SelectedIndex = 1
-            End If
-            SensorNetConfig1.IP4Addr.Text = MonitoringBase.dataFile.NetConfiguration.IP4Addr
-            SensorNetConfig1.IP4Mask.Text = MonitoringBase.dataFile.NetConfiguration.IP4Mask
-            SensorNetConfig1.IP4GateWay.Text = MonitoringBase.dataFile.NetConfiguration.IP4GateWay
-            SensorNetConfig1.AlternativeDNS.Text = MonitoringBase.dataFile.NetConfiguration.AltDNS
-            SensorNetConfig1.DNSTimeOut.Text = MonitoringBase.dataFile.NetConfiguration.DNSTimeOut
-            '--IP6 Setting-------------------------------------------------
-            If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "0" Then
-                SensorNetConfig1.IPv6Mode.SelectedIndex = 0
-            End If
-            If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "1" Then
-                SensorNetConfig1.IPv6Mode.SelectedIndex = 1
-            End If
-            If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "2" Then
-                SensorNetConfig1.IPv6Mode.SelectedIndex = 2
-            End If
-            If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "3" Then
-                SensorNetConfig1.IPv6Mode.SelectedIndex = 3
-            End If
-            SensorNetConfig1.IPv6Addr.Text = MonitoringBase.dataFile.NetConfiguration.IPv6Addr
-            SensorNetConfig1.IPv6GateWay.Text = MonitoringBase.dataFile.NetConfiguration.IPv6GateWay
-            If MonitoringBase.dataFile.NetConfiguration.Enable6To4Tunnel = "0" Then
-                SensorNetConfig1.Enable6To4Tunnel.SelectedIndex = 0
-            End If
-            If MonitoringBase.dataFile.NetConfiguration.Enable6To4Tunnel = "1" Then
-                SensorNetConfig1.Enable6To4Tunnel.SelectedIndex = 1
-            End If
-            SensorNetConfig1.LocallPAddr.Text = MonitoringBase.dataFile.NetConfiguration.LocalIPAddr
-            '--VLAN Setting----------------------------------------------
-            SensorNetConfig1.Vlan.Text = MonitoringBase.dataFile.NetConfiguration.Vlan
-            If MonitoringBase.dataFile.NetConfiguration.VlanEnabled = "0" Then
-                SensorNetConfig1.VlanEnabled.SelectedIndex = 0
-            End If
-            If MonitoringBase.dataFile.NetConfiguration.VlanEnabled = "1" Then
-                SensorNetConfig1.VlanEnabled.SelectedIndex = 1
-            End If
-        End If
+        Select Case input
+            Case "General"
+                EnviromuxUserConnectionData1.IpAddpessBox1.InpIPTextBox1.Text = User.LoginnedProfile.Data.MB.IP.Arg1
+                EnviromuxUserConnectionData1.IpAddpessBox1.InpIPTextBox2.Text = User.LoginnedProfile.Data.MB.IP.Arg2
+                EnviromuxUserConnectionData1.IpAddpessBox1.InpIPTextBox3.Text = User.LoginnedProfile.Data.MB.IP.Arg3
+                EnviromuxUserConnectionData1.IpAddpessBox1.InpIPTextBox4.Text = User.LoginnedProfile.Data.MB.IP.Arg4
+                EnviromuxUserConnectionData1.CommunityBox.Text = User.LoginnedProfile.Data.MB.Login
+                EnviromuxUserConnectionData1.Remember.Checked = User.LoginnedProfile.Data.MB.RememberCheckBOx
+                EnviromuxUserConnectionData1.PortBox.Text = User.LoginnedProfile.Data.MB.port
 
-        If input = "Sensors" Then
-            'сheckSensors()
-        End If
+            Case "Summary"
+                'SUMMARY------------------------------------------------------
+                SensorInformation1.ModelBase.Text = MonitoringBase.dataFile.DeviceInformation.DeviceModel
+                SensorInformation1.SerialNumber.Text = MonitoringBase.dataFile.DeviceInformation.SerialNumber
+                SensorInformation1.Manufacture.Text = MonitoringBase.dataFile.DeviceInformation.Manufacture
+                SensorInformation1.HardwareRev.Text = MonitoringBase.dataFile.DeviceInformation.HardwareRev
+                SensorInformation1.Branch.Text = MonitoringBase.dataFile.DeviceInformation.Branch
+                SensorInformation1.myLocation.Text = MonitoringBase.dataFile.DeviceInformation.Location
+                SensorInformation1.myName.Text = MonitoringBase.dataFile.DeviceInformation.Name
+                SensorInformation1.Rack.Text = MonitoringBase.dataFile.DeviceInformation.Rack
+                SensorInformation1.ContactPerson.Text = MonitoringBase.dataFile.DeviceInformation.Contact
+                SensorInformation1.Phone.Text = MonitoringBase.dataFile.DeviceInformation.Phone
+            Case "Network"
+                'NETWORK-------------------------------------------------------
+                '--IP4 Setting-------------------------------------------------
+                If MonitoringBase.dataFile.NetConfiguration.IP4Mode = "0" Then
+                    SensorNetConfig1.IP4Mode.SelectedIndex = 0
+                End If
+                If MonitoringBase.dataFile.NetConfiguration.IP4Mode = "1" Then
+                    SensorNetConfig1.IP4Mode.SelectedIndex = 1
+                End If
+                SensorNetConfig1.IP4Addr.Text = MonitoringBase.dataFile.NetConfiguration.IP4Addr
+                SensorNetConfig1.IP4Mask.Text = MonitoringBase.dataFile.NetConfiguration.IP4Mask
+                SensorNetConfig1.IP4GateWay.Text = MonitoringBase.dataFile.NetConfiguration.IP4GateWay
+                SensorNetConfig1.AlternativeDNS.Text = MonitoringBase.dataFile.NetConfiguration.AltDNS
+                SensorNetConfig1.DNSTimeOut.Text = MonitoringBase.dataFile.NetConfiguration.DNSTimeOut
+                '--IP6 Setting-------------------------------------------------
+                If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "0" Then
+                    SensorNetConfig1.IPv6Mode.SelectedIndex = 0
+                End If
+                If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "1" Then
+                    SensorNetConfig1.IPv6Mode.SelectedIndex = 1
+                End If
+                If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "2" Then
+                    SensorNetConfig1.IPv6Mode.SelectedIndex = 2
+                End If
+                If MonitoringBase.dataFile.NetConfiguration.IPv6Mode = "3" Then
+                    SensorNetConfig1.IPv6Mode.SelectedIndex = 3
+                End If
+                SensorNetConfig1.IPv6Addr.Text = MonitoringBase.dataFile.NetConfiguration.IPv6Addr
+                SensorNetConfig1.IPv6GateWay.Text = MonitoringBase.dataFile.NetConfiguration.IPv6GateWay
+                If MonitoringBase.dataFile.NetConfiguration.Enable6To4Tunnel = "0" Then
+                    SensorNetConfig1.Enable6To4Tunnel.SelectedIndex = 0
+                End If
+                If MonitoringBase.dataFile.NetConfiguration.Enable6To4Tunnel = "1" Then
+                    SensorNetConfig1.Enable6To4Tunnel.SelectedIndex = 1
+                End If
+                SensorNetConfig1.LocallPAddr.Text = MonitoringBase.dataFile.NetConfiguration.LocalIPAddr
+                '--VLAN Setting----------------------------------------------
+                SensorNetConfig1.Vlan.Text = MonitoringBase.dataFile.NetConfiguration.Vlan
+                If MonitoringBase.dataFile.NetConfiguration.VlanEnabled = "0" Then
+                    SensorNetConfig1.VlanEnabled.SelectedIndex = 0
+                End If
+                If MonitoringBase.dataFile.NetConfiguration.VlanEnabled = "1" Then
+                    SensorNetConfig1.VlanEnabled.SelectedIndex = 1
+                End If
+        End Select
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------
     'ОСНОВНЫЕ ФУНКЦИИ-----------------------------------------------------------------------------------------------
     Public Sub DataRefresh()
         If MonitoringBase.online Then
-            Logo.ImageLocation = "http://" + MonitoringBase.connectToDevice.SNMPConnection.IP.FullString + "/images/logo.gif"
-            grab("MB")
-            grab("Sensors")
+            Logo.ImageLocation = "http://" + User.LoginnedProfile.Data.MB.IP.FullString + "/images/logo.gif"
+            grab("Summary")
+            grab("Network")
         End If
+        grab("General")
     End Sub
     Public Sub ClearFunc()
         SensorMap = New SensorMap
@@ -131,7 +140,7 @@
         Module2.MonitoringBase.clear()
         ClearPage()
         'Удаление данных об усройсве из файла пользователя
-        User.TempProfile.Data.MB.clear()
+        User.LoginnedProfile.Data.MB.clear()
         'Очистка переменных интерфейса 
         'SensorTypeTableActivated = False
         'FullDataPDUfilled = False
@@ -275,6 +284,18 @@
 
     Private Sub IPSensorsButton_Click(sender As Object, e As EventArgs) Handles IPSensorsButton.Click
         Sensors_Form.start("IPSensors")
+    End Sub
+
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        User.LoginnedProfile.Save()
+    End Sub
+
+
+
+    Private Sub SensorConfigPage_VisebleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible Then
+            DataRefresh()
+        End If
     End Sub
 End Class
 

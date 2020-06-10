@@ -11,9 +11,9 @@
     End Function
     Private Function thisDeviceProfileData() As UserProfile.DevicesDataFile.DeviceData
         If ThisDevice = "_Listwa1" Then
-            Return User.TempProfile.Data.PDUA
+            Return User.LoginnedProfile.Data.PDUA
         ElseIf ThisDevice = "_Listwa2" Then
-            Return User.TempProfile.Data.PDUB
+            Return User.LoginnedProfile.Data.PDUB
         End If
         Return Nothing
     End Function
@@ -149,7 +149,7 @@
 
         If connect Then
             Workspace.LoadingPage1.ProgressBar1.Value = 85
-            Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.TempProfile.Login + " Added a device with an IP address " + thisDeviceProfileData.IP.FullString + "(Name:" + ThisDeviceModule.dataFile.information.pduName + ")"))
+            Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.LoginnedProfile.Login + " Added a device with an IP address " + thisDeviceProfileData.IP.FullString + "(Name:" + ThisDeviceModule.dataFile.information.pduName + ")"))
             ThisDeviceConfigPage.Cycle.Start()
         Else
             MsgBox("Connection error! Invalid address or invalid credentials")
@@ -165,9 +165,8 @@
                 Workspace.LoadingPage1.Visible = True
                 Workspace.LoadingPage1.ProgressBar1.Value = 0
                 Workspace.LoadingPage1.TextMessage.Text = "Disabling the monitoring system"
-                Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.TempProfile.Login + " Deleted a device with an IP address " + thisDeviceProfileData.IP.FullString + "(Name:" + ThisDeviceModule.dataFile.information.pduName + ")"))
+                Workspace.Log1.SendMessagesFunction(New Message("Message", "", User.LoginnedProfile.Login + " Deleted a device with an IP address " + thisDeviceProfileData.IP.FullString + "(Name:" + ThisDeviceModule.dataFile.information.pduName + ")"))
                 ThisDeviceConfigPage.FullClear()
-                TempProfile.Save()
                 Workspace.LoadingPage1.Visible = False
                 Workspace.LoadingPage1.ProgressBar1.Value = 0
             ElseIf a = 7 Then
