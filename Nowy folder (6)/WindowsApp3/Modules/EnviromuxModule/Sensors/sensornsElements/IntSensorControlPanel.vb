@@ -1,7 +1,15 @@
 ﻿Public Class IntSensorControlPanel
     Private index As Integer = 0
     Public Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         InitializeComponent()
+        If input.Status = "0" Then
+            SensorName.Enabled = False
+        Else
+            SensorName.Enabled = True
+        End If
         ' Добавить код инициализации после вызова InitializeComponent().
         SensorName.Text = input.Description
         Dim maxScaleValue As Integer = 12
@@ -17,13 +25,8 @@
         Scale1.setNormal(MaxWarntTrech)
         Scale1.setWarn2(MaxCritTrech)
         Status.SelectedIndex = input.Status
-        If input.Type = "3" Then
-            Type.Text = "Voltage"
-        End If
-        If input.Type = "0" Then
-            Type.Text = "Not Configured"
-        End If
-        Index = Convert.ToInt16(input.index)
+
+        index = Convert.ToInt16(input.index)
         AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.IntSensorList(index)
     End Sub
     Private Sub AddToMonitor_CheckedChanged(sender As Object, e As EventArgs) Handles AddToMonitoring.CheckedChanged

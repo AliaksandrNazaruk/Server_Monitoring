@@ -1,6 +1,9 @@
 ﻿Public Class RemoteInputPanel
     Private index As Integer = 0
     Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
 

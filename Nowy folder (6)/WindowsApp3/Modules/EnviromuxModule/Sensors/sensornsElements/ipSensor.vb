@@ -8,6 +8,9 @@
         'AddToMonitoring.Checked = Module2.MonitoringBase.SensorMap.DigInputList(Index)
     End Sub
     Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
 

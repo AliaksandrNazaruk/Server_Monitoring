@@ -33,13 +33,100 @@
     End Sub
     Private Sub MBTableGenerator()
         TableForMB.ContainerForTableElements.Controls.Clear()
-        User.LoginnedProfile.Data.MB.SensorListForMB.MonitoringSensorList
-        If ListMb.Count > 0 Then
+        Dim TableVisebleSwitch As Boolean = False
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.Aux2SensorList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.Aux2SensorList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.Aux2SensorList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.AuxSensorList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.AuxSensorList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.AuxSensorList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.DigInputList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.DigInputList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.DigInputList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.ExtSensorList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.ExtSensorList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.ExtSensorList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.IntSensorList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.IntSensorList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.IntSensorList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.IPDevicesList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.IPDevicesList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.IPDevicesList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.ipSensorList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.ipSensorList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.ipSensorList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.MsgRegistersList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.MsgRegistersList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.MsgRegistersList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.OutRelayList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.OutRelayList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.OutRelayList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.PwrSupplyList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.PwrSupplyList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.PwrSupplyList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.remoteInputsList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.remoteInputsList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.remoteInputsList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.RemoteRelayList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.RemoteRelayList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.RemoteRelayList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.SensorsList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.SensorsList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.SensorsList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.smokeDetectorsList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.smokeDetectorsList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.smokeDetectorsList(i)))
+                TableVisebleSwitch = True
+            End If
+
+        Next
+        For i As Integer = 0 To User.LoginnedProfile.Data.MB.SensorListForMB.TacSensorList.Count - 1
+            If User.LoginnedProfile.Data.MB.SensorListForMB.TacSensorList(i) Then
+                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(Module2.MonitoringBase.dataFile.SensorData.TacSensorList(i)))
+                TableVisebleSwitch = True
+            End If
+        Next
+        If TableVisebleSwitch Then
             TableForMB.Visible = True
-            TableForMB.DeviceName.Text = Module2.MonitoringBase.dataFile.DeviceInformation.DeviceModel
-            For i As Integer = 0 To ListMb.Count - 1
-                TableForMB.ContainerForTableElements.Controls.Add(New tabbleElem(ListMb(i)))
-            Next
         Else
             TableForMB.Visible = False
         End If

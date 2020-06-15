@@ -1,6 +1,9 @@
 ﻿Public Class DigitalSensor
     Private index As Integer = 0
     Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
 
@@ -9,16 +12,13 @@
         Else
             GroupBox1.Enabled = True
         End If
+
         Description.Text = input.Description
         Connector.Text = input.Connector
         Status.SelectedIndex = Convert.ToInt16(input.Status)
 
         NormValue.SelectedIndex = Convert.ToInt16(input.NormalValue)
-        If input.Value = "1" Then
-            value.Text = "Open"
-        Else
-            value.Text = "Closed"
-        End If
+
         index = Convert.ToInt16(input.index)
         AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.DigInputList(index)
     End Sub

@@ -1,6 +1,9 @@
 ﻿Public Class SensorControlPanelType1
     Private index As Integer = 0
     Public Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         If input.index = "" Then
             Exit Sub
         End If

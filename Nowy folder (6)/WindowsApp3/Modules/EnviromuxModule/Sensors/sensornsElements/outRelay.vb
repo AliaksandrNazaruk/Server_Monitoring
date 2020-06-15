@@ -1,6 +1,9 @@
 ﻿Public Class outRelay
     Private index As Integer = 0
     Public Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
 
@@ -10,7 +13,7 @@
         Else
             Status.Text = "Active"
         End If
-        Index = Convert.ToInt16(input.index)
+        index = Convert.ToInt16(input.index)
         AddToMonitoring.Checked = User.LoginnedProfile.Data.MB.SensorListForMB.OutRelayList(index)
     End Sub
     Private Sub AddToMonitor_CheckedChanged(sender As Object, e As EventArgs) Handles AddToMonitoring.CheckedChanged

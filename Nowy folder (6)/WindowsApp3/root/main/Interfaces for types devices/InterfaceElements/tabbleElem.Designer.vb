@@ -43,36 +43,40 @@ Partial Class tabbleElem
         'ElementText
         '
         Me.ElementText.BackColor = System.Drawing.Color.White
-        Me.ElementText.Location = New System.Drawing.Point(4, 2)
+        Me.ElementText.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.ElementText.Location = New System.Drawing.Point(5, 2)
         Me.ElementText.Name = "ElementText"
-        Me.ElementText.Size = New System.Drawing.Size(201, 25)
+        Me.ElementText.Size = New System.Drawing.Size(199, 25)
         Me.ElementText.TabIndex = 1
         Me.ElementText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'NameText
         '
         Me.NameText.BackColor = System.Drawing.Color.White
+        Me.NameText.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.NameText.Location = New System.Drawing.Point(210, 2)
         Me.NameText.Name = "NameText"
-        Me.NameText.Size = New System.Drawing.Size(394, 25)
+        Me.NameText.Size = New System.Drawing.Size(393, 25)
         Me.NameText.TabIndex = 2
         Me.NameText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'CurrentText
         '
         Me.CurrentText.BackColor = System.Drawing.Color.White
-        Me.CurrentText.Location = New System.Drawing.Point(612, 2)
+        Me.CurrentText.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.CurrentText.Location = New System.Drawing.Point(608, 2)
         Me.CurrentText.Name = "CurrentText"
-        Me.CurrentText.Size = New System.Drawing.Size(141, 25)
+        Me.CurrentText.Size = New System.Drawing.Size(145, 25)
         Me.CurrentText.TabIndex = 3
         Me.CurrentText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'StatusText
         '
         Me.StatusText.BackColor = System.Drawing.Color.White
-        Me.StatusText.Location = New System.Drawing.Point(761, 2)
+        Me.StatusText.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.StatusText.Location = New System.Drawing.Point(759, 2)
         Me.StatusText.Name = "StatusText"
-        Me.StatusText.Size = New System.Drawing.Size(143, 25)
+        Me.StatusText.Size = New System.Drawing.Size(148, 25)
         Me.StatusText.TabIndex = 4
         Me.StatusText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '

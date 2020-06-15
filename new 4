@@ -1,0 +1,672 @@
+    Public Function ScanSensor(sensorCategory As String, command As String) As List(Of Sensor)
+        Dim returnSensorList As List(Of Sensor) = New List(Of Sensor)
+        If command = "Online" Then
+            If sensorCategory = "IntSensor" Then
+                If IntSensorList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To IntSensorList.Count - 1
+                    If IntSensorList(i).Status = "1" Then
+                        returnSensorList.Add(IntSensorList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "Aux2Sensor" Then
+                If Aux2SensorList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To Aux2SensorList.Count - 1
+                    If Aux2SensorList(i).Status = "1" Then
+                        returnSensorList.Add(Aux2SensorList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "AuxSensor" Then
+                If AuxSensorList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To AuxSensorList.Count - 1
+                    If AuxSensorList(i).Status = "1" Then
+                        returnSensorList.Add(AuxSensorList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "DigInput" Then
+                If DigInputList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To DigInputList.Count - 1
+                    If DigInputList(i).Status = "1" Then
+                        returnSensorList.Add(DigInputList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "ExtSensor" Then
+                If ExtSensorList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To ExtSensorList.Count - 1
+                    If ExtSensorList(i).Status = "1" Then
+                        returnSensorList.Add(ExtSensorList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "MsgRegisters" Then
+                If MsgRegistersList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To MsgRegistersList.Count - 1
+                    If MsgRegistersList(i).Status = "1" Then
+                        returnSensorList.Add(MsgRegistersList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "OutRelay" Then
+                If OutRelayList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To OutRelayList.Count - 1
+                    If OutRelayList(i).Status = "1" Then
+                        returnSensorList.Add(OutRelayList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "PwrSupply" Then
+                If PwrSupplyList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To PwrSupplyList.Count - 1
+                    If PwrSupplyList(i).Status = "1" Then
+                        returnSensorList.Add(PwrSupplyList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "RemoteInputs" Then
+                If remoteInputsList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To remoteInputsList.Count - 1
+                    If remoteInputsList(i).Status = "1" Then
+                        returnSensorList.Add(remoteInputsList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "RemoteRelay" Then
+                If RemoteRelayList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To RemoteRelayList.Count - 1
+                    If RemoteRelayList(i).Status = "1" Then
+                        returnSensorList.Add(RemoteRelayList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "TacSensor" Then
+                If TacSensorList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To TacSensorList.Count - 1
+                    If TacSensorList(i).Status = "1" Then
+                        returnSensorList.Add(TacSensorList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "IPSensor" Then
+                If ipSensorList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To ipSensorList.Count - 1
+                    If ipSensorList(i).Status = "1" Then
+                        returnSensorList.Add(ipSensorList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "IPDevice" Then
+                If IPDevicesList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To IPDevicesList.Count - 1
+                    If IPDevicesList(i).Status = "1" Then
+                        returnSensorList.Add(IPDevicesList(i))
+                    End If
+                Next
+            End If
+            If sensorCategory = "SmokeDetector" Then
+                If smokeDetectorsList.Count <= 0 Then
+                    Return Nothing
+                End If
+                For i As Integer = 0 To smokeDetectorsList.Count - 1
+                    If smokeDetectorsList(i).Status = "1" Then
+                        returnSensorList.Add(smokeDetectorsList(i))
+                    End If
+                Next
+            End If
+        End If
+        Return returnSensorList
+    End Function
+    Public Function returnSensor(input As ExportDataFileforMB, sensorCategory As String, index As Integer) As Sensor
+        Dim _returnSensor As Sensor = New Sensor
+        If sensorCategory = "IntSensor" Then
+            If input.IntSensor.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.IntSensor.IndexList(index)
+            _returnSensor.Type = input.IntSensor.TypeList(index)
+            _returnSensor.Description = input.IntSensor.DescriptionList(index)
+            _returnSensor.GroupNb = input.IntSensor.GroupNbList(index)
+            _returnSensor.Group = input.IntSensor.GroupList(index)
+            _returnSensor.Value = input.IntSensor.ValueList(index)
+            _returnSensor.Unit = input.IntSensor.UnitList(index)
+            _returnSensor.UnitName = input.IntSensor.UnitNameList(index)
+            _returnSensor.Status = input.IntSensor.StatusList(index)
+            _returnSensor.MinTreshold = input.IntSensor.MinTresholdList(index)
+            _returnSensor.MaxTreshold = input.IntSensor.MaxTresholdList(index)
+            _returnSensor.MinWarnTreshold = input.IntSensor.MinWarnTresholdList(index)
+            _returnSensor.MaxWarnTreshold = input.IntSensor.MaxWarnTresholdList(index)
+        End If
+        If sensorCategory = "Aux2Sensor" Then
+            If input.Aux2Sensor.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.Aux2Sensor.IndexList(index)
+            _returnSensor.Type = input.Aux2Sensor.TypeList(index)
+            _returnSensor.Description = input.Aux2Sensor.DescriptionList(index)
+            _returnSensor.Connector = input.Aux2Sensor.ConnectorList(index)
+            _returnSensor.GroupNb = input.Aux2Sensor.GroupNbList(index)
+            _returnSensor.Group = input.Aux2Sensor.GroupList(index)
+            _returnSensor.Value = input.Aux2Sensor.ValueList(index)
+            _returnSensor.Unit = input.Aux2Sensor.UnitList(index)
+            _returnSensor.UnitName = input.Aux2Sensor.UnitNameList(index)
+            _returnSensor.Status = input.Aux2Sensor.StatusList(index)
+            _returnSensor.MinTreshold = input.Aux2Sensor.MinTresholdList(index)
+            _returnSensor.MaxTreshold = input.Aux2Sensor.MaxTresholdList(index)
+            _returnSensor.MinWarnTreshold = input.Aux2Sensor.MinWarnTresholdList(index)
+            _returnSensor.MaxWarnTreshold = input.Aux2Sensor.MaxWarnTresholdList(index)
+        End If
+        If sensorCategory = "AuxSensor" Then
+            If input.AuxSensor.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.AuxSensor.IndexList(index)
+            _returnSensor.Type = input.AuxSensor.TypeList(index)
+            _returnSensor.Description = input.AuxSensor.DescriptionList(index)
+            _returnSensor.Connector = input.AuxSensor.ConnectorList(index)
+            _returnSensor.GroupNb = input.AuxSensor.GroupNbList(index)
+            _returnSensor.Group = input.AuxSensor.GroupList(index)
+            _returnSensor.Value = input.AuxSensor.ValueList(index)
+            _returnSensor.Unit = input.AuxSensor.UnitList(index)
+            _returnSensor.UnitName = input.AuxSensor.UnitNameList(index)
+            _returnSensor.Status = input.AuxSensor.StatusList(index)
+            _returnSensor.MinTreshold = input.AuxSensor.MinTresholdList(index)
+            _returnSensor.MaxTreshold = input.AuxSensor.MaxTresholdList(index)
+            _returnSensor.MinWarnTreshold = input.AuxSensor.MinWarnTresholdList(index)
+            _returnSensor.MaxWarnTreshold = input.AuxSensor.MaxWarnTresholdList(index)
+        End If
+        If sensorCategory = "DigInput" Then
+            If input.DigInput.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.DigInput.IndexList(index)
+            _returnSensor.Type = input.DigInput.TypeList(index)
+            _returnSensor.Description = input.DigInput.DescriptionList(index)
+            _returnSensor.Connector = input.DigInput.ConnectorList(index)
+            _returnSensor.GroupNb = input.DigInput.GroupNbList(index)
+            _returnSensor.Group = input.DigInput.GroupList(index)
+            _returnSensor.Value = input.DigInput.ValueList(index)
+            _returnSensor.Status = input.DigInput.StatusList(index)
+            _returnSensor.NormalValue = input.DigInput.NormalValueList(index)
+        End If
+        If sensorCategory = "ExtSensor" Then
+            If input.ExtSensor.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.ExtSensor.IndexList(index)
+            _returnSensor.Type = input.ExtSensor.TypeList(index)
+            _returnSensor.Description = input.ExtSensor.DescriptionList(index)
+            _returnSensor.Connector = input.ExtSensor.ConnectorList(index)
+            _returnSensor.GroupNb = input.ExtSensor.GroupNbList(index)
+            _returnSensor.Group = input.ExtSensor.GroupList(index)
+            _returnSensor.Value = input.ExtSensor.ValueList(index)
+            _returnSensor.Unit = input.ExtSensor.UnitList(index)
+            _returnSensor.UnitName = input.ExtSensor.UnitNameList(index)
+            _returnSensor.Status = input.ExtSensor.StatusList(index)
+            _returnSensor.MinTreshold = input.ExtSensor.MinTresholdList(index)
+            _returnSensor.MaxTreshold = input.ExtSensor.MaxTresholdList(index)
+            _returnSensor.MinWarnTreshold = input.ExtSensor.MinWarnTresholdList(index)
+            _returnSensor.MaxWarnTreshold = input.ExtSensor.MaxWarnTresholdList(index)
+            '_returnSensor.AlcmIndex = input.ExtSensor.AclmIndexList((index / 2) + (index Mod 2))
+            '_returnSensor.PeakValue = input.ExtSensor.PeakValueList((index / 2) + (index Mod 2))
+            '_returnSensor.Frequency = input.ExtSensor.FrequencyList((index / 2) + (index Mod 2))
+            '_returnSensor.Current = input.ExtSensor.CurrentList((index / 2) + (index Mod 2))
+            '_returnSensor.Spikes = input.ExtSensor.SpikesList((index / 2) + (index Mod 2))
+            '_returnSensor.Swells = input.ExtSensor.SwellsList((index / 2) + (index Mod 2))
+            '_returnSensor.Sags = input.ExtSensor.SagsList((index / 2) + (index Mod 2))
+            '_returnSensor.Relay = input.ExtSensor.RelayList((index / 2) + (index Mod 2))
+        End If
+        If sensorCategory = "MsgRegisters" Then
+            If input.MsgRegisters.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.MsgRegisters.IndexList(index)
+        End If
+        If sensorCategory = "OutRelay" Then
+            If input.OutRelay.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.OutRelay.IndexList(index)
+            _returnSensor.Description = input.OutRelay.DescriptionList(index)
+            _returnSensor.Status = input.OutRelay.StatusList(index)
+        End If
+        If sensorCategory = "PwrSupply" Then
+            If input.PwrSupply.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.PwrSupply.IndexList(index)
+            _returnSensor.Status = input.PwrSupply.StatusList(index)
+        End If
+        If sensorCategory = "RemoteInputs" Then
+            If input.RemoteInputs.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.RemoteInputs.IndexList(index)
+            _returnSensor.Type = input.RemoteInputs.TypeList(index)
+            _returnSensor.Description = input.RemoteInputs.DescriptionList(index)
+            _returnSensor.Connector = input.RemoteInputs.ConnectorList(index)
+            _returnSensor.GroupNb = input.RemoteInputs.GroupNbList(index)
+            _returnSensor.Group = input.RemoteInputs.GroupList(index)
+            _returnSensor.Value = input.RemoteInputs.ValueList(index)
+            _returnSensor.Status = input.RemoteInputs.StatusList(index)
+            _returnSensor.NormalValue = input.RemoteInputs.NormalValueList(index)
+        End If
+        If sensorCategory = "RemoteRelay" Then
+            If input.RemoteRelay.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.RemoteRelay.IndexList(index)
+            _returnSensor.Description = input.RemoteRelay.DescriptionList(index)
+            _returnSensor.Status = input.RemoteRelay.StatusList(index)
+        End If
+        If sensorCategory = "TacSensor" Then
+            If input.TacSensor.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.TacSensor.IndexList(index)
+            _returnSensor.Type = input.TacSensor.TypeList(index)
+            _returnSensor.Description = input.TacSensor.DescriptionList(index)
+            _returnSensor.Connector = input.TacSensor.ConnectorList(index)
+            _returnSensor.GroupNb = input.TacSensor.GroupNbList(index)
+            _returnSensor.Group = input.TacSensor.GroupList(index)
+            _returnSensor.Value = input.TacSensor.ValueList(index)
+            _returnSensor.Unit = input.TacSensor.UnitList(index)
+            _returnSensor.UnitName = input.TacSensor.UnitNameList(index)
+            _returnSensor.Status = input.TacSensor.StatusList(index)
+            _returnSensor.MinTreshold = input.TacSensor.MinTresholdList(index)
+            _returnSensor.MaxTreshold = input.TacSensor.MaxTresholdList(index)
+            _returnSensor.MinWarnTreshold = input.TacSensor.MinWarnTresholdList(index)
+            _returnSensor.MaxWarnTreshold = input.TacSensor.MaxWarnTresholdList(index)
+        End If
+        If sensorCategory = "SmokeDetector" Then
+            If input.SmokeDetector.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.SmokeDetector.IndexList(index)
+            _returnSensor.Description = input.SmokeDetector.DescriptionList(index)
+            _returnSensor.GroupNb = input.SmokeDetector.GroupNbList(index)
+            _returnSensor.Value = input.SmokeDetector.ValueList(index)
+            _returnSensor.Status = input.SmokeDetector.StatusList(index)
+        End If
+        If sensorCategory = "IPSensor" Then
+            If input.SmokeDetector.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.IPSensors.IndexList(index)
+            _returnSensor.microUnit = input.IPSensors.MicroUnitList(index)
+            _returnSensor.Type = input.IPSensors.TypeList(index)
+            _returnSensor.Description = input.IPSensors.DescriptionList(index)
+            _returnSensor.Connector = input.IPSensors.ConnectorList(index)
+            _returnSensor.GroupNb = input.IPSensors.GroupNbList(index)
+            _returnSensor.Group = input.IPSensors.GroupList(index)
+            _returnSensor.Value = input.IPSensors.ValueList(index)
+            _returnSensor.Unit = input.IPSensors.UnitList(index)
+            _returnSensor.UnitName = input.IPSensors.UnitNameList(index)
+            _returnSensor.Status = input.IPSensors.StatusList(index)
+            _returnSensor.MinTreshold = input.IPSensors.MinTresholdList(index)
+            _returnSensor.MaxTreshold = input.IPSensors.MaxTresholdList(index)
+
+        End If
+        If sensorCategory = "IPDevice" Then
+            If input.IPdevice.IndexList.Count < index Then
+                Return Nothing
+            End If
+            _returnSensor.index = input.IPdevice.IndexList(index)
+            _returnSensor.Address = input.IPdevice.AddressList(index)
+            _returnSensor.Description = input.IPdevice.DescriptionList(index)
+            _returnSensor.GroupNb = input.IPdevice.GroupNbList(index)
+            _returnSensor.Group = input.IPdevice.GroupList(index)
+            _returnSensor.Timeout = input.IPdevice.TimeoutList(index)
+            _returnSensor.Retries = input.IPdevice.RetriesList(index)
+            _returnSensor.Value = input.IPdevice.ValueList(index)
+            _returnSensor.Status = input.IPdevice.StatusList(index)
+        End If
+
+
+        Return _returnSensor
+    End Function
+    Public Function refreshSensor(input As Sensor, index As Integer)
+        If input.GetHashCode = 
+    End Function
+    Public Sub FillSensorCard(input As ExportDataFileforMB, sensorCategory As String)
+        _returnSensorGroup.Clear()
+        If sensorCategory = "IntSensors" Then
+            If input.IntSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.IntSensor.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.IntSensorList(i) = returnSensor(input, "IntSensor", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "Aux2Sensors" Then
+            If input.Aux2Sensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.Aux2Sensor.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.Aux2SensorList(i) = returnSensor(input, "Aux2Sensor", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "AuxSensors" Then
+            If input.AuxSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.AuxSensor.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.AuxSensorList(i) = returnSensor(input, "AuxSensor", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "DigInputs" Then
+            If input.DigInput.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.DigInput.IndexList.Count - 1
+                    refreshSensor(Module2.MonitoringBase.dataFile.SensorData.DigInputList(i), i)
+                Next
+            End If
+        End If
+        If sensorCategory = "ExtSensors" Then
+            If input.ExtSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.ExtSensor.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.ExtSensorList(i) = returnSensor(input, "ExtSensor", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "MsgRegisters" Then
+            If input.MsgRegisters.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.MsgRegisters.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.ExtSensorList(i) = returnSensor(input, "MsgRegisters", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "OutRelays" Then
+            If input.OutRelay.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.OutRelay.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.OutRelayList(i) = returnSensor(input, "OutRelay", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "PwrSupplys" Then
+            If input.PwrSupply.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.PwrSupply.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.PwrSupplyList(i) = returnSensor(input, "PwrSupply", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "RemoteInputs" Then
+            If input.RemoteInputs.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.RemoteInputs.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.remoteInputsList(i) = returnSensor(input, "RemoteInputs", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "RemoteRelays" Then
+            If input.RemoteRelay.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.RemoteRelay.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.RemoteRelayList(i) = returnSensor(input, "RemoteRelay", i)
+
+                    _returnSensorGroup.Add(returnSensor(input, "RemoteRelay", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "TacSensors" Then
+            If input.TacSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.TacSensor.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.TacSensorList(i) = returnSensor(input, "TacSensor", i)
+
+                    _returnSensorGroup.Add(returnSensor(input, "TacSensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "SmokeDetectors" Then
+            If input.SmokeDetector.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.SmokeDetector.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.smokeDetectorsList(i) = returnSensor(input, "SmokeDetector", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "IPSensors" Then
+            If input.IPSensors.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.IPSensors.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.ipSensorList(i) = returnSensor(input, "IPSensor", i)
+                Next
+            End If
+        End If
+        If sensorCategory = "IPDevices" Then
+            If input.IPdevice.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.IPdevice.IndexList.Count - 1
+                    Module2.MonitoringBase.dataFile.SensorData.IPDevicesList(i) = returnSensor(input, "IPDevice", i)
+                Next
+            End If
+        End If
+    End Sub
+    Dim _returnSensorGroup As List(Of Sensor) = New List(Of Sensor)
+    Public Function returnSensorGroup(input As ExportDataFileforMB, sensorCategory As String) As List(Of Sensor)
+        _returnSensorGroup.Clear()
+        If sensorCategory = "IntSensors" Then
+            If input.IntSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.IntSensor.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "IntSensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "Aux2Sensors" Then
+            If input.Aux2Sensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.Aux2Sensor.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "Aux2Sensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "AuxSensors" Then
+            If input.AuxSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.AuxSensor.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "AuxSensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "DigInputs" Then
+            If input.DigInput.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.DigInput.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "DigInput", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "ExtSensors" Then
+            If input.ExtSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.ExtSensor.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "ExtSensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "MsgRegisters" Then
+            If input.MsgRegisters.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.MsgRegisters.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "MsgRegisters", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "OutRelays" Then
+            If input.OutRelay.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.OutRelay.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "OutRelay", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "PwrSupplys" Then
+            If input.PwrSupply.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.PwrSupply.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "PwrSupply", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "RemoteInputs" Then
+            If input.RemoteInputs.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.RemoteInputs.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "RemoteInputs", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "RemoteRelays" Then
+            If input.RemoteRelay.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.RemoteRelay.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "RemoteRelay", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "TacSensors" Then
+            If input.TacSensor.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.TacSensor.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "TacSensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "SmokeDetectors" Then
+            If input.SmokeDetector.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.SmokeDetector.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "SmokeDetector", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "IPSensors" Then
+            If input.IPSensors.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.IPSensors.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "IPSensor", i))
+                Next
+            End If
+        End If
+        If sensorCategory = "IPDevices" Then
+            If input.IPdevice.IndexList.Count <= 0 Then
+            Else
+                For i As Integer = 0 To input.IPdevice.IndexList.Count - 1
+                    _returnSensorGroup.Add(returnSensor(input, "IPDevice", i))
+                Next
+            End If
+        End If
+        Return _returnSensorGroup
+    End Function
+    Private Sub TestSensorConfig()
+        testSensor.Description = "VirtualSensor"
+        testSensor.Status = "1"
+        testSensor.active = "1"
+        testSensor.Connector = "99"
+        testSensor.Current = "20"
+        testSensor.Frequency = "9600"
+        testSensor.Group = "1"
+        testSensor.GroupNb = "1"
+        testSensor.index = 20
+        testSensor.MaxCriticalThreshold = "9999"
+        testSensor.MaxWarnTreshold = "7777"
+        testSensor.MinCriticalThreshold = "3333"
+        testSensor.MinWarnTreshold = "1111"
+        testSensor.MaxTreshold = "12000"
+        testSensor.MinTreshold = "0"
+        testSensor.NormalValue = "1"
+        testSensor.UnitName = "GHz"
+        testSensor.Value = "5555"
+    End Sub
+    Public Function Grab(input As ExportDataFileforMB)
+        IntSensorList = returnSensorGroup(input, "IntSensors")
+        Aux2SensorList = returnSensorGroup(input, "Aux2Sensors")
+        AuxSensorList = returnSensorGroup(input, "AuxSensors")
+        DigInputList = returnSensorGroup(input, "DigInputs")
+        ExtSensorList = returnSensorGroup(input, "ExtSensors")
+        MsgRegistersList = returnSensorGroup(input, "MsgRegisters")
+        OutRelayList = returnSensorGroup(input, "OutRelays")
+        PwrSupplyList = returnSensorGroup(input, "PwrSupplys")
+        remoteInputsList = returnSensorGroup(input, "RemoteInputs")
+        RemoteRelayList = returnSensorGroup(input, "RemoteRelays")
+        TacSensorList = returnSensorGroup(input, "TacSensors")
+        smokeDetectorsList = returnSensorGroup(input, "SmokeDetectors")
+        ipSensorList = returnSensorGroup(input, "IPSensors")
+        IPDevicesList = returnSensorGroup(input, "IPDevices")
+
+    End Function
+    Sub New(input As dataFileConstructor)
+        For i As Integer = 0 To input.IntSensorCount
+            IntSensorList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.DIgitalSensorCount
+            DigInputList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.ipSensorCount
+            ipSensorList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.remoteInputCount
+            remoteInputsList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.remoteRelayCount
+            RemoteRelayList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.smokeDetectorCount
+            smokeDetectorsList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.tacSensorCount
+            TacSensorList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.aux2SensorCount
+            Aux2SensorList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.auxSensorCount
+            AuxSensorList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.extSensorCount
+            ExtSensorList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.IPDeviceCount
+            IPDevicesList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.outRelayCount
+            OutRelayList.Add(New Sensor)
+        Next
+        For i As Integer = 0 To input.pwrSupplyCount
+            PwrSupplyList.Add(New Sensor)
+        Next
+        TestSensorConfig()
+    End Sub

@@ -208,6 +208,7 @@
         If Module2.MonitoringBase.dataFile.SensorData.ScanSensor("SmokeDetector", "Online") IsNot Nothing Then
             SmokeDetectorButton.Enabled = True
         End If
+
     End Sub
     Public Sub VisibleInterface(mode As Boolean)
         If mode Then

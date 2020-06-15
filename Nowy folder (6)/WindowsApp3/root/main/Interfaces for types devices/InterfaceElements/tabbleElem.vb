@@ -4,13 +4,8 @@
         ' Этот вызов является обязательным для конструктора.
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
-        Valuelink = "/" + "MB/" + input.Type + "/"
-
-        NameText.Text = input.Description
-        CurrentText.Text = input.Value
-        StatusText.Text = input.Status
-        Dim Valuelink1 As New Customer("")
-
+        Valuelink = input
+        RefreshData()
     End Sub
     Sub New(PDU As String, input As String)
         ' Этот вызов является обязательным для конструктора.
@@ -143,8 +138,43 @@
         End If
     End Sub
     Private WithEvents timer As Timer = New Timer
+    Private Sub RefreshData()
+        If TypeOf Valuelink Is Sensor Then
+            NameText.Text = Valuelink.Description
+            CurrentText.Text = Valuelink.Value
+            StatusText.Text = Valuelink.Status
+            If Valuelink.Type = "18" Then
+
+                If CurrentText.Text = "0" Then
+                    CurrentText.Text = "Closed"
+                Else
+                    CurrentText.Text = "Open"
+                End If
+
+                If Valuelink.Status = "1" Then
+                    StatusText.BackColor = Color.LimeGreen
+                    StatusText.Text = "Normal"
+                ElseIf Valuelink.Status = "3" Then
+                    StatusText.BackColor = Color.Red
+                    StatusText.Text = "Alarm"
+                End If
+
+            End If
+            If Valuelink.Type = "3" Then
+                CurrentText.Text = (Convert.ToInt16(Valuelink.Value) / 10).ToString + "V"
+                If Valuelink.Status = "1" Then
+                    StatusText.BackColor = Color.LimeGreen
+                    StatusText.Text = "Normal"
+                ElseIf Valuelink.Status = "3" Then
+                    StatusText.BackColor = Color.Red
+                    StatusText.Text = "Alarm"
+                End If
+
+            End If
+        End If
+    End Sub
     Private Sub TimerTick() Handles timer.Tick
-        If Valuelink <> "" Then
+        If TypeOf Valuelink Is String Then
             If Valuelink.IndexOf("PDUA") >= 0 Then
                 If Valuelink.IndexOf("Phase1") >= 0 Then
                     If Valuelink = "/PDUA/Phase1/" Then
@@ -213,7 +243,7 @@
                 End If
             End If
         End If
-
+        RefreshData()
         If My.Forms.Workspace.MonitoringPage.Visible = False Then
             timer.Stop()
         End If
@@ -221,6 +251,7 @@
             timer.Stop()
         End If
     End Sub
+
     Private Sub Visible_Changed() Handles MyBase.VisibleChanged
         If Me.Visible Then
             timer.Interval = 2000

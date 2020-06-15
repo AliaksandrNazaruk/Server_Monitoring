@@ -145,7 +145,7 @@ Module Module2
         End Function
         Public Function FullGrab() As Boolean
             If connectToDevice.fullgrab("SNMP") Then
-                dataFile.SensorData.Grab(connectToDevice.SNMPConnection.FILE)
+                dataFile.SensorData.FullRefresh(connectToDevice.SNMPConnection.FILE)
                 dataFile.DeviceInformation.Grab(connectToDevice.SNMPConnection.FILE)
                 dataFile.NetConfiguration.Grab(connectToDevice.SNMPConnection.FILE)
                 Return True

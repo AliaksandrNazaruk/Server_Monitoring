@@ -1,6 +1,9 @@
 ﻿Public Class AuxSensorControlPanel
     Private index As Integer = 0
     Public Sub New(input As Sensor)
+        If input.Status = "" Then
+            Exit Sub
+        End If
         InitializeComponent()
         ' Добавить код инициализации после вызова InitializeComponent().
 
